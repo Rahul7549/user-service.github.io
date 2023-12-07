@@ -1,16 +1,15 @@
-<!-- <app-sidebar [openSidebarFlag]="openSidebarFlag">
-</app-sidebar> -->
 
 <app-navbar (openSideBarEvent)="openSideBarEvent($event)" (applyServiceFilter)="applyServiceFilter($event)"
     (applyServiceSearch)="applyServiceSearch($event)"
-    (openRequiredVied)="openRequiredVied($event)">
+    (openRequiredVied)="openRequiredVied($event)"
+    (openPrizeCard)="openRequiredVied($event)">
 </app-navbar>
 
 <div class="col" style="padding: 0px;" [ngClass]="openSidebarFlag? 'openSideMenu':''">
     <app-service-list [appliedFilterBy]="appliedFilterBy"
      [openServiceListFlag]="openServiceListFlag"
      [toView]="toView"
-        [appliedSearch]="appliedSearch">
+    [appliedSearch]="appliedSearch">
     </app-service-list>
 </div>
 

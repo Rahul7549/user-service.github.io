@@ -13,7 +13,7 @@ export class ServiceMainComponent {
   appliedFilterBy!: string;
   openServiceListFlag:boolean=true;
   serviceToExplore:any
-  toView!:string;
+  toView:string='service';
 
   constructor(private router:Router){}
 
@@ -23,18 +23,16 @@ export class ServiceMainComponent {
 
   applyServiceFilter(filterBy:any){
     this.appliedFilterBy=filterBy;
-    this.router.navigate(['service'],{ queryParams: { filterBy: filterBy} })
   }
 
   applyServiceSearch(event:string){
     this.appliedSearch=event;
   }
 
-  openRequiredVied(toview:string){
-    console.log(toview);
-    
+  openRequiredVied(toview:string){ 
     this.toView=toview;
   }
+
 
 
 }

@@ -10,18 +10,6 @@
   <div class="collapse navbar-collapse" id="navbarNav">
 
     <ul class="navbar-nav">
-      <!-- <li class="nav-item ">
-        <a class="nav-link" href="#">Services <span class="sr-only">(current)</span></a>
-      </li> -->
-      <!-- <li class="nav-item " >
-          <a class="nav-link active" href="#">Services</a>
-        </li> -->
-      <!-- <li class="nav-item ">
-          <a class="nav-link" href="#">Pricing</a>
-        </li> -->
-      <!-- <li class="nav-item active">
-          <a class="nav-link disabled">Disabled</a>
-        </li> -->
     </ul>
     <ul class="navbar-nav " style="padding-right: 12%; padding-left: 54px">
 
@@ -31,56 +19,17 @@
       </a>
 
       <a class="navbar-brand" style="padding: 0px;" [ngClass]="toview=='service'? 'active':''"
-        (click)="toggleService('service')">Template
+        (click)="toggleService('service')">service
         <i class="bi bi-chevron-down up-down-arrow" *ngIf="toview!='service'"></i>
         <i class="bi bi-chevron-up up-down-arrow" *ngIf="toview=='service'"></i>
       </a>
 
-      <a class="navbar-brand" style="padding: 0px;" [ngClass]="togglePrizeFlag ? 'active':''"
-        (click)="toggleprize()">Prize
+      <a class="navbar-brand" style="padding: 0px;" [ngClass]="toview=='explore-prize' ? 'active':''"
+        (click)="toggleprize('explore-prize')">Prize
         <i class="bi bi-chevron-down up-down-arrow" *ngIf="!togglePrizeFlag"></i>
         <i class="bi bi-chevron-up up-down-arrow" *ngIf="togglePrizeFlag"></i>
       </a>
-      <!-- </span> -->
-      <!-- <span class="nav-link active" >Serices </span> -->
-      <!-- <h5 class="navbar-brand"> <i class="bi bi-chevron-down"></i></h5> -->
     </ul>
-    <!-- <form class="navbar-nav navbar-right-part form-inline my-2 my-lg-0">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle cutom-style" type="button" data-toggle="dropdown"
-          aria-expanded="false">
-          {{appliedFilter=='All'?'Apply Filter':appliedFilter }}
-        </button>
-        <div class="dropdown-menu card-text cutom-style"
-          style="color:rgb(170 170 170);background-color:#2f343a; padding-top: 3px;padding-bottom: 3px;">
-          <button class="dropdown-item" type="button" (click)="applyFilter('Active')"
-            style="color:rgb(170 170 170)">Active</button>
-          <button class="dropdown-item" type="button" (click)="applyFilter('Deactive')"
-            style="color:rgb(170 170 170)">Deactive</button>
-          <button class="dropdown-item" type="button" (click)="applyFilter('pending')"
-            style="color:rgb(170 170 170)">pending</button>
-          <button class="dropdown-item" type="button" (click)="applyFilter('All')"
-            style="color:rgb(170 170 170)">All</button>
-
-        </div>
-      </div>
-      <input class="form-control mr-sm-2 mx-2" type="search" placeholder="Search" (keyup)="searchService($event)"
-        aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-    </form> -->
-
     
     <ul class="navbar-nav my-2 my-lg-0 d-flex">
 
@@ -95,10 +44,8 @@
         </div>
       </li>
 
-      <!-- <input class="form-control mr-sm-2 mx-2" type="search" placeholder="Search" (keyup)="searchService($event)"
-        aria-label="Search"> -->
+     
       <input class="nav-item mr-sm-2" type="search" placeholder="Search" (keyup)="searchService($event)" aria-label="Search">
-     <!-- <button class="nav-item btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
      <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle cutom-style" id="user-profile" role="button" data-toggle="dropdown" aria-expanded="false">

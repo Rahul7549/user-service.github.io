@@ -2,10 +2,17 @@
     padding-top: 80px;
     text-align: center;
     display: block;
-   
+    /* height: 80vh;
+    overflow: scroll; */
+
+    /* position: absolute; */
+    /* display: flex; */
 }
 
-
+.service-title{
+    /* color: #1E2124; */
+    
+}
 
 .service-explore-main{
     height: 100vh;

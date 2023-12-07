@@ -13,7 +13,7 @@ export class ExploreServiceComponent implements OnInit{
   @Input() serviceToExplore:any;
   openSidebarFlag:boolean=false;
   serviceId!: any;
-  selectedService:any;
+  @Input() selectedService:any;
   openPrizeCardFlag: any;
 
   constructor(private route: ActivatedRoute,
@@ -41,33 +41,11 @@ export class ExploreServiceComponent implements OnInit{
   }
 
   openPrizeCard(event:any){
-
-    // const headerHeight = 60;
-    // const scrollOptions: ScrollIntoViewOptions = {
-    //   behavior: 'smooth',
-    //   block: 'start',
-    //   inline: 'nearest'
-    // };
-
-    // const targetElement = this.elementRef.nativeElement.querySelector('.scrollable-content');
-    
-    // if (targetElement) {
-      // this.scrollToPrizeView.nativeElement.scrollIntoView(scrollOptions);
-      // window.scrollBy(0, -headerHeight); // Adjust the scroll position considering the header
-    // }
-
-
-    // this.openPrizeCardFlag=event;
-    console.log("openPrizeCard openPrizeCard openPrizeCard");
-    // const container = this.scrollToPrizeView.nativeElement;
-    // container.scrollTop = 1100;
-    // const headerHeight=60;
     this.scrollToPrizeView.nativeElement.scrollIntoView({
        behavior: 'smooth',
       block: 'start',
       inline: 'nearest'});
-      // targetElement.scrollIntoView(scrollOptions);
-      // window.scrollBy(0, -headerHeight);
+      
   }
 
 }

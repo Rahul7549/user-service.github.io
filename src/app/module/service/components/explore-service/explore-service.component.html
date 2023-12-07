@@ -1,10 +1,4 @@
-<!-- <app-sidebar [openSidebarFlag]="openSidebarFlag">
-</app-sidebar> -->
 
-<app-navbar 
-(openSideBarEvent)="openSideBarEvent($event)"
-(openPrizeCard)="openPrizeCard($event)">
-</app-navbar>
 
 <div class="service-explore-main">
 
@@ -18,8 +12,6 @@
                 Activate service
         </span>
     </div>
-
-
     <span class="description-main" *ngIf="selectedService!=undefined" [ngClass]="openPrizeCardFlag?'hide':'show'">
 
         <div class="suggestion-block">
@@ -84,13 +76,7 @@
         <div class="suggestion-block"></div>
 
     </span>
-    
-
-
-
     <div class="prize-card-container" #scrollToPrizeView>
-
-    
     <div class="card-container">
         <div class="card card-1">
           <div class="header-content">
@@ -118,10 +104,6 @@
                     <li>fd gd fjsg</li>
                 </ul>
             </div>
-          <!-- <div class="card-body">Body</div> -->
-
-
-          <!-- <div class="card-footer">Footer</div> -->
         </div>
 
 
@@ -151,10 +133,6 @@
                       <li>fd gd fjsg</li>
                   </ul>
               </div>
-            <!-- <div class="card-body">Body</div> -->
-  
-  
-            <!-- <div class="card-footer">Footer</div> -->
           </div>
 
 
@@ -184,12 +162,7 @@
                       <li>fd gd fjsg</li>
                   </ul>
               </div>
-            <!-- <div class="card-body">Body</div> -->
-  
-  
-            <!-- <div class="card-footer">Footer</div> -->
           </div>
-        <!-- You can add more cards as needed -->
       </div>
     </div>
 

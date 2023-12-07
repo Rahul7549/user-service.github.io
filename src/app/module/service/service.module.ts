@@ -6,6 +6,7 @@ import { ServiceMainComponent } from './components/service-main/service-main.com
 import { ShareModule } from '../share/share.module';
 import { ExploreServiceComponent } from './components/explore-service/explore-service.component';
 import { ExploreProductComponent } from './components/explore-product/explore-product.component';
+import { PrizeListComponent } from './components/prize-list/prize-list.component';
  
 
 
@@ -14,7 +15,8 @@ import { ExploreProductComponent } from './components/explore-product/explore-pr
     ServiceListComponent,
     ServiceMainComponent,
     ExploreServiceComponent,
-    ExploreProductComponent
+    ExploreProductComponent,
+    PrizeListComponent
   ],
   imports: [
     CommonModule,
