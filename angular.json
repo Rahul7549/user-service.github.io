@@ -76,8 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "user-service:build",
-            "baseHref": "/user-service/"
+            "browserTarget": "user-service:build"
           }
         },
         "test": {
