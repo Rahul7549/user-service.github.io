@@ -1,0 +1,199 @@
+<!-- <app-sidebar [openSidebarFlag]="openSidebarFlag">
+</app-sidebar> -->
+
+<app-navbar 
+(openSideBarEvent)="openSideBarEvent($event)"
+(openPrizeCard)="openPrizeCard($event)">
+</app-navbar>
+
+<div class="service-explore-main">
+
+<div class="container"  >
+    <div class="title">
+    <h1 class="" *ngIf="selectedService!=undefined">Customer satisfaction survey{{selectedService.title}}</h1>
+    </div>
+    <span *ngIf="selectedService!=undefined" class="service-description">{{selectedService.description}}</span>
+    <div class="Subcribe-block">
+        <span class="Subcribe-btn">
+                Activate service
+        </span>
+    </div>
+
+
+    <span class="description-main" *ngIf="selectedService!=undefined" [ngClass]="openPrizeCardFlag?'hide':'show'">
+
+        <div class="suggestion-block">
+            <h1>How do customer satisfaction surveys work?</h1>
+            <p>
+                Understanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                ctations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your cl
+                nderstanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                ctations will help you
+                ients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your clients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your clients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+        </div>
+    
+        <div class="suggestion-block">
+            <h1>How do customer satisfaction surveys work?</h1>
+            <p>
+                Understanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                ctations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your cl
+                nderstanding your clients and meeting customer expe
+                Understanding your clients and meeting customer expe
+                ctations will help you
+                ients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your clients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+    
+            <p>
+                Understanding your clients and meeting customer expectations will help you
+                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
+            </p>
+        </div>
+        <div class="suggestion-block"></div>
+
+    </span>
+    
+
+
+
+    <div class="prize-card-container" #scrollToPrizeView>
+
+    
+    <div class="card-container">
+        <div class="card card-1">
+          <div class="header-content">
+            <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
+                ₹1,550
+            </span>
+                <span>/ user / month</span>
+            </div>
+            <span>Starting at 3 users, billed annually</span>
+
+            <div class="card-button">
+                <span class="bye-button">SIGN UP</span>
+            </div>
+
+            <div class="prize-offer-description">
+                <ul>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                    <li>fd gd fjsg</li>
+                </ul>
+            </div>
+          <!-- <div class="card-body">Body</div> -->
+
+
+          <!-- <div class="card-footer">Footer</div> -->
+        </div>
+
+
+        <div class="card card-2">
+            <div class="header-content">
+              <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
+                  ₹1,550
+              </span>
+                  <span>/ user / month</span>
+              </div>
+              <span>Starting at 3 users, billed annually</span>
+  
+              <div class="card-button">
+                  <span class="bye-button-1">SIGN UP</span>
+              </div>
+  
+              <div class="prize-offer-description">
+                  <ul>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                  </ul>
+              </div>
+            <!-- <div class="card-body">Body</div> -->
+  
+  
+            <!-- <div class="card-footer">Footer</div> -->
+          </div>
+
+
+          <div class="card card-3">
+            <div class="header-content">
+              <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
+                  ₹1,550
+              </span>
+                  <span>/ user / month</span>
+              </div>
+              <span>Starting at 3 users, billed annually</span>
+  
+              <div class="card-button">
+                  <span class="bye-button-2">CONTACT US</span>
+              </div>
+  
+              <div class="prize-offer-description">
+                  <ul>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                      <li>fd gd fjsg</li>
+                  </ul>
+              </div>
+            <!-- <div class="card-body">Body</div> -->
+  
+  
+            <!-- <div class="card-footer">Footer</div> -->
+          </div>
+        <!-- You can add more cards as needed -->
+      </div>
+    </div>
+
+
+
+</div>
+</div>

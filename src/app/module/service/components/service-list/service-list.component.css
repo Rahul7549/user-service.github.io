@@ -1,0 +1,174 @@
+table, thead,tr,th  {
+    background-color: bisque;
+}
+
+.table-header{
+    border-bottom: 2px solid #20B1E4;
+    /* background-color: bisque; */
+}
+
+.changeSatus {
+    color: #0082d3;
+    cursor: pointer;
+}
+
+.card{
+    /* background-color:#EAF6F1; */
+    /* opacity: 0.9; */
+    /* color: white; */
+    
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: none;
+    text-decoration: none;
+    /* display: inline-block; */
+    /* max-width: 25%; */
+    font-size: 16px;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+.card-body:hover{
+    border-radius: 6px;
+    background-color:#EAF6F1;
+    cursor: pointer;
+}
+
+.badge-active{
+    top: -1px;
+    position: absolute;
+    right: 0;
+    background-color: green;
+    z-index: 0;
+}
+
+.badge-secondary{
+    top: -1px;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+    background-color: #6C757D;
+
+}
+.icon {
+    height: 20px;
+    width: 20px;
+}
+
+.btn.action-btn{
+    height: 1.5rem;
+    font-size: 0.7rem;
+}
+.card-text{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 20px;
+    margin: 8px 0px;
+    text-align: left;
+    color: #474A4C;
+}
+
+.card-title{
+    background: none;
+    font-weight: inherit;
+    font-size: inherit;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 550;
+    text-decoration: none solid rgb(30,33,36);
+}
+
+.pending-btn{
+    color: black;
+    background-color: yellow;
+}
+.container{
+    padding-top: 80px;
+}
+
+.product-container{
+    display:flex;
+    height: auto;
+    padding-top: 80px;
+    /* height: 100vh; */
+}
+
+
+.product-right-side {
+    flex: 1;
+    /* background-color: #333; */
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.product-left-side{
+    flex: 1;
+    /* background-color: #f0f0f0; */
+    padding: 20px;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.product-overview{
+    border-radius: 20px;
+    background-color: rgb(247, 247, 247);
+    height: 115px;
+    padding: 20px;
+    /* background-color: rgb(247, 247, 247); */
+}
+
+.product-overview:hover{
+    border-radius: 20px;
+    background-color:#EAF6F1;
+}
+.ind-role-use:hover{
+    background: none;
+}
+
+
+.ind-role-use-card{
+
+    /* padding-top: 3px; */
+    /* padding-bottom: 3px; */
+    border: none;
+    text-decoration: none;
+    /* display: inline-block; */
+    /* max-width: 25%; */
+    font-size: 16px;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.ind-role-use{
+    color: rgb(161, 164, 167);
+    background-color: none;;
+}
+
+.ind-role-case-card{
+background: none;
+}
+
+.toview{
+    display: none;
+}
+
+.product-container{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    background: #FFFFFF;
+
+    
+}

@@ -1,0 +1,101 @@
+.navbar-menue-icon{
+    width: 29px;
+    height: 36px;
+    position: relative;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+}
+.navbar{
+    position: fixed; 
+    z-index: 2;
+    top: 0; 
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 8px -4px;
+}
+
+/* @media screen and (min-width:1000px) {
+    /* Styles for screens with a maximum width of 768px */
+    /* Define your responsive styles here */
+    /* .navbar-nav{
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .navbar-collapse{
+        flex-wrap: wrap;
+        gap: 40px;
+    } */
+    
+  /* } */ 
+
+  @media screen and (max-width:1250px){
+    .navbar-right-part{
+        position: absolute;
+        right: 10px;
+    }
+  }
+
+  .navbar-brand{
+    padding-left: 11px;
+}
+
+.close-popup{
+    width: 29px;
+    height: 30px;
+    position: absolute;
+    right:15px;
+    top: 10px;
+    padding-top: 6px;
+    text-align: center;
+    border-style: none;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+
+.cutom-style{
+    color: #198754;
+    border-color: #198754;
+    background-color: black;
+    background: transparent;
+}
+
+.dropdown-item:hover{
+    background-color: #198754;
+}
+
+.navbar-toggle-options{
+    text-align: center;
+    /* display: inline-block; */
+    padding-left: 10rem;
+}
+
+.nav-item{
+    color: #1E2124;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 500;
+    font-style: normal;
+}
+.active{
+    border-bottom: 2px solid rgb(0, 191, 111);
+}
+
+.up-down-arrow{
+    width: 29px;
+    height: 36px;
+    position: relative;
+    font-size: 23px;
+    text-align: center;
+}
+
+.service-nav-item{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+

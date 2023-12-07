@@ -1,0 +1,326 @@
+<!-- <table class="table table-striped my-2">
+    <thead class="table-header">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">service Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>@mdo</td>
+        <td>the Bird</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+
+      <tr>
+        <td scope="row">1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+
+      <tr>
+        <td scope="row">1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>@mdo</td>
+        <td>Thornton</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>@mdo</td>
+        <td>the Bird</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td class="changeSatus" (click)="openServicePopUp()">
+          chamge status
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+  <!-- <app-edit-service-status 
+  [openPopUpFlag]="openPopUpFlag"
+  (updatePopUpOpenFlag)="updatePopUpOpenFlag($event)" ></app-edit-service-status> -->
+<div class="container" *ngIf="openServiceListFlag">
+<div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4"  style="text-align: center;">
+
+  <div class="col-lg-3  col-md-4 col-sm-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
+    
+    <div class="card" style="width: 100%;">
+    <!-- <span class="badge badge-active  badge-pill badge-success" *ngIf="service.status=='active'">Active</span> -->
+    <!-- <span class="badge badge-secondary" *ngIf="service.status=='deactive'">Deactive</span> -->
+    <!-- <span class="badge badge-secondary" *ngIf="service.status=='pending'">Pending</span> -->
+
+      <div class="card-body"  >
+        <h5 class="card-title">
+          <div class="row" style="text-align: left;">
+            <div class="col-8" >
+              <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+              {{service.title}}
+              </div>
+            <div class="col-4 text-end">
+              <input type="checkbox">
+            </div>
+          </div> 
+        </h5>
+        <p class="card-text">
+          {{service.description}}
+        </p>
+        
+        <div class="row">
+          <div class="col-6 text-start">
+          </div>
+          <div class="col-6 text-end">
+            <!-- <button type="button" class="btn btn-primary pending-btn btn-sm action-btn" *ngIf="service.status=='pending'" >CANCEL</button> -->
+            <button type="button" class="btn btn-secondary btn-sm action-btn" *ngIf="service.status=='active'" >DEACTIVE</button>
+            <button type="button" class="btn btn-primary btn-sm action-btn" *ngIf="service.status=='deactive'" (click)="exploreServiceDetail(service)">ACTIVE</button>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+
+    
+    
+
+  </div>  
+</div>
+
+
+
+
+</div>
+
+<div class="product-container" [ngClass]="toView=='product'?'':'toview'">
+  <div class="product-right-side">
+
+    <div class="product-overview card-body" >
+      <h5 class="card-title">
+        <div class="row" style="text-align: left;">
+          <div class="col-8" >
+            <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+            Product OverView
+            </div>
+          <div class="col-4 text-end">
+            <!-- <input type="checkbox"> -->
+          </div>
+        </div> 
+      </h5>
+      <p class="card-text">
+        SurveyMonkey is built to handle every use case and need. 
+        Explore our product to learn how SurveyMonkey can work for you.
+      </p>
+      
+      <div class="row">
+        <div class="col-6 text-start">
+        </div>
+        <div class="col-6 text-end">
+          <!-- <button type="button" class="btn btn-primary pending-btn btn-sm action-btn" *ngIf="service.status=='pending'" >CANCEL</button> -->
+          <!-- <button type="button" class="btn btn-secondary btn-sm action-btn" *ngIf="service.status=='active'" >DEACTIVE</button> -->
+          <!-- <button type="button" class="btn btn-primary btn-sm action-btn" *ngIf="service.status=='deactive'" (click)="exploreServiceDetail(service)">ACTIVE</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-lg-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
+        
+        <div class="card" (click)="clickToView('explore-product')" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <div class="row" style="text-align: left;">
+                <div class="col-8" >
+                  <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                  {{service.title}}
+                  </div>
+                <div class="col-4 text-end">
+                  <!-- <input type="checkbox"> -->
+                </div>
+              </div> 
+            </h5>
+            <p class="card-text">
+              {{service.description.slice(0, 55)}}
+            </p>
+            
+            <div class="row">
+              <div class="col-6 text-start">
+              </div>
+              <div class="col-6 text-end">
+              </div>
+            </div>
+          </div>
+    
+          
+    
+        </div>
+    
+        
+        
+    
+      </div>
+    
+      
+    </div>
+
+    
+
+
+  </div>
+  <div class="product-left-side">
+    <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;color: rgb(161, 164, 167);">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
+        <div class=""  style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+          <div class="ind-role-use">
+            <div class="row" style="text-align: left;">
+              <div class="col-12" >
+                <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                INDUSTORY
+                </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
+        <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+          <div class="ind-role-use">
+            <div class="row" style="text-align: left;">
+              <div class="col-12" >
+                <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                ROLE
+                </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
+        <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;color: rgb(161, 164, 167);">
+            
+            
+            <div class="row" style="text-align: left;">
+              <div class="col-12" >
+                <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                USE CASE
+                </div>
+              
+            </div>
+            
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0" *ngFor="let service of filteredServiceList">
+        <div class="ind-role-case-card card" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+          <div class="card-body" >
+            
+            
+            <div class="row" style="text-align: left;">
+              <div class="col-12" >
+                <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                {{service.title}}
+                </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="explore-product" [ngClass]="toView=='explore-product'?'':'toview'">
+<app-explore-product></app-explore-product>
+</div>
+
+
+
