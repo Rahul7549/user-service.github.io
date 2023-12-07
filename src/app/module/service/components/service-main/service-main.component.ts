@@ -13,7 +13,7 @@ export class ServiceMainComponent {
   appliedFilterBy!: string;
   openServiceListFlag:boolean=true;
   serviceToExplore:any
-  toView:string='service';
+  toView:string='';
 
   constructor(private router:Router){}
 
@@ -33,6 +33,7 @@ export class ServiceMainComponent {
     this.toView=toview;
   }
 
+  
 
 
 }

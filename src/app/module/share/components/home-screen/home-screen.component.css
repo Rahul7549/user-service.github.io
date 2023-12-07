@@ -1,0 +1,49 @@
+
+
+.home-screen-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 500px; /* Adjust the height as needed */
+  }
+  
+  .home-screen-content {
+    padding-top: 135px;
+    width: 80%; /* Adjust the width as needed */
+  }
+
+  .moveing-text{
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: 550;
+    text-align: center;
+  }
+  
+  .get-started{
+    border: 1px solid rgb(0, 191, 111);
+    cursor: pointer;
+    height: 50px;
+    display: inline-flex;
+    padding: 0px 36px;
+    position: relative;
+    font-size: 15px;
+    box-shadow: none;
+    transition: color 0.4s ease 0s, border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    justify-content: center;
+    background-color: rgb(0, 191, 111);
+    color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
+  }
+
+  .get-started-block{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }

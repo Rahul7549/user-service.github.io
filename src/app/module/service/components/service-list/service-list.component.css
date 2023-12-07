@@ -17,8 +17,8 @@ table, thead,tr,th  {
     /* opacity: 0.9; */
     /* color: white; */
     
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border: none;
     text-decoration: none;
     /* display: inline-block; */
@@ -32,6 +32,12 @@ table, thead,tr,th  {
 }
 
 .card-body:hover{
+    border-radius: 6px;
+    background-color:#EAF6F1;
+    cursor: pointer;
+}
+
+.ind-role-case-card-body:hover{
     border-radius: 6px;
     background-color:#EAF6F1;
     cursor: pointer;
@@ -95,7 +101,7 @@ table, thead,tr,th  {
 .product-container{
     display:flex;
     height: auto;
-    padding-top: 80px;
+    padding-top: 135px;
     /* height: 100vh; */
 }
 
@@ -104,7 +110,7 @@ table, thead,tr,th  {
     flex: 1;
     /* background-color: #333; */
     padding-left: 50px;
-    padding-right: 50px;
+    padding-right: 15px;
     box-sizing: border-box;
     width: 50%;
 }
@@ -127,6 +133,10 @@ table, thead,tr,th  {
 
 .product-overview:hover{
     border-radius: 20px;
+    background-color:#EAF6F1;
+}
+
+.product-card-body:hover{
     background-color:#EAF6F1;
 }
 .ind-role-use:hover{

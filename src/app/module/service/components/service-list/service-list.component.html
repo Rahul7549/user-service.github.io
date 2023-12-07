@@ -1,8 +1,10 @@
 
 
-
+<div *ngIf="toView==''">
+  <app-home-screen></app-home-screen>
+</div>
 <!-- service list -->
-<div class="container servicelist" [ngClass]="toView=='service'?'':'toview'">
+<div class="container servicelist" *ngIf="toView=='service'">
 <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4"  style="text-align: center;">
   <div class="col-lg-3  col-md-4 col-sm-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
     <div class="card" style="width: 100%;">
@@ -10,11 +12,10 @@
         <h5 class="card-title">
           <div class="row" style="text-align: left;">
             <div class="col-8" >
-              <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+              <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
               {{service.title}}
               </div>
             <div class="col-4 text-end">
-              <input type="checkbox">
             </div>
           </div> 
         </h5>
@@ -42,20 +43,20 @@
 
 
 <!-- service details -->
-<div [ngClass]="toView=='explore-service'?'':'toview'">
+<div *ngIf="toView=='explore-service'">
   <app-explore-service 
   [selectedService]="selectedServiceToExplore"></app-explore-service>
 </div>
 
 
 <!-- project list -->
-<div class="product-container" [ngClass]="toView=='product'?'':'toview'">
+<div class="product-container" *ngIf="toView=='product'">
   <div class="product-right-side">
     <div class="product-overview card-body" >
       <h5 class="card-title">
         <div class="row" style="text-align: left;">
           <div class="col-8" >
-            <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+            <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
             Product OverView
             </div>
           <div class="col-4 text-end">
@@ -75,22 +76,22 @@
       </div>
     </div>
     <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
-      <div class="col-lg-3 col-md-12 col-sm-12 col-lg-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-lg-6  my-1 mx-0" *ngFor="let product of productList">
         
         <div class="card" (click)="clickToView('explore-product')" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title">
               <div class="row" style="text-align: left;">
                 <div class="col-8" >
-                  <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
-                  {{service.title}}
+                  <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+                  {{product.title}}
                   </div>
                 <div class="col-4 text-end">
                 </div>
               </div> 
             </h5>
             <p class="card-text">
-              {{service.description.slice(0, 55)}}
+              {{product.description.slice(0, 55)}}
             </p>
             
             <div class="row">
@@ -114,17 +115,18 @@
     </div>
 
     
-
+<!-- display: inline-block;
+    text-align: left;
+    padding-left: 46px; -->
 
   </div>
   <div class="product-left-side">
     <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;color: rgb(161, 164, 167);">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0 ">
         <div class=""  style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
           <div class="ind-role-use">
-            <div class="row" style="text-align: left;">
-              <div class="col-12" >
-                <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+            <div class="row" >
+              <div class="col-12"b>
                 INDUSTORY
                 </div>
               
@@ -137,9 +139,8 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
         <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
           <div class="ind-role-use">
-            <div class="row" style="text-align: left;">
+            <div class="row">
               <div class="col-12" >
-                <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
                 ROLE
                 </div>
               
@@ -151,11 +152,8 @@
 
       <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
         <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;color: rgb(161, 164, 167);">
-            
-            
-            <div class="row" style="text-align: left;">
+            <div class="row">
               <div class="col-12" >
-                <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
                 USE CASE
                 </div>
               
@@ -165,14 +163,13 @@
       </div>
     </div>
     <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0" *ngFor="let service of filteredServiceList">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0 ind-role-case-card-body" *ngFor="let service of filteredServiceList">
         <div class="ind-role-case-card card" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
           <div class="card-body" >
-            
-            
-            <div class="row" style="text-align: left;">
-              <div class="col-12" >
-                <img src="../../../../../user-service.github.io/assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
+            <div class="row">
+              <div class="col-12" style="text-align: left;
+              padding-left: 30px; font-size: 16px; line-height: 20px; font-weight: 550;color: #1E2124;" >
+                <img src="../../../../../assets/imgs/imgIcon.png" alt="img" class="icon rounded mx-auto"/>
                 {{service.title}}
                 </div>
               
@@ -188,12 +185,12 @@
 
 
 <!-- project details -->
-<div class="explore-product" [ngClass]="toView=='explore-product'?'':'toview'">
+<div class="explore-product" *ngIf="toView=='explore-product'">
 <app-explore-product></app-explore-product>
 </div>
 
  <!--prize-explore  -->
-<div [ngClass]="toView=='explore-prize'?'':'toview'">
+<div *ngIf="toView=='explore-prize'">
   <app-prize-list></app-prize-list>
 </div>
 

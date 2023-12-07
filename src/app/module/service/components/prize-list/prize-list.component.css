@@ -210,3 +210,21 @@
     display: none;
 
   }
+
+  .footer-containt{
+    display: inline-block;
+    height: 275px;
+    position: relative;
+    /* width: 100%; */
+    border-top: #888 solid 1px;
+    border-bottom: #888 solid 1px;
+    /* background-color: #007FAA; */
+  }
+
+  .footer-content{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 30px;
+  }

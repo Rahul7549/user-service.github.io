@@ -68,6 +68,33 @@ export class ServiceOperationService {
 
     
 ]
+
+productList:Array<any>=[
+  {
+    'id':'fgdj7493y4r',
+    'title':'product-1',
+    'status':'active',
+    'description':'Get data-driven insights from a global leader in online surveys.',
+},
+{
+  'id':'fgdj7493y4r',
+  'title':'product-2',
+  'status':'active',
+  'description':'Get data-driven insights from a global leader in online surveys.',
+},
+{
+  'id':'fgdj7493y4r',
+  'title':'product-3',
+  'status':'active',
+  'description':'Get data-driven insights from a global leader in online surveys.',
+},
+{
+  'id':'fgdj7493y4r',
+  'title':'product-4',
+  'status':'active',
+  'description':'Get data-driven insights from a global leader in online surveys.',
+},
+]
   constructor() { }
 
   fetchServiceList(){
@@ -77,6 +104,10 @@ export class ServiceOperationService {
 
   fetchServiceById(servideId:number){
     return this.serviceList.find(service=> service.id==servideId)
+  }
+
+  fetchProductList(){
+    return this.productList;
   }
 
 }

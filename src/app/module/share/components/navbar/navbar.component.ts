@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   toggleServiceFlag: boolean = false;
   togglePrizeFlag: boolean = false;
   viewProductViewFlag: boolean = false;
-  toview!: string;
+  toview: string='';
   constructor(private router: Router) {
 
   }
@@ -54,8 +54,12 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleprize(toview: string) {
-    this.toview = toview;
-    this.openPrizeCard.emit(toview);
+    if(this.toview==toview){
+      this.toview='';
+    }else{
+      this.toview = toview;
+    }
+    this.openPrizeCard.emit(this.toview);
   }
 
   openProductView(toview: string) {

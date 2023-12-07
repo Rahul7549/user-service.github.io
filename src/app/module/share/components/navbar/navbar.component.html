@@ -2,7 +2,7 @@
   <i class="bi bi-list navbar-menue-icon" *ngIf="!openSidebarFlag" (click)="openSideManu(true)"></i>
   <i class="bi bi-x-lg navbar-menue-icon" *ngIf="openSidebarFlag" (click)="openSideManu(false)"></i>
 
-  <a class="navbar-brand" href="#">Eternia Windows</a>
+  <a class="navbar-name" href="#">Eternia Windows</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,43 +11,57 @@
 
     <ul class="navbar-nav">
     </ul>
-    <ul class="navbar-nav " style="padding-right: 12%; padding-left: 54px">
+    <ul class="navbar-nav " style="padding-left: 54px">
 
-      <a class="navbar-brand" style="padding: 0px;" [ngClass]="toview=='product'? 'active':''" (click)="openProductView('product')">Product
+      <a class="navbar-option" [ngClass]="toview=='product'? 'active':''" (click)="toggleprize('product')">
+        Product
         <i class="bi bi-chevron-down up-down-arrow" *ngIf="toview!='product'"></i>
         <i class="bi bi-chevron-up up-down-arrow" *ngIf="toview=='product'"></i>
       </a>
 
-      <a class="navbar-brand" style="padding: 0px;" [ngClass]="toview=='service'? 'active':''"
-        (click)="toggleService('service')">service
+      <a class="navbar-option"  [ngClass]="toview=='service'? 'active':''"
+        (click)="toggleprize('service')">Service
         <i class="bi bi-chevron-down up-down-arrow" *ngIf="toview!='service'"></i>
         <i class="bi bi-chevron-up up-down-arrow" *ngIf="toview=='service'"></i>
       </a>
 
-      <a class="navbar-brand" style="padding: 0px;" [ngClass]="toview=='explore-prize' ? 'active':''"
-        (click)="toggleprize('explore-prize')">Prize
+      <a class="navbar-option" [ngClass]="toview=='explore-prize' ? 'active':''"
+        (click)="toggleprize('explore-prize')">Pricing
+        <i class="bi bi-chevron-down up-down-arrow" *ngIf="toview!='explore-prize'"></i>
+        <i class="bi bi-chevron-up up-down-arrow" *ngIf="toview=='explore-prize'"></i>
+      </a>
+
+      <a class="navbar-option" [ngClass]="toview=='Enterprise' ? 'active':''"
+        (click)="toggleprize('')">Enterprise
         <i class="bi bi-chevron-down up-down-arrow" *ngIf="!togglePrizeFlag"></i>
         <i class="bi bi-chevron-up up-down-arrow" *ngIf="togglePrizeFlag"></i>
       </a>
+
+      <a class="navbar-option" [ngClass]="toview=='Resources' ? 'active':''"
+        (click)="toggleprize('')">Resources
+        <i class="bi bi-chevron-down up-down-arrow" *ngIf="!togglePrizeFlag"></i>
+        <i class="bi bi-chevron-up up-down-arrow" *ngIf="togglePrizeFlag"></i>
+      </a>
+
+
     </ul>
     
-    <ul class="navbar-nav my-2 my-lg-0 d-flex">
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle cutom-style" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          {{appliedFilter=='All'?'Apply Filter':appliedFilter }}
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" (click)="applyFilter('Active')" >Active</a>
-          <a class="dropdown-item" (click)="applyFilter('Deactive')" >Deactive</a>
-          <a class="dropdown-item" (click)="applyFilter('All')">All</a>
-        </div>
-      </li>
-
+    <ul class="navbar-nav my-2 my-lg-0 " style=" display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 30px;">
+      <i class="bi bi-globe cutom-style-globe " ></i>
      
-      <input class="nav-item mr-sm-2" type="search" placeholder="Search" (keyup)="searchService($event)" aria-label="Search">
+      <a class="contact-sales"  href="https://www.surveymonkey.com/mp/contact-sales/">Contact Sales</a>
 
-     <li class="nav-item dropdown">
+      <span class="log-in-btn">Log in</span>
+
+
+      <span class="Sign-up-free">Sign up free</span>
+
+     <!-- <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle cutom-style" id="user-profile" role="button" data-toggle="dropdown" aria-expanded="false">
        rahul@gmail.com
       </a>
@@ -56,7 +70,7 @@
         <a class="dropdown-item"  >Deactive</a>
         <a class="dropdown-item" >All</a>
       </div>
-    </li>
+    </li> -->
 
     </ul>
 

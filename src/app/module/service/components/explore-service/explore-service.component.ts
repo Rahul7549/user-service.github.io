@@ -27,7 +27,10 @@ export class ExploreServiceComponent implements OnInit{
   }
 
   ngOnChanges(changes: SimpleChanges){
-    
+     if(changes['selectedService']){
+      console.log(this.selectedService);
+      
+     }
   }
 
   openSideBarEvent(event:any){

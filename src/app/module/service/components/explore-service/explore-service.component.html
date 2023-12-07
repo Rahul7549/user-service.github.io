@@ -4,7 +4,7 @@
 
 <div class="container"  >
     <div class="title">
-    <h1 class="" *ngIf="selectedService!=undefined">Customer satisfaction survey{{selectedService.title}}</h1>
+    <h1 class="" *ngIf="selectedService!=undefined">{{selectedService.title}}</h1>
     </div>
     <span *ngIf="selectedService!=undefined" class="service-description">{{selectedService.description}}</span>
     <div class="Subcribe-block">
@@ -12,7 +12,20 @@
                 Activate service
         </span>
     </div>
-    <span class="description-main" *ngIf="selectedService!=undefined" [ngClass]="openPrizeCardFlag?'hide':'show'">
+
+
+
+    <div class="customer-satisfaction-template">
+        <span class="satisfaction-question-section-top"></span>
+        <div class="satisfaction-question-section">
+                <h1>
+                    Questuion to answer by user
+                </h1>
+        </div>
+    </div>
+
+
+    <span class="description-main">
 
         <div class="suggestion-block">
             <h1>How do customer satisfaction surveys work?</h1>
@@ -76,96 +89,105 @@
         <div class="suggestion-block"></div>
 
     </span>
-    <div class="prize-card-container" #scrollToPrizeView>
+
+
+
     <div class="card-container">
-        <div class="card card-1">
-          <div class="header-content">
-            <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
+
+      <div class="survay-card text-start">
+        <img class="rightside-img" style="padding-top: 35px;" src="../../../../../assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+          <div class="header-content text-start my-1" >
+            <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
                 ₹1,550
             </span>
-                <span>/ user / month</span>
             </div>
-            <span>Starting at 3 users, billed annually</span>
+            <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
 
-            <div class="card-button">
-                <span class="bye-button">SIGN UP</span>
-            </div>
-
-            <div class="prize-offer-description">
-                <ul>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                    <li>fd gd fjsg</li>
-                </ul>
-            </div>
+            
+            <span class="view-more-btn my-2">View More</span>
+            
         </div>
 
+        <div class="survay-card text-start">
+            <img class="rightside-img" style="padding-top: 35px;" src="../../../../../assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+              <div class="header-content text-start my-1" >
+                <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                    ₹1,550
+                </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+    
+                
+                <span class="view-more-btn my-2">View More</span>
+                
+            </div>
 
-        <div class="card card-2">
-            <div class="header-content">
-              <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
-                  ₹1,550
-              </span>
-                  <span>/ user / month</span>
-              </div>
-              <span>Starting at 3 users, billed annually</span>
-  
-              <div class="card-button">
-                  <span class="bye-button-1">SIGN UP</span>
-              </div>
-  
-              <div class="prize-offer-description">
-                  <ul>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                  </ul>
-              </div>
-          </div>
-
-
-          <div class="card card-3">
-            <div class="header-content">
-              <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
-                  ₹1,550
-              </span>
-                  <span>/ user / month</span>
-              </div>
-              <span>Starting at 3 users, billed annually</span>
-  
-              <div class="card-button">
-                  <span class="bye-button-2">CONTACT US</span>
-              </div>
-  
-              <div class="prize-offer-description">
-                  <ul>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                      <li>fd gd fjsg</li>
-                  </ul>
-              </div>
-          </div>
+            <div class="survay-card text-start">
+                <img class="rightside-img" style="padding-top: 35px;" src="../../../../../assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+                  <div class="header-content text-start my-1" >
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                        ₹1,550
+                    </span>
+                    </div>
+                    <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+        
+                    
+                    <span class="view-more-btn my-2">View More</span>
+                    
+                </div>
+         
       </div>
-    </div>
 
+
+      <div class="card-container text-center">
+
+        <h3 class="additional-info">Additional resources to help you launch successful survey projects</h3>
+
+        <div class="additional-info-card text-start">
+            <img class="additional-info-img" style="padding-top: 35px;" src="../../../../../assets/imgs/mntv-blog.png" alt="Description of the image">
+            <div class="header-content text-start my-1" >
+              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Success Stories
+              </span>
+              </div>
+              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+  
+              
+              <span class="view-more-btn my-2">View More</span>
+              
+          </div>
+
+          <div class="additional-info-card text-start">
+            <img class="additional-info-img" style="padding-top: 35px;" src="../../../../../assets/imgs/mntv-help-center.png" alt="Description of the image">
+            <div class="header-content text-start my-1" >
+              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Blog
+              </span>
+              </div>
+              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+  
+              
+              <span class="view-more-btn my-2">View More</span>
+              
+          </div>
+
+
+          <div class="additional-info-card text-start">
+            <img class="additional-info-img" style="padding-top: 35px;" src="../../../../../assets/imgs/mntv-blog.png" alt="Description of the image">
+            <div class="header-content text-start my-1" >
+              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                  ₹1,550
+              </span>
+              </div>
+              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+  
+              
+              <span class="view-more-btn my-2">View More</span>
+              
+          </div>
+  
+     
+           
+        </div>
+  
 
 
 </div>

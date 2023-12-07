@@ -8,6 +8,7 @@ import { ShareModule } from './module/share/share.module';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavbarComponent } from './module/share/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     LoginModule,
     FormsModule,
     ShareModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
     
     
   ],

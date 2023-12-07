@@ -5,6 +5,8 @@
     (openPrizeCard)="openRequiredVied($event)">
 </app-navbar>
 
+<!-- <app-home-screen></app-home-screen> -->
+
 <div class="col" style="padding: 0px;" [ngClass]="openSidebarFlag? 'openSideMenu':''">
     <app-service-list [appliedFilterBy]="appliedFilterBy"
      [openServiceListFlag]="openServiceListFlag"
@@ -12,4 +14,6 @@
     [appliedSearch]="appliedSearch">
     </app-service-list>
 </div>
+
+
 

@@ -11,6 +11,7 @@ import { service } from 'src/app/module/share/models/service';
 export class ServiceListComponent implements OnInit {
   openPopUpFlag: boolean = false;
   serviceList: Array<any> = [];
+  productList: Array<any> = [];
   filteredServiceList: Array<any> = [];
   @Input() appliedFilterBy: any;
   @Input() appliedSearch: any
@@ -26,7 +27,9 @@ export class ServiceListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.serviceList = this.serviceOperationService.fetchServiceList()
-    this.filteredServiceList = this.serviceList
+    this.filteredServiceList = this.serviceList;
+
+    this.productList=this.serviceOperationService.fetchProductList()
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -76,7 +79,9 @@ export class ServiceListComponent implements OnInit {
 
   exploreServiceDetail(service: any) {
     this.toView = 'explore-service';
-    this.selectedServiceToExplore=service
+    setTimeout(()=>{
+      this.selectedServiceToExplore=service
+    },200)
     // this.router.navigate(['/explore-service'], { queryParams: { id: service.id } })
   }
 
