@@ -67,4 +67,8 @@ export class NavbarComponent implements OnInit {
     this.openRequiredVied.emit(toview)
   }
 
+  openSignUpPage(){
+    this.router.navigate(['/sign-up'])
+  }
+
 }
