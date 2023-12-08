@@ -1,6 +1,6 @@
 
 
-<div *ngIf="toView==''">
+<div [ngClass]="toView=='' ? '' : 'viewHomeScreen'">
   <app-home-screen></app-home-screen>
 </div>
 <!-- service list -->

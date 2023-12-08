@@ -5,14 +5,12 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MovingTextComponent } from './components/moving-text/moving-text.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
     HomeScreenComponent,
-    MovingTextComponent,
   ],
   imports: [
     CommonModule,

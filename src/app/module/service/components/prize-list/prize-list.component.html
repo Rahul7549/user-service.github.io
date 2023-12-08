@@ -1,7 +1,18 @@
 <div class="service-explore-main">
+
+
     <div class="container"  >
+
+    <h2 class="choose-plan">Choose a plan that works for you</h2>
+
+    <ul class="plan-group">
+        <li class="plan-group-option" [ngClass]="selectedPlanOption=='Team Plans'? 'selected' :''" (click)="selectedPlanOption='Team Plans'" >Team Plans</li>
+        <li class="plan-group-option" [ngClass]="selectedPlanOption=='Individual Plans'? 'selected' :''" (click)="selectedPlanOption='Individual Plans'">Individual Plans</li>
+        <li class="plan-group-option" [ngClass]="selectedPlanOption=='Enterprise'? 'selected' :''" (click)="selectedPlanOption='Enterprise'" >Enterprise</li>
+
+    </ul>
         <div class="prize-card-container" #scrollToPrizeView>
-        <div class="card-container">
+        <div class="card-container" *ngIf="selectedPlanOption=='Team Plans'">
             <div class="card card-1">
               <div class="header-content">
                 <span style="display: inline; font-size: 31px; font-weight: 600;">Team Advantage
@@ -86,7 +97,100 @@
                   </div>
               </div>
           </div>
+          <div class="card-container" *ngIf="selectedPlanOption=='Individual Plans'">
+            <div class="card card-1">
+              <div class="header-content">
+                <span style="display: inline; font-size: 31px; font-weight: 600;">Premier Annual
+                    ₹4,999/
+                </span>
+                    <span>/ month
+                        </span>
+                </div>
+                <span>₹59,988 billed annually</span>
+    
+                <div class="card-button">
+                    <span class="bye-button" style="background-color: #05467E;">SIGN UP</span>
+                </div>
+    
+                <div class="prize-offer-description">
+                    <ul>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                        <li>fd gd fjsg</li>
+                    </ul>
+                </div>
+            </div>
+           <div style="min-height: 500px">
+            <div class="card card-2" style="padding-top:45px;">
+                <div class="header-content">
+                  <span style="display: inline; font-size: 31px; font-weight: 600;">Advantage Annual
+                    ₹1,999
+                    
+                  </span>
+                      <span>/ month</span>
+                  </div>
+                  <span>₹23,988 billed annually</span>
+      
+                  <div class="card-button">
+                      <span class="bye-button-1">SIGN UP</span>
+                  </div>
+      
+                  <div class="prize-offer-description">
+                      <ul>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                      </ul>
+                  </div>
+              </div>
+           </div>
+    
+    
+              <div class="card card-3">
+                <div class="header-content">
+                  <span style="display: inline; font-size: 31px; font-weight: 600;">Standard Monthly
+                    ₹899
+                  </span>
+                      <span>/ month</span>
+                  </div>
+                  <span>10788 billed annually</span>
+      
+                  <div class="card-button">
+                      <span class="bye-button-2">CONTACT US</span>
+                  </div>
+      
+                  <div class="prize-offer-description">
+                      <ul>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                          <li>fd gd fjsg</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
         </div>
+
+        
+
     </div>
 
     <div class="footer-containt">

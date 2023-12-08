@@ -9,6 +9,10 @@
     /* display: flex; */
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .service-title{
     /* color: #1E2124; */
     
@@ -17,6 +21,7 @@
 .service-explore-main{
     height: 100vh;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .service-description{
@@ -114,7 +119,7 @@
     position: relative;
     /* width: 60vw; */
     padding-bottom: 80px;
-    padding-top: 80px;
+    padding-top: 20px;
     text-align: center;
     z-index: -1;
   }
@@ -227,4 +232,39 @@
     width: 100%;
     height: auto;
     padding: 30px;
+  }
+
+  .choose-plan{
+    margin: 24px 12px 8px;
+    display: flex;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 60px;
+    justify-content: center;
+    padding-top: 50px;
+    
+  }
+
+  .plan-group{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+  }
+
+  .plan-group-option{
+    margin: 0 12px;
+    display: flex;
+    padding: 0.6em 0.8em 0.6em 0.6em;
+    font-size: 17px;
+    text-align: center;
+    align-items: center;
+    display: inline-flex;
+    font-style: normal;
+  }
+
+  .plan-group-option.selected{
+    border-bottom: 3px solid #00BF6F;
+    color: #00BF6F;
   }
