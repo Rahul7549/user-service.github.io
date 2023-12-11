@@ -1,43 +1,138 @@
 <div class="sign-up-main">
+
+    <div class="Eternia-label-main">
+        
+            <img class="Eternia-Icon" src="../../../../../assets/imgs/eternia-logo.png"/>
+            <h1 class="Eternia-label-text">
+                Eternia Windows
+            </h1>
+    </div>
+
     <div class="sign-up-block">
+
         <div class="sign-up container">
             <span class="login-sec">
                 <span class="have-acc">Already have an account?</span>
-            <a  class="login-btn">logi in</a>
+                <a class="login-btn">logi in</a>
 
             </span>
-
-
             <span class="create-account-btn">Create an account</span>
             <span style="padding-left: 32px;
             padding-right: 32px;">
                 <div class="signup-field">
                     <span class="enter-email">
-                        <label class="Email-address-label" for="Email-address">Email address</label>
-                        <br/>
-                        <input id="Email-address" width="100%" type="text">
+                        <label *ngIf="enterEmailFlag" class="Email-address-label" for="Email-address">Email address</label>
+                        <label *ngIf="!enterEmailFlag" class="Email-address-label" for="Email-address">Enter Password</label>
+                        <br />
+                        <input *ngIf="enterEmailFlag" [ngModel]="emailId" id="Email-address" width="100%" type="text">
+                        <input *ngIf="!enterEmailFlag" id="Email-address" width="100%" type="text">
                     </span>
                     <span class="signup-condition-1">
                         <input class="signup-condition-checkbox-1" type="checkbox">
-                        <span class="tcondition-1">You agree to the 
-                            <a class="" style="text-decoration: none;" href="https://www.surveymonkey.com/mp/legal/terms-of-use/" target="_blank">
+                        <span class="tcondition-1">You agree to the
+                            <a class="" style="text-decoration: none;"
+                                href="https://www.surveymonkey.com/mp/legal/terms-of-use/" target="_blank">
                                 Terms of Use</a>
-                                 and 
-                                 <a class="" style="text-decoration: none;" href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
-                                    Privacy Notice</a>.
-                                </span>
+                            and
+                            <a class="" style="text-decoration: none;"
+                                href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
+                                Privacy Notice</a>.
+                        </span>
                     </span>
-    
+
                     <span class="signup-condition-1">
                         <input class="signup-condition-checkbox-1" type="checkbox">
-                        <span class="tcondition-1">You agree to receive product news and special promotions via email. You can opt-out of these emails in your My Account page anytime.
+                        <span class="tcondition-1">You agree to receive product news and special promotions via email.
+                            You can opt-out of these emails in your My Account page anytime.
+                        </span>
                     </span>
-                    </span>
-                    <span class="signup-next-btn">Next</span>
-    
+                    <span class="signup-next-btn" *ngIf="enterEmailFlag" (click)="doNext()">Next</span>
+                    <span class="signup-next-btn" *ngIf="!enterEmailFlag" (click)="doSignUp()">Sign Up</span>
+
+
                 </div>
             </span>
-        <hr class="hr-line">
+            <hr class="hr-line">
+
+            <div class="footer-signup-opton">
+                <div class="other-signup-label">
+                    <span class="other-signup-label-text">
+                        Or sign up with
+                    </span>
+                </div>
+                <div class="other-signup-icons">
+                    <a class="signup-icons-block"
+                        href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
+                        <span class="signup-icons-section-1">
+                            <span class="signup-icon">
+                                <img src="../../../../../assets/imgs/microsoft-icon.jpg" height="30px" width="30px"
+                                    alt="">
+                            </span>
+                            <span class="signup-label">
+                                <span class="signup-labe-text">
+                                    Microsift
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+                    <a class="signup-icons-block"
+                        href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
+                        <span class="signup-icons-section-1">
+                            <span class="signup-icon">
+                                <img src="../../../../../assets/imgs/facebook-icon.jpg" height="30px" width="30px"
+                                    alt="">
+                            </span>
+                            <span class="signup-label">
+                                <span class="signup-labe-text">
+                                    Facebook
+                                </span></span>
+                        </span>
+                    </a>
+                    <a class="signup-icons-block"
+                        href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
+                        <span class="signup-icons-section-1">
+                            <span class="signup-icon">
+                                <img src="../../../../../assets/imgs/linkedin-icon.png" height="30px" width="30px"
+                                    alt="">
+                            </span>
+                            <span class="signup-label">
+                                <span class="signup-labe-text">
+                                    LinkedIn
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+
+                    <a class="signup-icons-block"
+                        href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
+                        <span class="signup-icons-section-1">
+                            <span class="signup-icon">
+                                <img src="../../../../../assets/imgs/google-icom.jpg" height="30px" width="30px" alt="">
+                            </span>
+                            <span class="signup-label">
+                                <span class="signup-labe-text">
+                                    Google
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+
+                    <a class="signup-icons-block"
+                        href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
+                        <span class="signup-icons-section-1">
+                            <span class="signup-icon">
+                                <img src="../../../../../assets/imgs/apple-icon.png" height="30px" width="30px" alt="">
+                            </span>
+                            <span class="signup-label">
+                                <span class="signup-labe-text">
+                                    Apple
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 

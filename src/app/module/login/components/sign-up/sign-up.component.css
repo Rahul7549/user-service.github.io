@@ -1,20 +1,21 @@
 .sign-up-main{
-    display: flex;
+    display: grid;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     width: 100vw;
     background-color: #F7F8FA;
     /* height: 100vh; */
     padding-top: 103px;
+    padding-bottom: 50px;
 }
 
 .sign-up-block{
     width: 450px;
     background-color: #FFFFFF;
-    height: 520px;
-    
+    height: 550px;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     /* padding-top: 50px; */
 
 }
@@ -28,6 +29,16 @@
     font-size: 16px;
     line-height: 24px;
     height: 28px;
+}
+
+.Eternia-label-main{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px
+}
+
+.Eternia-label-text{
+    padding-top: 12px;
 }
 
 .create-account-btn{
@@ -191,4 +202,102 @@
     left: -4px;
     border-bottom: 1px solid black;
     position: relative;
+}
+
+
+
+.footer-signup-opton{
+    padding-left: 32px;
+    padding-right: 32px;
+    /* background-color: blue;
+    display: block;
+    height: 30px;
+    width: 100%;
+    position: relative; */
+}
+
+.other-signup-option{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.other-signup-label-text{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.other-signup-icons{
+    display: grid;
+    gap: 16px 4px;
+    align-items: end;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, 67px);
+}
+
+.signup-icons-block{
+    color: rgb(0, 127, 170);
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    background: none;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: inherit;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.signup-icons-section-1{
+    gap: 8px;
+    display: grid;
+    justify-content: stretch;
+}
+
+.signup-icon{
+    width: 100%;
+    border: 1px solid rgb(208, 210, 211);
+    height: 50px;
+    margin: 0px;
+    display: grid;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    transition: color 0.4s ease 0s, border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: center;
+}
+
+.signup-label{
+    font-size: 12px;
+    text-align: center;
+}
+
+.signup-labe-text{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    text-align: center;
 }

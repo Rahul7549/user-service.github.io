@@ -1,0 +1,254 @@
+.navbar-main{
+    
+    color: #FFFFFF;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    z-index: 1000;
+    position: relative;
+    font-size: 16px;
+    font-family: 'National 2', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    background-color: #333E48;
+    -webkit-font-smoothing: antialiased;
+}
+
+.navbar-options-section,.right-nav-options{
+    padding: 0 24px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+}
+
+.left-nav-option-group,.right-nav-option-group{
+    margin: 0;
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-home-btn{
+    color: rgb(255, 255, 255);
+    border-top: 4px solid transparent;
+    border-right: none;
+    border-bottom: 4px solid rgb(255, 255, 255);
+    border-left: none;
+    border-image: initial;
+    cursor: pointer;
+    height: 48px;
+    margin: 0px 16px;
+    display: flex;
+    padding: 0px;
+    position: relative;
+    font-size: 14px;
+    background: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 0px;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.nav-paln-pricing-btn{
+    color: rgb(255, 255, 255);
+    border-top: 4px solid transparent;
+    border-right: none;
+    border-bottom: 4px solid transparent;
+    border-left: none;
+    border-image: initial;
+    cursor: pointer;
+    height: 48px;
+    margin: 0px 16px;
+    display: flex;
+    padding: 0px;
+    position: relative;
+    font-size: 14px;
+    background: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 0px;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.upgrade-create-survay-section{
+    display: flex;
+    margin-right: 16px;
+    gap: 10px;
+}
+
+.upgrade-btn{
+    color: rgb(51, 62, 72);
+    border: 1px solid rgb(249, 190, 0);
+    cursor: pointer;
+    display: inline-flex;
+    padding: 0px 16px;
+    position: relative;
+    font-size: 14px;
+    box-shadow: none;
+    box-sizing: border-box;
+    min-height: 32px;
+    transition: color 0.4s ease 0s, border-color 0.4s ease 0s, background-color 0.4s ease 0s, box-shadow 0.4s ease 0s;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(249, 190, 0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.create-survay{
+    color: rgb(51, 62, 72);
+    border: 1px solid rgb(51, 62, 72);
+    cursor: pointer;
+    display: inline-flex;
+    padding: 0px 16px;
+    position: relative;
+    font-size: 14px;
+    box-shadow: none;
+    box-sizing: border-box;
+    min-height: 32px;
+    transition: color 0.4s ease 0s, border-color 0.4s ease 0s, background-color 0.4s ease 0s, box-shadow 0.4s ease 0s;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    -webkit-font-smoothing: antialiased;
+}
+
+.menue-btn-block,.notification-btn-block,.Question-btn-block{
+    display: flex;
+}
+
+.menue-btn,.notification-btn,.question{
+    color: rgb(255, 255, 255);
+    border-top: 4px solid transparent;
+    border-right: none;
+    border-bottom: 4px solid transparent;
+    border-left: none;
+    border-image: initial;
+    cursor: pointer;
+    height: 48px;
+    margin: 0px 16px;
+    display: flex;
+    padding: 0px;
+    position: relative;
+    font-size: 14px;
+    background: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 0px;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.profile-email-section{
+    display: inline-block;
+    outline: none;
+    position: relative;
+    font-size: 16px;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.profile-email-btn{
+    color: rgb(255, 255, 255);
+    border-top: 4px solid transparent;
+    border-right: none;
+    border-bottom: 4px solid transparent;
+    border-left: none;
+    border-image: initial;
+    cursor: pointer;
+    height: 48px;
+    margin: 0px 16px;
+    display: flex;
+    padding: 0px;
+    position: relative;
+    font-size: 14px;
+    background: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 0px;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.profile-droupdown{
+    top: 100%;
+    left: auto;
+    color: rgb(51, 62, 72);
+    right: 0px;
+    display: block;
+    outline: none;
+    z-index: 10000;
+    position: absolute;
+    max-width: 300px;
+    min-width: 175px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 8px 0px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.droupdown-list-container{
+    margin: 0px;
+    display: block;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.prf-droupdown-contain{
+    display: flex;
+    background: rgb(255, 255, 255);
+    max-height: 400px;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.droupdown-option{
+    text-decoration: none;
+    margin: 0px;
+    display: flex;
+    padding: 0px;
+    position: relative;
+    font-size: 16px;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    list-style: none;
+    min-height: 48px;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    justify-content: space-between;
+    -webkit-font-smoothing: antialiased;
+    color: #1E2124;
+}

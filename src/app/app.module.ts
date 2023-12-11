@@ -9,6 +9,7 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavbarComponent } from './module/share/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { DashboardModule } from './module/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-br
     FormsModule,
     ShareModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    DashboardModule
     
     
   ],

@@ -1,0 +1,93 @@
+<div class="navbar-main">
+    <div class="navbar-options-section">
+        <img src="../../../../assets/imgs/eternia-logo.png" height="20px" alt="">
+        <div class="nav-container">
+            <nav class="left-nav-options" style="margin-left: 16px;"> 
+                <ul class="left-nav-option-group">
+                    <li>
+                        <a class="nav-home-btn">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-paln-pricing-btn" href="">Plans & Pricing</a>
+                    </li>
+                </ul>
+    
+    
+            </nav>
+    
+            <nav class="right-nav-options" style="margin-left: 16px;"> 
+
+                <span class="upgrade-create-survay-section">
+                    <a class="upgrade-btn" href="">Upgrade</a>
+                    <a class="create-survay" href="">Create survey</a>
+                </span>
+
+
+                <span class="menue-btn-block">
+                    <span class="menue-btn" >
+                        <i class="bi bi-x-diamond-fill" style="font-size: 24px;"></i>
+                        <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
+                        <!-- <img src="../../../../assets/imgs/bento-icon.png" height="20px" width="30px" alt=""> -->
+                    </span>
+                </span>
+                <span class="notification-btn-block">
+                    <span class="notification-btn" >
+                        <!-- <i class="bi bi-bell"></i> -->
+                        <i class="bi bi-bell" style="font-size: 24px;"></i>
+                        <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
+                        <!-- <img src="../../../../assets/imgs/bento-icon.png" height="20px" width="30px" alt=""> -->
+                    </span>
+                </span>
+
+
+                <span class="Question-btn-block">
+                    <span class="question-btn" >
+                        <!-- <i class="bi bi-bell"></i> -->
+                        <i class="bi bi-question-circle-fill" style="font-size: 24px;"></i>
+                        <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
+                        <!-- <img src="../../../../assets/imgs/bento-icon.png" height="20px" width="30px" alt=""> -->
+                    </span>
+                </span>
+
+                <span class="profile-email-section" (click)="openProfileDroupDown()" >
+                    <span class="profile-email-btn">rahul@gmail.com
+                        <span style="margin-left: 8px;">
+                            <i class="bi bi-caret-down-fill" style="font-size: 19px;"></i>
+                        </span>
+                    </span>
+                    <span class="profile-droupdown" *ngIf="showProfileDroupDownFlag">
+                        <span class="prf-droupdown-contain">
+                            <ul class="droupdown-list-container" style="padding-left: 15px;">
+                                <li >
+                                    <a class="droupdown-option" href="">My Account</a>
+                                </li>
+                                <li>
+                                    <a class="droupdown-option" href="">Library</a>
+                                </li>
+                                <li>
+                                    <a class="droupdown-option" href="">Contact</a>
+                                </li>
+                                <li>
+                                    <a class="droupdown-option" href="">Sign Out</a>
+                                </li>
+                               
+                            </ul>
+                        </span>
+                    </span>
+                </span>
+
+                <!-- <ul class="left-nav-option-group">
+                    <li>
+                        <a class="nav-home-btn">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-paln-pricing-btn" href="">Plans & Pricing</a>
+                    </li>
+                </ul> -->
+    
+    
+            </nav>
+        </div>
+        
+    </div>
+</div>
