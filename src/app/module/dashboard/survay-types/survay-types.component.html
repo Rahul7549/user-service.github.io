@@ -1,0 +1,156 @@
+<div class="survay-type-main">
+
+    <div class="survay-type-block">
+        <div class="survay-type-container">
+            <span class="survay-title-section">
+                <span class="survay-title-container">
+                    <h3 class="title-text">
+                        What types of surveys and forms do you send?
+                    </h3> 
+                </span>
+            </span>
+
+           
+            <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;">
+                <div class="col-lg-3 col-md-3 col-sm-4   my-1 mx-0" style="padding-bottom: 15px;" *ngFor="let product of productList">
+                  
+                  <div class="card text-center" style="width: 100%;">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                            {{product.title}}
+                          
+                      </h5>
+                      <p class="card-text">
+                      </p>
+                      
+                      <div class="row">
+                        <div class="col-6 text-start">
+                        </div>
+                        <div class="col-6 text-end">
+                        </div>
+                      </div>
+                    </div>
+              
+                    
+              
+                  </div>
+              
+                  
+                  
+              
+                </div>
+              
+                
+              </div>
+
+            
+        </div>
+    </div>
+    <span style="height: 10px;background-color: #F8F9FA;" >
+        <hr style="position: relative; display: inline-block; width: 20%; top: -15px;" class="hr-line">
+    </span>
+
+    <div class="summary-actions-section">
+
+      <div class="projectsHeaderWrapper">
+        <div class="projectHeaderTitle">
+          <div>
+           <h1 class="title-text-1">Home</h1>
+          </div>
+
+          <div class="toggle-new-page">
+            <span class="home-page-label">New home page</span>
+            <div class="new-homw-page-toogle-section">
+              <img class="new-page-toggle-btn"  src="assets/imgs/toggle-icon.png"/>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <div class="projectHeaderOptions">
+          <div class="create-new-survay">
+            <a class="Create-survay-a" href="">
+              Create survay
+            </a>
+          </div>
+
+          <div class="inputGroupWrapper">
+            <span class="wrenchInputGroup">
+              <input class="wrenchInputSearch" type="text">
+            </span>
+            <span class="wrenchButton">Search</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="projectWrapper" style="position: relative; width: 70%;border-right: 1px solid #D0D2D3; padding-right: 5px;">
+    
+        <div style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
+          <span class="all-survay-title">All Survay</span>
+          <span class="toggle-menu-column-icon-section">
+            <span style="display: inline-flex;gap:3px">
+              <i class="bi bi-list "  style="padding-right: 6px;font-size: 26px;background-color: rgb(208, 210, 211);padding-left: 6px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
+              <i class="bi bi-grid" style="padding-left: 6px; font-size: 26px;background-color: rgb(100, 112, 119);padding-right: 6px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
+            </span>
+          </span>
+
+        </div>
+
+        <div class="project-card-container" style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
+          <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;">
+            <div class="col-lg-6 col-md-6 col-sm-12   my-1 mx-0" style="padding-bottom: 15px;" *ngFor="let product of productList">
+              
+              <div class="survay-card" style="width: 70%;">
+                <div class="survay-card-body">
+
+                  <span class="optionSection">
+                    <i class="bi bi-three-dots"></i>
+                  </span>
+
+                  <span class="type-your-title-here-section">
+                    <a class="type-title-label" href="">Type your title here</a>
+                    <p>Modified 12/01/2023</p>
+                  </span>
+
+                  <span class="survay-status-block">
+                    <p style="margin-bottom: 0px;">Status</p>
+                    <strong style="margin-bottom: 0px;">Draft</strong>
+                    <span class="survay-status-content">
+                      <img src="assets/imgs/green-tick.jpg" height="20px" width="30px" alt="">
+                      <p>No issue</p>
+                    </span>
+                  </span>
+
+
+                  <span class="send-survay-btn">
+                    <a class="survay-btn-text" href="">Send Survay</a>
+                  </span>
+
+                 
+                </div>
+                
+          
+                
+          
+              </div>
+          
+              
+              
+          
+            </div>
+          
+            
+          </div> 
+        </div>
+
+      </div>
+
+      <div class="sidebar">
+
+      </div>
+    </div>
+
+
+</div>
