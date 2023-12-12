@@ -151,7 +151,7 @@
     background-color: #F8F9FA;
     border: none;
 }
-.text-center:hover{
+.card-body:hover{
     border: 1px solid #00BF6F;
     cursor: pointer;
     border-radius: 5px;

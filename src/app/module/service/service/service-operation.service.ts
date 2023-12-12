@@ -95,6 +95,27 @@ productList:Array<any>=[
   'description':'Get data-driven insights from a global leader in online surveys.',
 },
 ]
+
+typeOfSurvay:Array<any>=[
+  {
+    "title":'Customer feedback'
+  },
+  {
+    "title":'Meeting or event feedback'
+  },
+  {
+    "title":'Registration or contact form'
+  },
+  {
+    "title":'Market research'
+  },
+  {
+    "title":'employee engagement'
+  },
+  {
+    "title":'Other'
+  }
+]
   constructor() { }
 
   fetchServiceList(){
@@ -108,6 +129,10 @@ productList:Array<any>=[
 
   fetchProductList(){
     return this.productList;
+  }
+
+  fetchSurvaytype(){
+    return this.typeOfSurvay;
   }
 
 }

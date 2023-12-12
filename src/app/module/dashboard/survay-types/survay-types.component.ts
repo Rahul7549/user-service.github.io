@@ -12,10 +12,10 @@ export class SurvayTypesComponent implements OnInit{
   constructor(private serviceDetails:ServiceOperationService){
 
   }
-  productList!:Array<any>
+  survatType!:Array<any>
 
   ngOnInit(): void {
-    this.productList=this.serviceDetails.fetchProductList();
-    this.productList=[...this.productList, ...this.productList];
+    this.survatType=this.serviceDetails.fetchSurvaytype();
+    // this.survatType=[...this.survatType];
     }
 }
