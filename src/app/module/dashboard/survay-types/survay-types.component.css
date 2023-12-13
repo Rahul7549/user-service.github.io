@@ -5,6 +5,10 @@
     align-items: stretch;
     flex-direction: column;
     justify-content: space-around;
+    display: inline-block;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     
 }
 

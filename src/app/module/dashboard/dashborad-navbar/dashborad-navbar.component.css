@@ -1,11 +1,11 @@
 .navbar-main{
-    
+    position: fixed;
+    top: 0;
     color: #FFFFFF;
     width: 100%;
     height: 48px;
     margin: 0;
     z-index: 1000;
-    position: relative;
     font-size: 16px;
     font-family: 'National 2', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
     background-color: #333E48;
