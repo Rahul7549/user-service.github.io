@@ -105,6 +105,7 @@
     font-weight: 400;
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
 }
 
 .cutom-style{

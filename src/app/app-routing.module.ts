@@ -6,12 +6,14 @@ import { ServiceListComponent } from './module/service/components/service-list/s
 import { ServiceMainComponent } from './module/service/components/service-main/service-main.component';
 import { SignUpComponent } from './module/login/components/sign-up/sign-up.component';
 import { DashboradScreenComponent } from './module/dashboard/dashborad-screen/dashborad-screen.component';
+import { SignInComponent } from './module/login/components/sign-in/sign-in.component';
 const routes: Routes = [
   {path:'',component:LoginformComponent},
   {path:'service',component:ServiceMainComponent},
   {path:'explore-service',component:ExploreServiceComponent},
   {path: 'sign-up', component:SignUpComponent},
-  {path:'home' ,component:DashboradScreenComponent}
+  {path:'home' ,component:DashboradScreenComponent},
+  {path:'sign-in',component:SignInComponent}
 ];
 
 @NgModule({

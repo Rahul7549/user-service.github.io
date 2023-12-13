@@ -12,11 +12,11 @@
 
         <div class="sign-up container">
             <span class="login-sec">
-                <span class="have-acc">Already have an account?</span>
-                <a class="login-btn" (click)="openSignInPage()">logi in</a>
+                <span class="have-acc">Don’t have an account?</span>
+                <a class="login-btn" (click)="openSignUpPage()">Sign up</a>
 
             </span>
-            <span class="create-account-btn">Create an account</span>
+            <h1 class="create-account-btn">Log in</h1>
             <span style="padding-left: 32px;
             padding-right: 32px;">
                 <div class="signup-field">
@@ -26,8 +26,13 @@
                         <br />
                         <input *ngIf="enterEmailFlag" [ngModel]="emailId" id="Email-address" width="100%" type="text">
                         <input *ngIf="!enterEmailFlag" id="Email-address" width="100%" type="text">
+                        <div class="forget-pwd-sec">
+                            <a>
+                                <span class="forgot-email-label">Forgot email ?</span>
+                            </a>
+                        </div>
                     </span>
-                    <span class="signup-condition-1">
+                    <!-- <span class="signup-condition-1">
                         <input class="signup-condition-checkbox-1" type="checkbox">
                         <span class="tcondition-1">You agree to the
                             <a class="" style="text-decoration: none;"
@@ -38,14 +43,14 @@
                                 href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
                                 Privacy Notice</a>.
                         </span>
-                    </span>
+                    </span> -->
 
-                    <span class="signup-condition-1">
+                    <!-- <span class="signup-condition-1">
                         <input class="signup-condition-checkbox-1" type="checkbox">
                         <span class="tcondition-1">You agree to receive product news and special promotions via email.
                             You can opt-out of these emails in your My Account page anytime.
                         </span>
-                    </span>
+                    </span> -->
                     <span class="signup-next-btn" *ngIf="enterEmailFlag" (click)="doNext()">Next</span>
                     <span class="signup-next-btn" *ngIf="!enterEmailFlag" (click)="doSignUp()">Sign Up</span>
 
@@ -60,6 +65,15 @@
                         Or sign up with
                     </span>
                 </div>
+
+                <span class="signup-sso-btn signup-next-btn">
+                    <img src="assets/imgs/key-icon.png" alt="img" height="17px" width="17px">
+                    <b class="mx-1">
+                        SSO
+                    </b>
+                </span>
+
+
                 <div class="other-signup-icons">
                     <a class="signup-icons-block"
                         href="https://auth-us.surveymonkey.com/authorize?state=hKFo2SAtY1dEdy1DbjdpNHB5WWxSSllac3VMVjlaZDZhVDRuSaFupWxvZ2luo3RpZNkgRXQtWnd2N0pDRUhhRkhDMGowbFNva0F3UnpMclZNWTCjY2lk2SBzQTM0RFVtUUE0RUlySkM3cTlRdVBDZjFUNzc4QmZMdg&client=sA34DUmQA4EIrJC7q9QuPCf1T778BfLv&protocol=oauth2&prompt=login&scope=openid+profile+email&redirect_uri=https%3A%2F%2Fwww.surveymonkey.com%2Flogin%2Fcallback&ut_ctatext=Sign+up+free&ut_source=templates&ut_source2=customer-satisfaction-survey-template&ut_source3=desktop-header-cta&sm.amp_did=b3a1bdbd-4eb7-41c7-8433-9d643ff799d0&sm.amp_sid=1702271123304&sm.show=sign-up&sm.locale=en&sm.country=IN&sm.subdomain=www&response_type=code&response_mode=query&nonce=clJpckh4VEhCVUVBNHZTNTRKSVNBdWQyNU9lYjhnUDVsVHI4Q2YwdzRhUw%3D%3D&code_challenge=mkedhgRvBBh2HkMVv63t36_W_KG_4HapyVFPCEZh83E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMC4xIn0%3D&connection=windowslive">
