@@ -61,6 +61,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.nav-paln-pricing-btn:hover,.menue-btn:hover,.notification-btn:hover,.question-btn:hover,.profile-email-btn:hover{
+    border-bottom: 4px solid rgb(255, 255, 255);
+    text-decoration: none;
+}
 .nav-paln-pricing-btn{
     color: rgb(255, 255, 255);
     border-top: 4px solid transparent;

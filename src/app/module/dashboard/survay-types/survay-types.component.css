@@ -183,6 +183,18 @@
     /* background-color: #00BF6F; */
 }
 
+@media screen and (max-width:730px) {
+    .projectWrapper{
+        display: grid;
+    }
+
+    .summary-actions-section{
+        display: inline-block;
+    }
+   
+    
+}
+
 .projectWrapper{
     width: 100%;
     margin: 0px 12px;
@@ -465,4 +477,148 @@
     text-decoration: none;
     background-color: rgb(247, 248, 250);
     box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px 0px;
+}
+
+.guidancePanel{
+    width: 320px;
+    display: grid;
+    padding: 24px;
+    row-gap: 24px;
+    box-sizing: border-box;
+}
+
+.adwrapper{
+    width: 270px;
+    display: grid;
+    padding: 24px;
+    grid-gap: 8px;
+    background: #EDEEEE;
+    
+}
+
+.addicon{
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.addtitle{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrenchTypography{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrenchButton,.seeMorePlan-btn{
+    color: rgb(51, 62, 72);
+    width: 100%;
+    border: 1px solid rgb(51, 62, 72);
+    cursor: pointer;
+    display: flex;
+    padding: 0px 24px;
+    position: relative;
+    font-size: 16px;
+    box-shadow: none;
+    box-sizing: border-box;
+    min-height: 40px;
+    transition: color 0.4s ease 0s, border-color 0.4s ease 0s, background-color 0.4s ease 0s, box-shadow 0.4s ease 0s;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.more-icon{
+    justify-content: left;
+}
+
+.wrenchTypography{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.seeMorePlan-btn{
+    border: 1px solid rgb(249, 190, 0);
+    background-color: rgb(249, 190, 0);
+}
+
+.Sidebar__GuidanceSection{
+    width: 320px;
+    display: grid;
+    padding: 24px;
+    row-gap: 24px;
+    box-sizing: border-box;
+
+}
+
+.wrenchTypography-header{
+    color: rgb(51, 62, 72);
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.helpLinks-block{
+    padding: 0;
+    list-style-type: none;
+}
+
+.wrenchTypography-link{
+    color: rgb(0, 127, 170);
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    outline: none;
+    padding: 0px;
+    font-size: inherit;
+    background: none;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: inherit;
+    line-height: 1.5;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 24px;
 }
