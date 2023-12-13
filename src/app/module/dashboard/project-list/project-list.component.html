@@ -1,0 +1,108 @@
+<div class="project-list-main" *ngIf="toViewvScreen!=''">
+
+    <div class="project-block" *ngIf="toViewvScreen=='project list'">
+
+        <div class="project-header-section">
+            <span class="header-title">
+                <h2 style="color: rgb(51, 62, 72);
+                font-size: 20px;
+                margin-top: 0px;
+                font-weight: 500;">
+                <b>
+                    Product
+                </b>
+            </h2>
+            </span>
+            <span class="project-close-btn" (click)="closeSidePoup()">
+                <i class="bi bi-x-lg" ></i>
+            </span>
+        </div>
+        <div class="project-list-container">
+            <ul class="project-group" *ngFor="let project of projectList">
+                <a class="project-body" href="https://www.surveymonkey.com/mp/enterprise/?ut_source=header_products_launchpad_enterprise&utm_source=surveymonkey&utm_system=product&utm_medium=product&utm_content=enterprise-site&utm_term=enterprise&utm_campaign=header_products_launchpad_enterprise&adid=&family=Enterprise&date=2023-12-13&program=7013A000000mY7MQAU&interest=SME&code=SME&source=SurveyMonkey&recent=SurveyMonkey">
+                    <span class="project-label">
+                        <span class="project-containt">{{project.title}}</span>
+                        <p class="project-description">
+                            {{project.description}}
+                        </p>
+                    </span>
+                </a>
+            </ul>
+        </div>
+        
+
+    </div>
+
+    <div class="project-block" *ngIf="toViewvScreen=='notification'">
+
+        <div class="project-header-section">
+            <span class="header-title">
+                <h2 style="color: rgb(51, 62, 72);
+                font-size: 20px;
+                margin-top: 0px;
+                font-weight: 500;">
+                <b>
+                    Notification center
+                </b></h2>
+            </span>
+            <span class="project-close-btn" (click)="closeSidePoup()">
+                <i class="bi bi-x-lg" ></i>
+            </span>
+        </div>
+        <div class="project-list-container" style="padding-top: 50px;">
+            <ul class="project-group" >
+                    <span class="project-label">
+                        <span class="notification-img-block">
+                            <img src="assets/imgs/notification-central-img.png" width="220px" alt="">
+                        </span>
+                        <!-- <span class="project-containt"></span>
+                        <p class="project-description"> -->
+                            
+                        <!-- </p> -->
+                    </span>
+                    <p class="notification-label">Watch the bell for updates</p>
+                    <p class="notification-description">
+                        We'll notify you about new activity on your surveys or account.
+                        <a class="learn-more-ablout-notification" href="https://help.surveymonkey.com/en/surveymonkey/send/survey-notifications/">learn more</a>
+                    </p>
+               
+            </ul>
+        </div>
+        
+
+    </div>
+
+    <div class="project-block" *ngIf="toViewvScreen=='help'">
+
+        <div class="project-header-section">
+            <span class="header-title">
+                <h2 style="color: rgb(51, 62, 72);
+                font-size: 20px;
+                margin-top: 0px;
+                font-weight: 500;">
+                <b>
+                    Help
+                </b>
+            </h2>
+            </span>
+            <span class="project-close-btn" (click)="closeSidePoup()">
+                <i class="bi bi-x-lg" ></i>
+            </span>
+        </div>
+        <div class="project-list-container">
+            <ul class="project-group" *ngFor="let help of helpList">
+                <a class="project-body" href="https://www.surveymonkey.com/mp/enterprise/?ut_source=header_products_launchpad_enterprise&utm_source=surveymonkey&utm_system=product&utm_medium=product&utm_content=enterprise-site&utm_term=enterprise&utm_campaign=header_products_launchpad_enterprise&adid=&family=Enterprise&date=2023-12-13&program=7013A000000mY7MQAU&interest=SME&code=SME&source=SurveyMonkey&recent=SurveyMonkey">
+                    <span class="project-label">
+                        <span class="project-containt">{{help.title}}</span>
+                        <p class="project-description">
+                            {{help.description}}
+                        </p>
+                    </span>
+                </a>
+            </ul>
+        </div>
+        
+
+    </div>
+
+</div>

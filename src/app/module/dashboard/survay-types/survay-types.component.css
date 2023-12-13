@@ -622,3 +622,7 @@
     font-size: 14px;
     line-height: 24px;
 }
+.stopscrolling{
+    overflow-y: hidden;
+    height: 91vh;
+}

@@ -23,15 +23,15 @@
                 </span>
 
 
-                <span class="menue-btn-block">
-                    <span class="menue-btn" >
+                <span class="menue-btn-block" >
+                    <span class="menue-btn" (click)="openProjectListView('project list')" [ngClass]="activeNavbar=='project list' ? 'addNav-btn-bdr':''">
                         <i class="bi bi-x-diamond-fill" style="font-size: 24px;"></i>
                         <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
                         <!-- <img src="../../../../assets/imgs/bento-icon.png" height="20px" width="30px" alt=""> -->
                     </span>
                 </span>
                 <span class="notification-btn-block">
-                    <span class="notification-btn" >
+                    <span class="notification-btn" (click)="openProjectListView('notification')" [ngClass]="activeNavbar=='notification' ? 'addNav-btn-bdr':''">
                         <!-- <i class="bi bi-bell"></i> -->
                         <i class="bi bi-bell" style="font-size: 24px;"></i>
                         <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
@@ -41,7 +41,7 @@
 
 
                 <span class="Question-btn-block">
-                    <span class="question-btn" >
+                    <span class="question-btn" (click)="openProjectListView('help')" [ngClass]="activeNavbar=='help' ? 'addNav-btn-bdr':''">
                         <!-- <i class="bi bi-bell"></i> -->
                         <i class="bi bi-question-circle-fill" style="font-size: 24px;"></i>
                         <!-- https://docs.google.com/spreadsheets/d/14j5qvtfmqwNY60bPZYiksXpX_21l-5RHPSF4pdrrq_s/edit#gid=1853787037 -->
@@ -57,8 +57,8 @@
                     </span>
                     <span class="profile-droupdown" *ngIf="showProfileDroupDownFlag">
                         <span class="prf-droupdown-contain">
-                            <ul class="droupdown-list-container" style="padding-left: 15px;">
-                                <li >
+                            <ul class="droupdown-list-container">
+                                <li class="profile-droupdown-option-block">
                                     <a class="droupdown-option" href="">My Account</a>
                                 </li>
                                 <li>

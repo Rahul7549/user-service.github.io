@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashborad-screen.component.css']
 })
 export class DashboradScreenComponent {
+  toViewvScreen: string='';
+
+
+  handleProjectListViewEvent(toView:string){
+      this.toViewvScreen=toView
+  }
+
+  handleCloseSidePopUpEvent(event:any){
+    this.toViewvScreen=''
+  }
 
 }

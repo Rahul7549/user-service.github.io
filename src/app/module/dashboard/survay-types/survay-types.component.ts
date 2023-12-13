@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceOperationService } from '../../service/service/service-operation.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { ServiceOperationService } from '../../service/service/service-operation
   styleUrls: ['./survay-types.component.css']
 })
 export class SurvayTypesComponent implements OnInit{
- 
+  @Input() toViewvScreen:string='';
 
   constructor(private serviceDetails:ServiceOperationService){
 

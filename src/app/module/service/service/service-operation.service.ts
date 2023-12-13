@@ -116,6 +116,44 @@ typeOfSurvay:Array<any>=[
     "title":'Other'
   }
 ]
+
+projectList:Array<any>=[
+  {
+    'title':'Enterprise',
+    'description':'Get more security & control over your survey data'
+  },
+  {
+    'title':'Audience',
+    'description':'Collect survey responses from our global consumer panel'
+  },
+  {
+    'title':'Integrations & Plug-ins',
+    'description':'Easily connect survey data to existing business systems'
+  },
+  {
+    'title':'CX',
+    'description':'Understand & improve customer experience (NPS®)'
+  },
+  {
+    'title':'Engage',
+    'description':'Understand & increase employee engagement'
+  },
+  {
+    'title':'TechValidate',
+    'description':'Create marketing content from customer feedback'
+  }
+]
+
+helpList:Array<any>=[
+  {
+      'title':'Help Center',
+      'description':'Find quick answers to your questions'
+  },
+  {
+    'title':'Curiosity at Work',
+    'description':'Get inspiration on our blog'
+}
+]
   constructor() { }
 
   fetchServiceList(){
@@ -134,5 +172,14 @@ typeOfSurvay:Array<any>=[
   fetchSurvaytype(){
     return this.typeOfSurvay;
   }
+
+  fetchProjectList(){
+    return this.projectList;
+  }
+
+  fetchHelpList(){
+    return this.helpList;
+  }
+
 
 }

@@ -1,3 +1,11 @@
-<app-dashborad-navbar></app-dashborad-navbar>
+<app-dashborad-navbar
+(projectListViewEvent)="handleProjectListViewEvent($event)"
+[activeNavbar]="toViewvScreen"></app-dashborad-navbar>
 
-<app-survay-types></app-survay-types>
+<app-survay-types 
+[toViewvScreen]="toViewvScreen"></app-survay-types>
+
+<app-project-list
+[toViewvScreen]="toViewvScreen"
+(closeSidePopUpEvent)="handleCloseSidePopUpEvent($event)">
+</app-project-list>

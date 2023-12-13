@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboradScreenComponent } from './dashborad-screen/dashborad-screen.component';
 import { DashboradNavbarComponent } from './dashborad-navbar/dashborad-navbar.component';
 import { SurvayTypesComponent } from './survay-types/survay-types.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 
 
@@ -10,7 +11,8 @@ import { SurvayTypesComponent } from './survay-types/survay-types.component';
   declarations: [
     DashboradScreenComponent,
     DashboradNavbarComponent,
-    SurvayTypesComponent
+    SurvayTypesComponent,
+    ProjectListComponent
   ],
   imports: [
     CommonModule
