@@ -33,7 +33,6 @@ export class ServiceListComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('filter applied');
     if (changes['appliedFilterBy']) {
       this.filterService();
     }
@@ -43,7 +42,6 @@ export class ServiceListComponent implements OnInit {
     }
 
     if (changes['toView']) {
-     console.log(this.toView);
      
     }
 
@@ -66,13 +64,11 @@ export class ServiceListComponent implements OnInit {
   }
 
   searchService() {
-    console.log(this.appliedSearch);
     if (this.appliedSearch != undefined) {
       this.filteredServiceList = this.serviceList.filter((service) => {
         return service.title.toUpperCase().includes(this.appliedSearch.toUpperCase())
       }
       );
-      console.log('filteredServiceList ->', this.filteredServiceList);
 
     }
   }
@@ -87,7 +83,6 @@ export class ServiceListComponent implements OnInit {
 
 
   clickToView(toView: string) {
-    console.log('to view');
     
     this.toView = toView;
   }

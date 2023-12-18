@@ -21,14 +21,13 @@ export class ExploreServiceComponent implements OnInit{
 
   }
   ngOnInit(): void {
-  console.log('explore');
     this.serviceId=this.route.snapshot.queryParamMap.get('id');
     this.fetchServiceDetails();
   }
 
   ngOnChanges(changes: SimpleChanges){
      if(changes['selectedService']){
-      console.log(this.selectedService);
+      (this.selectedService);
       
      }
   }
@@ -39,7 +38,6 @@ export class ExploreServiceComponent implements OnInit{
 
   fetchServiceDetails(){
     this.selectedService=this.serviceOperation.fetchServiceById(this.serviceId);
-    console.log(this.selectedService);
     
   }
 

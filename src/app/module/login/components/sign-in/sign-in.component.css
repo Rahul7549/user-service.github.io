@@ -358,3 +358,26 @@
 .Sign-up-free{
     cursor: pointer;
 }
+
+.emptyEmail{
+    color: rgb(172, 20, 90);
+    margin: 8px 0px 0px;
+    display: flex;
+    padding: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+    list-style: none;
+    align-items: center;
+    font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.disableEail-btn{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.wrong-otp-class{
+    border: 1px solid red;
+}

@@ -1,6 +1,6 @@
 
 <div [ngClass]="toView=='' ? '' : 'viewHomeScreen'">
-  <app-home-screen></app-home-screen>
+  <app-home-screen [toView]="toView"></app-home-screen>
 </div>
 <!-- service list -->
 <div class="container servicelist" *ngIf="toView=='service'">
@@ -126,7 +126,7 @@
           <div class="ind-role-use">
             <div class="row" >
               <div class="col-12"b>
-                INDUSTORY
+                INDUSTRY
                 </div>
               
             </div>

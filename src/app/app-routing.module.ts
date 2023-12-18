@@ -8,8 +8,7 @@ import { SignUpComponent } from './module/login/components/sign-up/sign-up.compo
 import { DashboradScreenComponent } from './module/dashboard/dashborad-screen/dashborad-screen.component';
 import { SignInComponent } from './module/login/components/sign-in/sign-in.component';
 const routes: Routes = [
-  {path:'',component:LoginformComponent},
-  {path:'service',component:ServiceMainComponent},
+  {path:'',component:ServiceMainComponent},
   {path:'explore-service',component:ExploreServiceComponent},
   {path: 'sign-up', component:SignUpComponent},
   {path:'home' ,component:DashboradScreenComponent},

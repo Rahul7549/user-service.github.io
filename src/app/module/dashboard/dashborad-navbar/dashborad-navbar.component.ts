@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SignInService } from '../../login/sign-in.service';
 
 @Component({
   selector: 'app-dashborad-navbar',
@@ -10,6 +11,10 @@ export class DashboradNavbarComponent implements OnInit{
   showProfileDroupDownFlag: boolean=false;
   @Output() projectListViewEvent:EventEmitter<any>=new EventEmitter()
   @Input() activeNavbar: string=''
+
+  constructor(private signInService:SignInService){
+
+  }
 
   ngOnInit(): void {
   }
@@ -29,6 +34,9 @@ export class DashboradNavbarComponent implements OnInit{
     this.projectListViewEvent.emit(this.activeNavbar)
   }
 
+  signOut(){
+    this.signInService.clearSession();
+  }
 
 
 }

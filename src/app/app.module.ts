@@ -10,6 +10,8 @@ import { NavbarComponent } from './module/share/components/navbar/navbar.compone
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { DashboardModule } from './module/dashboard/dashboard.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DashboardModule } from './module/dashboard/dashboard.module';
     ShareModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    DashboardModule
+    DashboardModule,
+    HttpClientModule
     
     
   ],

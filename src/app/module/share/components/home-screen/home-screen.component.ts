@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { trigger, style, animate, transition, keyframes } from '@angular/animations';
 import { TitleAnimationService } from '../../title-animation.service';
 
@@ -7,41 +7,49 @@ import { TitleAnimationService } from '../../title-animation.service';
   templateUrl: './home-screen.component.html',
   styleUrls: ['./home-screen.component.css']
 })
-export class HomeScreenComponent implements OnInit{
+export class HomeScreenComponent implements OnInit {
   timeIntervalForMessage!: number;
+  moveingTextInterval: any;
+  @Input() toView: string = ''
 
-  constructor(private titleAnimationService: TitleAnimationService){
+  constructor(private titleAnimationService: TitleAnimationService) {
 
   }
-  initialTitle:string='Are my customers actually satisfied?|';
-  title!:string;
-  a:number = 150;
-  d:number =150;
-  n:number=this.initialTitle.length;
+  initialTitle: string = 'Are my customers actually satisfied?|';
+  title!: string;
+  a: number = 150;
+  d: number = 150;
+  n: number = this.initialTitle.length;
 
-    
+
 
   ngOnInit(): void {
-    this.timeIntervalForMessage=150*(this.n+2);
-    console.log(this.timeIntervalForMessage);
+    this.timeIntervalForMessage = 150 * (this.n + 2);
     this.startTitleMoving();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     
+       
+        
+     
   }
 
 
-  startTitleMoving(){
-
-    setInterval(()=>{
-      if(this.initialTitle=='Are my customers actually satisfied?|'){
-        this.initialTitle='Do people like attending my events?|';
-      }else{
-        this.initialTitle='Are my customers actually satisfied?|'
+  startTitleMoving() {
+    this.moveingTextInterval = setInterval(() => {
+      
+      if (this.initialTitle == 'Are my customers actually satisfied?|') {
+        this.initialTitle = 'Do people like attending my events?|';
+      } else {
+        this.initialTitle = 'Are my customers actually satisfied?|'
       }
-      this.n=this.initialTitle.length;
+      this.n = this.initialTitle.length;
       this.animateTitle();
-    },150*(this.n+2)*2)
+    }, 150 * (this.n + 2) * 2)
     this.animateTitle();
-    
+
   }
 
   private animateTitle(): void {
@@ -50,15 +58,19 @@ export class HomeScreenComponent implements OnInit{
     });
 
     this.titleAnimationService.addCharAnimateTitle(this.initialTitle);
-    setTimeout(()=>{
+    setTimeout(() => {
       this.titleAnimationService.removeCharAnimateTitle(this.initialTitle)
-    },this.timeIntervalForMessage)
+    }, this.timeIntervalForMessage)
 
   }
-  
-  
 
 
+  ngOnDestroy(): void {
+    // this.stopInterval();
+    if(this.moveingTextInterval){
+      clearInterval(this.moveingTextInterval);
+    }
+  }
 
 }
 

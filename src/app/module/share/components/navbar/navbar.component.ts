@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
 
 
   toggleService(toview: string) {
-    console.log(this.toggleServiceFlag);
     this.toggleServiceFlag = false;
     this.toggleServiceFlag = !this.toggleServiceFlag;
     this.router.navigate(['service'])

@@ -31,5 +31,9 @@ export class TitleAnimationService {
   }
 
 
+  subscribeTitleText(){
+    this.titleSubject.unsubscribe();
+  }
+
  
 }

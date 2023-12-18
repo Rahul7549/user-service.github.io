@@ -22,13 +22,20 @@
                 <div class="signup-field">
                     <span class="enter-email">
                         <label *ngIf="enterEmailFlag" class="Email-address-label" for="Email-address">Email address</label>
-                        <label *ngIf="!enterEmailFlag" class="Email-address-label" for="Email-address">Enter Password</label>
+                        <label *ngIf="!enterEmailFlag" class="Email-address-label" for="Email-address">Enter OTP</label>
                         <br />
-                        <input *ngIf="enterEmailFlag" [ngModel]="emailId" id="Email-address" width="100%" type="text">
-                        <input *ngIf="!enterEmailFlag" id="Email-address" width="100%" type="text">
+                        <input *ngIf="enterEmailFlag" [(ngModel)]="emailId" id="Email-address" width="100%" type="text">
+                        <input *ngIf="!enterEmailFlag" [ngClass]="wrongOtpFlag ? 'wrong-otp-class':''" [(ngModel)]="userEmailOtp" id="Email-address" width="100%" type="text">
+                        <span class="emptyEmail" *ngIf="emptyEmailFlag">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 16 16"><path fill="red" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2"/></svg>  
+                            <span class="mx-1">Email is required</span>
+                        </span>
+
                         <div class="forget-pwd-sec">
+
                             <a>
                                 <span class="forgot-email-label">Forgot email ?</span>
+                                <span style="color: red; padding: 20px;" *ngIf="userDetails!=undefined">User OTP: {{generateOtp}}</span>
                             </a>
                         </div>
                     </span>
@@ -51,8 +58,8 @@
                             You can opt-out of these emails in your My Account page anytime.
                         </span>
                     </span> -->
-                    <span class="signup-next-btn" *ngIf="enterEmailFlag" (click)="doNext()">Next</span>
-                    <span class="signup-next-btn" *ngIf="!enterEmailFlag" (click)="doSignUp()">Sign Up</span>
+                    <span class="signup-next-btn" [ngClass]="emailId.length==0 ? 'disableEail-btn':''" *ngIf="enterEmailFlag" (click)="doNext()">Next</span>
+                    <span class="signup-next-btn" *ngIf="!enterEmailFlag" (click)="doSignUp()">Sign In</span>
 
 
                 </div>

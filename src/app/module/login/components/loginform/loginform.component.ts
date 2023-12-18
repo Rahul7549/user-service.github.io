@@ -23,13 +23,11 @@ export class LoginformComponent implements OnInit {
 
 
   getOtp(){
-    console.log(this.emailId);
     
       if(this.emailId.length>=6){
         this.getOtpFlag=true;
       setTimeout(()=>{
         this.generateOtp=Math.floor(100000 + Math.random() * 900000);
-        console.log(this.generateOtp);
         
       },3000)
     }
