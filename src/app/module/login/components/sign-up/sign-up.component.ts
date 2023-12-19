@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,21 +9,46 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit{
-  constructor(private router :Router){
+  signUplForm!: FormGroup;
 
-  }
+  constructor(private router :Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder){
+
+    this.signUplForm = this.fb.group({
+      emailId: ['', [Validators.required, Validators.email]],
+      name:['',[Validators.required]],
+      phone:['',[Validators.minLength(10), Validators.required]],
+      city:['',[Validators.required]],
+      password:['',[Validators.minLength(8), Validators.required]],
+      conformPassword:['',[Validators.minLength(8),Validators.required]],
+      secondTermCondition:[false,[Validators.required]],
+      firstTermCondition:[false,[Validators.required]]
+    });
   
-  enterEmailFlag:boolean=true;
-  emailId!:string;
+  }
+
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      // this.emailId = params['email'] ||'';
+    });
+  
+
   }
   doNext(){
-    this.enterEmailFlag=false
+    // this.enterEmailFlag=false
   }
 
   doSignUp(){
-    this.router.navigate(['home'])
+
+
+    if(!this.signUplForm.invalid){
+      // call service
+    }
+    console.log(this.signUplForm.value);
+    
+    // this.router.navigate(['home'])
   }
 
   openSignInPage(){

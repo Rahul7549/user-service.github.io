@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { DashboardModule } from './module/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     DashboardModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
     
   ],

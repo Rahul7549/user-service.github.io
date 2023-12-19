@@ -13,7 +13,7 @@
 .sign-up-block{
     width: 450px;
     background-color: #FFFFFF;
-    height: 550px;
+    height: 1050px;
     padding-top: 20px;
     padding-bottom: 30px;
     /* padding-top: 50px; */
@@ -102,7 +102,7 @@
     font-size: 14px;
     font-family: "National 2", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro", 游ゴシック, 游ゴシック体, YuGothic, "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
     font-weight: 550;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 .signup-field{
@@ -110,7 +110,7 @@
     display: grid;
 }
 
-#Email-address{
+#Email-address,#name,#city,#phone,#password,#conform-password{
     color: rgb(51, 62, 72);
     width: 100%;
     border: 1px solid rgb(208, 210, 211);

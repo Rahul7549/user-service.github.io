@@ -2,6 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AutoLogoutService } from './auto-logout.service';
 import { Router } from '@angular/router';
+import {environment} from 'src/environments/environment'
+// import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
 export class SignInService implements OnInit {
   private readonly SESSION_KEY = 'userSession';
   private readonly EXPIRATION_KEY = 'sessionExpiration';
+  baseUrl=environment.baseUrl;
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -28,7 +31,7 @@ export class SignInService implements OnInit {
 
 
   getSessionToken() {
-    let requestUrl = 'http://localhost:5000/auth/zoho-token';
+    let requestUrl = `${this.baseUrl}/auth/zoho-token`;
     this.http.post(requestUrl, this.headers).subscribe((sessionDetail: any) => {
         this.sessionDetail=sessionDetail;
     })
@@ -54,7 +57,7 @@ export class SignInService implements OnInit {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let requestUrl = `http://localhost:5000/auth/zoho-user?email=${userEmail}`;
+    let requestUrl = `${this.baseUrl}/auth/zoho-user?email=${userEmail}`;
     return this.http.post(requestUrl, this.headers)
   }
 

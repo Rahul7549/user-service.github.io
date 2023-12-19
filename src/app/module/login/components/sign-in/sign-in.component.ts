@@ -49,10 +49,6 @@ export class SignInComponent implements OnInit {
       }
 
     })
-
-      
-      
-    
   }
 
   doSignUp(){
@@ -65,7 +61,7 @@ export class SignInComponent implements OnInit {
   }
 
   openSignUpPage(){
-    this.router.navigate(['/sign-up'])
+    this.router.navigate(['/sign-up'],{queryParams:{email:this.emailId}})
   }
 
 

@@ -27,7 +27,12 @@ export class AutoLogoutService {
     
 
     if (!sessionData) {
-      return; // No session, nothing to check
+      alert('session gor expired ! Pleae Login again')
+      this.signInservice.clearSession();
+      if(this.checkSessionIntervalId){
+        clearInterval(this.checkSessionIntervalId);
+        return;
+      }
     }
 
     
@@ -39,7 +44,6 @@ export class AutoLogoutService {
       this.signInservice.clearSession();
       if(this.checkSessionIntervalId){
         clearInterval(this.checkSessionIntervalId);
-
       }
       // Optionally, you can navigate to the logout page or show a modal
     }
