@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router, } from '@angular/router';
 import { ServiceOperationService } from '../../service/service-operation.service';
 import { start } from '@popperjs/core';
 
@@ -17,7 +17,8 @@ export class ExploreServiceComponent implements OnInit{
   openPrizeCardFlag: any;
 
   constructor(private route: ActivatedRoute,
-    private serviceOperation:ServiceOperationService){
+    private serviceOperation:ServiceOperationService,
+    private router:Router){
 
   }
   ngOnInit(): void {
@@ -47,6 +48,13 @@ export class ExploreServiceComponent implements OnInit{
       block: 'start',
       inline: 'nearest'});
       
+  }
+
+
+  activeServicefromServiceExplorePage(){
+    this.router.navigate(['home'],{queryParams:{
+      serviceId:this.selectedService.id
+    }})
   }
 
 }

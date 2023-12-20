@@ -4,7 +4,9 @@
 
 <div>
     <app-survay-types 
-    [toViewvScreen]="toViewvScreen"></app-survay-types>
+    [toViewvScreen]="toViewvScreen"
+    [serviceList]="serviceList"
+    (activeservice)="handleactiveservice($event)"></app-survay-types>
 </div>
 
 
@@ -12,3 +14,13 @@
 [toViewvScreen]="toViewvScreen"
 (closeSidePopUpEvent)="handleCloseSidePopUpEvent($event)">
 </app-project-list>
+
+<div *ngIf="openActiveServicePopUp">
+    <app-service-request-view 
+    [selectedserviceToActive]="selectedserviceToActive"
+    (closeActiveServicePopUpEvent)="closeActiveServicePopUpEvent($event)"
+    (sendServiceDeactiveRequest)="sendServiceDeactiveRequest($event)"
+    (sendServiceActiveRequest)="sendServiceActiveRequest($event)"
+
+></app-service-request-view>
+</div>

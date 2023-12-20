@@ -11,7 +11,7 @@ import {environment} from 'src/environments/environment'
 export class SignInService implements OnInit {
   private readonly SESSION_KEY = 'userSession';
   private readonly EXPIRATION_KEY = 'sessionExpiration';
-  baseUrl=environment.baseUrl;
+  baseUrl:string=environment.baseUrl;
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -39,8 +39,9 @@ export class SignInService implements OnInit {
 
   }
 
-  setSessionInSessionStorage(){
+  setSessionInSessionStorage(userDetail:any){
     if (this.sessionDetail!=undefined&&this.sessionDetail!=null) {
+      this.sessionDetail.user=userDetail;
       const expirationTime = new Date();
       const expirationMinutes=this.sessionDetail.expires_in/60;
       expirationTime.setMinutes(expirationTime.getMinutes()+expirationMinutes);
@@ -76,10 +77,16 @@ export class SignInService implements OnInit {
 
 
   clearSession(): void {
-    localStorage.removeItem(this.SESSION_KEY);
-    localStorage.removeItem(this.EXPIRATION_KEY);
+    sessionStorage.removeItem(this.SESSION_KEY);
+    sessionStorage.removeItem(this.EXPIRATION_KEY);
+
     this.router.navigate([''])
 
+  }
+
+  userSignUp(payload:any){
+    let requestUrl=`${this.baseUrl}/user`
+    return this.http.post(requestUrl,payload)
   }
 
 }

@@ -1,39 +1,38 @@
-
 <div [ngClass]="toView=='' ? '' : 'viewHomeScreen'">
   <app-home-screen [toView]="toView"></app-home-screen>
 </div>
 <!-- service list -->
 <div class="container servicelist" *ngIf="toView=='service'">
-<div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4"  style="text-align: center;">
-  <div class="col-lg-3  col-md-4 col-sm-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
-    <div class="card" style="width: 100%;">
-      <div class="card-body"  (click)="exploreServiceDetail(service)">
-        <h5 class="card-title">
-          <div class="row" style="text-align: left;">
-            <div class="col-8" >
-              <img src="assets/imgs/service-icon.jpg" alt="img" class="icon rounded mx-auto"/>
-              {{service.title}}
+  <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4" style="text-align: center;">
+    <div class="col-lg-3  col-md-4 col-sm-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
+      <div class="card" style="width: 100%;">
+        <div class="card-body" (click)="exploreServiceDetail(service)">
+          <h5 class="card-title">
+            <div class="row" style="text-align: left;">
+              <div class="col-8">
+                <img src="assets/imgs/service-icon.jpg" alt="img" class="icon rounded mx-auto" />
+                {{service.title}}
               </div>
-            <div class="col-4 text-end">
+              <div class="col-4 text-end">
+              </div>
             </div>
-          </div> 
-        </h5>
-        <p class="card-text">
-          {{service.description}}
-        </p>
-        
-        <div class="row">
-          <div class="col-6 text-start">
-          </div>
-          <div class="col-6 text-end">
-            <!-- <button type="button" class="btn btn-secondary btn-sm action-btn" *ngIf="service.status=='active'" >DEACTIVE</button> -->
-            <!-- <button type="button" class="btn btn-primary btn-sm action-btn" *ngIf="service.status=='deactive'" (click)="exploreServiceDetail(service)">ACTIVE</button> -->
+          </h5>
+          <p class="card-text">
+            {{service.description}}
+          </p>
+
+          <div class="row">
+            <div class="col-6 text-start">
+            </div>
+            <div class="col-6 text-end">
+              <!-- <button type="button" class="btn btn-secondary btn-sm action-btn" *ngIf="service.status=='active'" >DEACTIVE</button> -->
+              <!-- <button type="button" class="btn btn-primary btn-sm action-btn" *ngIf="service.status=='deactive'" (click)="exploreServiceDetail(service)">ACTIVE</button> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>  
-</div>
+  </div>
 
 
 
@@ -43,30 +42,29 @@
 
 <!-- service details -->
 <div *ngIf="toView=='explore-service'">
-  <app-explore-service 
-  [selectedService]="selectedServiceToExplore"></app-explore-service>
+  <app-explore-service [selectedService]="selectedServiceToExplore"></app-explore-service>
 </div>
 
 
 <!-- project list -->
 <div class="product-container" *ngIf="toView=='product'">
   <div class="product-right-side">
-    <div class="product-overview card-body" >
+    <div class="product-overview card-body">
       <h5 class="card-title">
         <div class="row" style="text-align: left;">
-          <div class="col-8" >
-            <img src="assets/imgs/product-over-view.jpg" alt="img"  class="icon rounded mx-auto"/>
+          <div class="col-8">
+            <img src="assets/imgs/product-over-view.jpg" alt="img" class="icon rounded mx-auto" />
             Product OverView
-            </div>
+          </div>
           <div class="col-4 text-end">
           </div>
-        </div> 
+        </div>
       </h5>
       <p class="card-text">
-        SurveyMonkey is built to handle every use case and need. 
+        SurveyMonkey is built to handle every use case and need.
         Explore our product to learn how SurveyMonkey can work for you.
       </p>
-      
+
       <div class="row">
         <div class="col-6 text-start">
         </div>
@@ -76,23 +74,23 @@
     </div>
     <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
       <div class="col-lg-3 col-md-12 col-sm-12 col-lg-6  my-1 mx-0" *ngFor="let product of productList">
-        
+
         <div class="card" (click)="clickToView('explore-product')" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title">
               <div class="row" style="text-align: left;">
-                <div class="col-8" >
-                  <img src="assets/imgs/product-icon.png" alt="img" class="icon rounded mx-auto"/>
+                <div class="col-8">
+                  <img src="assets/imgs/product-icon.png" alt="img" class="icon rounded mx-auto" />
                   {{product.title}}
-                  </div>
+                </div>
                 <div class="col-4 text-end">
                 </div>
-              </div> 
+              </div>
             </h5>
             <p class="card-text">
               {{product.description.slice(0, 55)}}
             </p>
-            
+
             <div class="row">
               <div class="col-6 text-start">
               </div>
@@ -100,84 +98,163 @@
               </div>
             </div>
           </div>
-    
-          
-    
+
+
+
         </div>
-    
-        
-        
-    
+
+
+
+
       </div>
-    
-      
+
+
     </div>
 
-    
-<!-- display: inline-block;
+
+    <!-- display: inline-block;
     text-align: left;
     padding-left: 46px; -->
 
   </div>
   <div class="product-left-side">
-    <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;color: rgb(161, 164, 167);">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0 ">
-        <div class=""  style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
-          <div class="ind-role-use">
-            <div class="row" >
-              <div class="col-12"b>
-                INDUSTRY
-                </div>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
-        <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
-          <div class="ind-role-use">
-            <div class="row">
-              <div class="col-12" >
-                ROLE
-                </div>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0">
-        <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;color: rgb(161, 164, 167);">
-            <div class="row">
-              <div class="col-12" >
-                USE CASE
+    <div class="row product-row-container">
+      <div class="col col-lg-4 col-md-6 text-center" style="padding-right: 0px; padding-bottom: 20px;">
+        <span class="industory-option-block">
+          <span class="industory-option">
+            <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 35px;">
+              <div class="ind-role-use">
+                <div class="row">
+                  <div class="col-12" b>
+                    INDUSTRY
+                  </div>
+
                 </div>
-              
+
+              </div>
             </div>
-            
-        </div>
+          </span>
+
+          <div class="ind-role-case-card-body" *ngFor="let service of filteredServiceList">
+            <div class="ind-role-case-card card" style="width: 100%; padding-top: 0px;padding-bottom: 0px; min-height: 45px;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12" style="text-align: left;
+                      padding-left: 30px; font-size: 16px; line-height: 20px; font-weight: 550;color: #1E2124;">
+                    <img src="assets/imgs/heth-care-icon.png" alt="img" class="icon rounded mx-auto" />
+                    {{service.title}}
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </span>
+
+
+      </div>
+      <div class="col col-lg-4 col-md-6 text-center" style="padding-left: 0px;padding-right: 0px; padding-bottom: 20px;">
+        <span class="industory-option-block">
+          <span class="industory-option">
+            <span class="industory-option">
+              <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 35px;">
+                <div class="ind-role-use">
+                  <div class="row">
+                    <div class="col-12" b>
+                      ROLE
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </span>
+          </span>
+
+          <div class="ind-role-case-card-body" *ngFor="let service of filteredServiceList">
+            <div class="ind-role-case-card card" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12" style="text-align: left;
+                    padding-left: 30px; font-size: 16px; line-height: 20px; font-weight: 550;color: #1E2124;">
+                    <img src="assets/imgs/heth-care-icon.png" alt="img" class="icon rounded mx-auto" />
+                    {{service.title}}
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </span>
+      </div>
+      <div class="col col-lg-4 col-md-6 text-center" style="padding-left: 0px; padding-bottom: 20px;">
+        <span class="industory-option-block">
+          <span class="industory-option">
+
+            <span class="industory-option">
+              <span class="industory-option">
+                <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+                  <div class="ind-role-use">
+                    <div class="row">
+                      <div class="col-12" b>
+                        <span class="industory-option">
+                          <span class="industory-option">
+                            <div class="" style="width: 100%; padding-top: 0px;padding-bottom: 35px;">
+                              <div class="ind-role-use">
+                                <div class="row">
+                                  <div class="col-12" b>
+                                    USE CASES
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </span>
+                        </span>
+
+                        <div class="ind-role-case-card-body" *ngFor="let service of filteredServiceList">
+                          <div class="ind-role-case-card card"
+                            style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-12" style="text-align: left;
+                    padding-left: 30px; font-size: 16px; line-height: 20px; font-weight: 550;color: #1E2124;">
+                                  <img src="assets/imgs/heth-care-icon.png" alt="img" class="icon rounded mx-auto" />
+                                  {{service.title}}
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </span>
+            </span>
+
+           
+          </span>
+        </span>
       </div>
     </div>
-    <div class="row d-flex row-cols-lg-6 row-cols-md-12" style="text-align: center;padding-top: 20px;">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-lg-4  my-1 mx-0 ind-role-case-card-body" *ngFor="let service of filteredServiceList">
-        <div class="ind-role-case-card card" style="width: 100%; padding-top: 0px;padding-bottom: 0px;">
-          <div class="card-body" >
-            <div class="row">
-              <div class="col-12" style="text-align: left;
-              padding-left: 30px; font-size: 16px; line-height: 20px; font-weight: 550;color: #1E2124;" >
-                <img src="assets/imgs/heth-care-icon.png" alt="img" class="icon rounded mx-auto"/>
-                {{service.title}}
-                </div>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+
   </div>
 
 </div>
@@ -185,20 +262,10 @@
 
 <!-- project details -->
 <div class="explore-product" *ngIf="toView=='explore-product'">
-<app-explore-product></app-explore-product>
+  <app-explore-product></app-explore-product>
 </div>
 
- <!--prize-explore  -->
+<!--prize-explore  -->
 <div *ngIf="toView=='explore-prize'">
   <app-prize-list></app-prize-list>
 </div>
-
-
-
-
-
-
-
-
-
-

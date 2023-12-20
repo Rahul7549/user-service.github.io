@@ -106,6 +106,7 @@ table, thead,tr,th  {
 }
 
 
+
 .product-right-side {
     flex: 1;
     /* background-color: #333; */
@@ -187,3 +188,50 @@ background: none;
     display: none;
     content: none;
 }
+
+@media screen and (max-width: 750px){
+    .product-container{
+        display:grid;
+        /* height: auto; */
+        padding-top: 135px;
+        /* height: 100vh; */
+    }
+    
+    .product-right-side,.product-left-side {    
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+    }
+    
+
+}
+
+@media screen and (max-width: 520px){
+.product-row-container{
+        display: grid;
+    }
+
+    .industory-option-block{
+        text-align: left;
+        /* padding-left: 30px; */
+    }
+    .ind-role-use{
+        padding-left: 45px 
+    }
+    
+    
+}
+
+.indutort-block{
+    display: inline-block;
+    width: 100%;
+    background-color: red;
+}
+
+.industory-option-block{
+    display: grid;
+    width: 100%;
+    position: relative;
+    
+}
+

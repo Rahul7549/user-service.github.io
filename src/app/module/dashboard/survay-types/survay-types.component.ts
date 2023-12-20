@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ServiceOperationService } from '../../service/service/service-operation.service';
 
 @Component({
@@ -8,14 +8,24 @@ import { ServiceOperationService } from '../../service/service/service-operation
 })
 export class SurvayTypesComponent implements OnInit{
   @Input() toViewvScreen:string='';
+  @Input() serviceList:any
+  survatType:any
+  @Output() activeservice:EventEmitter<any>=new EventEmitter()
 
   constructor(private serviceDetails:ServiceOperationService){
 
   }
-  survatType!:Array<any>
+  
 
   ngOnInit(): void {
-    this.survatType=this.serviceDetails.fetchSurvaytype();
+    this.survatType=this.serviceDetails.fetchSurvaytype()
     // this.survatType=[...this.survatType];
     }
+
+    
+
+    activeService(service:any){
+      this.activeservice.emit(service)
+    }
+
 }

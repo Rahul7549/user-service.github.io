@@ -1,17 +1,46 @@
-<div class="survay-type-main">
 
+
+<div class="survay-type-main">
     <div class="survay-type-block">
         <div class="survay-type-container" >
-            <span class="survay-title-section">
+            <span class="survay-title-section" style="margin-bottom: 25px;">
                 <span class="survay-title-container">
-                    <h3 class="title-text">
+                    <h3 class="title-text" *ngIf="toViewvScreen!='request-history'">
                         What types of surveys and forms do you send?
-                    </h3> 
+                    </h3>
+                    <h3 class="title-text" *ngIf="toViewvScreen=='request-history'">
+                      Service resquest History
+                  </h3> 
                 </span>
             </span>
 
+
+            <div class="request-History-container" style="max-height: 225px; overflow-y: scroll;" *ngIf="toViewvScreen=='request-history'">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 100px;">Serial No</th>
+                    <th style="width: 170px;">Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let service of serviceList;let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{service.title}}</td>
+                    <td>{{service.description}}</td>
+                    <td>{{service.status}}</td>
+                  </tr>
+                  
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+
+            </div>
+
            
-            <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;">
+            <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;" *ngIf="toViewvScreen!='request-history'">
                 <div class="col-lg-3 col-md-3 col-sm-4   my-1 mx-0" style="padding-bottom: 10px; padding-top: 5px;" *ngFor="let product of survatType">
                   
                   <div class="card text-center" style="width: 100%;">
@@ -104,7 +133,7 @@
 
         <div class="project-card-container" style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
           <div class="row d-flex " style="text-align: center;padding-top: 20px;">
-            <div class="col-lg-6  col-sm-12   my-1 mx-0" style="padding-bottom: 15px;" *ngFor="let product of survatType">
+            <div class="col-lg-6  col-sm-12   my-1 mx-0" style="padding-bottom: 15px;" *ngFor="let service of serviceList">
               
               <div class="survay-card" style="width: 70%;">
                 <div class="survay-card-body">
@@ -114,12 +143,12 @@
                   </span>
 
                   <span class="type-your-title-here-section">
-                    <a class="type-title-label" href="">Type your title here</a>
+                    <a class="type-title-label" href="">{{service.title}}</a>
                     <p>Modified 12/01/2023</p>
                   </span>
 
                   <span class="survay-status-block">
-                    <p style="margin-bottom: 0px;">Status</p>
+                    <p style="margin-bottom: 0px;">{{service.status}}</p>
                     <strong style="margin-bottom: 0px;">Draft</strong>
                     <span class="survay-status-content">
                       <img src="assets/imgs/green-tick.jpg" height="20px" width="30px" alt="">
@@ -129,7 +158,8 @@
 
 
                   <span class="send-survay-btn">
-                    <a class="survay-btn-text" href="">Send Survay</a>
+                    <a class="survay-btn-text" *ngIf="service.status=='deactive'" (click)="activeService(service)">Active</a>
+                    <a class="survay-btn-text" *ngIf="service.status=='active'" (click)="activeService(service)">Deactive</a>
                   </span>
 
                  

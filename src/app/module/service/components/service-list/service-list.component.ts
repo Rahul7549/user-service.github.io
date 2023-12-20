@@ -10,7 +10,7 @@ import { service } from 'src/app/module/share/models/service';
 })
 export class ServiceListComponent implements OnInit {
   openPopUpFlag: boolean = false;
-  serviceList: Array<any> = [];
+  serviceList: any = [];
   productList: Array<any> = [];
   filteredServiceList: Array<any> = [];
   @Input() appliedFilterBy: any;
@@ -26,7 +26,10 @@ export class ServiceListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.serviceList = this.serviceOperationService.fetchServiceList()
+    this.serviceOperationService.fetchServiceList().subscribe(data=>{
+      this.serviceList=data;
+      this.filteredServiceList = this.serviceList;
+    })
     this.filteredServiceList = this.serviceList;
 
     this.productList=this.serviceOperationService.fetchProductList()
@@ -57,7 +60,7 @@ export class ServiceListComponent implements OnInit {
 
   filterService() {
     if (this.appliedFilterBy != 'All') {
-      this.filteredServiceList = this.serviceList.filter((service) => service.status.toUpperCase() == this.appliedFilterBy.toUpperCase());
+      this.filteredServiceList = this.serviceList.filter((service:any) => service.status.toUpperCase() == this.appliedFilterBy.toUpperCase());
     } else {
       this.filteredServiceList = this.serviceList
     }
@@ -65,7 +68,7 @@ export class ServiceListComponent implements OnInit {
 
   searchService() {
     if (this.appliedSearch != undefined) {
-      this.filteredServiceList = this.serviceList.filter((service) => {
+      this.filteredServiceList = this.serviceList.filter((service:any) => {
         return service.title.toUpperCase().includes(this.appliedSearch.toUpperCase())
       }
       );
@@ -83,7 +86,6 @@ export class ServiceListComponent implements OnInit {
 
 
   clickToView(toView: string) {
-    
     this.toView = toView;
   }
 

@@ -16,6 +16,8 @@ export class SignInComponent implements OnInit {
   emptyEmailFlag:boolean=false;
   userEmailOtp!:number
   wrongOtpFlag!: boolean;
+  userNotExist: boolean=false;
+  showOtp: boolean=false;
 
   constructor(private router :Router,
     private signInService:SignInService,
@@ -36,11 +38,14 @@ export class SignInComponent implements OnInit {
 
       this.userDetails=userDetail;
       
-      if(this.userDetails==undefined||this.userDetails==undefined){
-        this.emptyEmailFlag=true;
+      if(this.userDetails==undefined||this.userDetails==undefined||this.userDetails.users.length==0){
+        this.userNotExist=true;
       }
       else{
-        this.signInService.setSessionInSessionStorage();
+        console.log(this.userDetails);
+        this.showOtp=true;
+        this.userNotExist=false;
+        this.signInService.setSessionInSessionStorage(this.userDetails);
         this.emptyEmailFlag=false;
         this.enterEmailFlag=false
         setTimeout(()=>{

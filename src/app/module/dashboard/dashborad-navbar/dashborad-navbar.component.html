@@ -1,18 +1,30 @@
 <div class="navbar-main">
     <div class="navbar-options-section">
-        <img src="assets/imgs/eternia-logo.png" height="20px" alt="">
+
+        <span class="hamburger-section" (click)="toggleSideMenu()">
+            <i class="bi bi-list" *ngIf="!openSideMenueFlag" ></i>
+            <i class="bi bi-x-lg" *ngIf="openSideMenueFlag"></i>
+        </span>
+
+        <span class="eternia-logi-Icon">
+            <img src="assets/imgs/eternia-logo.png" height="20px" alt="">
+        </span>
         <div class="nav-container">
+            
+            
+
             <nav class="left-nav-options" style="margin-left: 16px;"> 
                 <ul class="left-nav-option-group">
                     <li>
-                        <a class="nav-home-btn">Home</a>
+                        <a class="nav-home-btn" (click)="openHomePage()" [ngClass]="activeNavbar==''?'active-nav-btn' :''">Home</a>
                     </li>
                     <li>
                         <a class="nav-paln-pricing-btn" href="">Plans & Pricing</a>
                     </li>
+                    <li>
+                        <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='request-history'?'active-nav-btn' :''" (click)="openProjectListView('request-history')">Request</a>
+                    </li>
                 </ul>
-    
-    
             </nav>
     
             <nav class="right-nav-options" style="margin-left: 16px;"> 
@@ -50,7 +62,7 @@
                 </span>
 
                 <span class="profile-email-section" (click)="openProfileDroupDown()" >
-                    <span class="profile-email-btn">rahul@gmail.com
+                    <span class="profile-email-btn">{{this.userDetails.user.users[0].email}}
                         <span style="margin-left: 8px;">
                             <i class="bi bi-caret-down-fill" style="font-size: 19px;"></i>
                         </span>
@@ -90,4 +102,160 @@
         </div>
         
     </div>
+</div>
+
+
+<div class="side-menue-section" [ngClass]="openSideMenueFlag?'show':'hide'">
+    <div class="sidemenue-bloc">
+        <ul class="nav-left-option-section">
+            <li style="cursor: pointer;
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <a class="menue-left-option" href="/home">
+                    <span class="menu-option-label"> <b>Home</b></span>
+                </a>
+            </li>
+            <li style="cursor: pointer;
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <a class="menue-left-option" href="/home">
+                    <span class="menu-option-label"> <b>Plans & Pricing</b></span>
+                </a>
+            </li>
+
+            <li style="cursor: pointer;
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <a class="menue-left-option" href="/home">
+                    <span class="menu-option-label"> <b>Request</b></span>
+                </a>
+            </li>
+           
+        </ul>
+
+        <ul class="nav-left-option-section notification-menue-btn">
+            <li style="cursor: pointer;
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <a class="menue-left-option" href="/home">
+                    <span class="menu-option-label"> <b>Notification Center</b></span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav-left-option-section product-menue-btn">
+            <li style="cursor: pointer;
+            
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <div class="productNav-btn-option" (click)="togleProductList()" href="/home">
+                    <span class="menu-nav-label"> <b>Products</b></span>
+                    <span class="menue-exp-btn">
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+                <ul class="menu-product-list" [ngClass]="!showProductListFlag ? '':'hide'">
+                    <li *ngFor="let product of productList">
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>{{product.title}}</b>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+
+            </li>
+
+
+            
+        </ul>
+        <ul class="nav-left-option-section help-menu-btn">
+            <li style="cursor: pointer;
+            
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <div class="productNav-btn-option" (click)="togleHelpList()" href="/home">
+                    <span class="menu-nav-label"> <b>Help</b></span>
+                    <span class="menue-exp-btn">
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+                <ul class="menu-help-list" [ngClass]="!showHelpListFlag ? '':'hide'">
+                    <li >
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>Help Center</b>
+                            </span>
+                        </span>
+                    </li>
+                    <li >
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>Curiosity at Work</b>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+
+            </li>
+
+
+            
+        </ul>
+
+        <ul class="nav-left-option-section side-menue-profile-drowpdown">
+            <li style="cursor: pointer;
+            
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <div class="productNav-btn-option" (click)="toggleUserDrowpdown()" href="/home">
+                    <span class="menu-nav-label"> <b>{{this.userDetails.user.users[0].email}}</b></span>
+                    <span class="menue-exp-btn">
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+                <ul class="menu-user-profile-drowpdown" [ngClass]="!showUserProfileOptionFlag ? '':'hide'">
+                    <li >
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>MY Account</b>
+                            </span>
+                        </span>
+                    </li>
+                    <li >
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>Library</b>
+                            </span>
+                        </span>
+                    </li>
+                    <li >
+                        <span class="menue-product-btn">
+                            <span class="product-btn-label">
+                                <b>Contact</b>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+
+            </li>
+
+
+            
+        </ul>
+
+        
+        <ul class="nav-left-option-section signOut-sideMenu-btn">
+            <li style="cursor: pointer;
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);" (click)="signOut()">
+                <a class="menue-left-option" href="/home">
+                    <span class="menu-option-label"> <b>Sign Out</b></span>
+                </a>
+            </li>
+            </ul>
+
+
+
+    </div>
+</div>
+
+<div *ngIf="openSideMenueFlag" class="mask-drawing">
+
 </div>

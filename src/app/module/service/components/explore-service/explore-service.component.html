@@ -7,9 +7,9 @@
     <h1 class="" *ngIf="selectedService!=undefined">{{selectedService.title}}</h1>
     </div>
     <span *ngIf="selectedService!=undefined" class="service-description">{{selectedService.description}}</span>
-    <div class="Subcribe-block">
-        <span class="Subcribe-btn">
-                Activate service
+    <div class="Subcribe-block" (click)="activeServicefromServiceExplorePage()">
+        <span class="Subcribe-btn" >
+                Activate service12
         </span>
     </div>
 

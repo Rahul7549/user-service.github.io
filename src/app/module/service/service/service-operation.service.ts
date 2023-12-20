@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {environment} from '../../../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceOperationService {
+
+  baseUrl=environment.baseUrl;
   serviceList:Array<any>=[
     {
         'id':'fgdj7493y4r',
@@ -154,10 +158,12 @@ helpList:Array<any>=[
     'description':'Get inspiration on our blog'
 }
 ]
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
 
   fetchServiceList(){
-    return this.serviceList;
+    let reqUrl=`${this.baseUrl}/service`;
+    return this.http.get(reqUrl)
   }
   
 
@@ -179,6 +185,22 @@ helpList:Array<any>=[
 
   fetchHelpList(){
     return this.helpList;
+  }
+
+
+  sendActiveRequest(serviceId:string){
+    let reqUrl=`${this.baseUrl}/active/${serviceId}`;
+    return this.http.post(reqUrl,{})
+  }
+
+  sendDeactiveRequest(serviceId:string){
+    let reqUrl=`${this.baseUrl}/service/deactive/${serviceId}`;
+    return this.http.post(reqUrl,{})
+  }
+
+  fetchServiceDetail(serviceId:any){
+    let reqUrl=`${this.baseUrl}/service/${serviceId}`;
+    return this.http.get(reqUrl);
   }
 
 

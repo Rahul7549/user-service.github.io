@@ -20,14 +20,14 @@
             <span style="padding-left: 32px;
             padding-right: 32px;">
 
-                <form [formGroup]="signUplForm" (ngSubmit)="doSignUp()">
+                <form [formGroup]="signUpForm" (ngSubmit)="doSignUp()">
 
                     <div class="signup-field">
                         <span class="enter-email">
                             <label class="Email-address-label" for="name">Name</label>
                             <br />
                             <input formControlName="name" id="name" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUplForm.get('name')?.hasError('required')&&signUplForm.get('name')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('name')?.hasError('required')&&signUpForm.get('name')?.touched">
                                 Name is required.
                             </div>
                         </span>
@@ -35,7 +35,7 @@
                             <label class="Email-address-label" for="city">City</label>
                             <br />
                             <input formControlName="city" id="city" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUplForm.get('city')?.hasError('required')&&signUplForm.get('city')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('city')?.hasError('required')&&signUpForm.get('city')?.touched">
                                 City is required.
                             </div>
                         </span>
@@ -43,10 +43,10 @@
                             <label class="Email-address-label" for="phone">Phone</label>
                             <br />
                             <input formControlName="phone" id="phone" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUplForm.get('phone')?.hasError('required')&&signUplForm.get('phone')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('required')&&signUpForm.get('phone')?.touched">
                                 phone is required.
                             </div>
-                            <div style="color: red;" *ngIf="signUplForm.get('phone')?.hasError('minlength')&&signUplForm.get('phone')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('minlength')&&signUpForm.get('phone')?.touched">
                                 PhoneNumber must be 10 digit.
                               </div>
                         </span>
@@ -54,7 +54,7 @@
                             <label class="Email-address-label" for="Email-address">Email address</label>
                             <br />
                             <input formControlName="emailId" id="Email-address" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUplForm.get('emailId')?.hasError('required')&&signUplForm.get('emailId')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('emailId')?.hasError('required')&&signUpForm.get('emailId')?.touched">
                                 Email must is required.
                             </div>
                         </span>
@@ -62,10 +62,10 @@
                             <label class="Email-address-label" for="password">Password</label>
                             <br />
                             <input formControlName="password" id="password" width="100%" type="password">
-                            <div style="color: red;" *ngIf="signUplForm.get('password')?.hasError('required')&&signUplForm.get('password')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('password')?.hasError('required')&&signUpForm.get('password')?.touched">
                                 Password is required.
                             </div>
-                            <div style="color: red;" *ngIf="signUplForm.get('password')?.hasError('minlength')&&signUplForm.get('password')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('password')?.hasError('minlength')&&signUpForm.get('password')?.touched">
                                 Password must be at least 8 charecter.
                               </div>
                         </span>
@@ -73,11 +73,11 @@
                             <label class="Email-address-label" for="conform-password">Conform Password</label>
                             <br />
                             <input formControlName="conformPassword" id="conform-password" width="100%" type="password">
-                            <div style="color: red;" *ngIf="signUplForm.get('conformPassword')?.hasError('required')&&signUplForm.get('conformPassword')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('conformPassword')?.hasError('required')&&signUpForm.get('conformPassword')?.touched">
                                 Password is required.
                             </div>
-                            <div style="color: red;" *ngIf="signUplForm.get('conformPassword')?.hasError('minlength')
-                            &&signUplForm.get('conformPassword')?.touched">
+                            <div style="color: red;" *ngIf="signUpForm.get('conformPassword')?.hasError('minlength')
+                            &&signUpForm.get('conformPassword')?.touched">
                                 Password must be at least 8 charecter.
                             </div>
                         </span>
@@ -102,7 +102,7 @@
                                 You can opt-out of these emails in your My Account page anytime.
                             </span>
                         </span>
-                        <button class="signup-next-btn" type="submit" [disabled]="signUplForm.invalid" >Sign Up</button>
+                        <button class="signup-next-btn" type="submit" [disabled]="signUpForm.invalid" >Sign Up</button>
                     </div>
                 </form>
             </span>

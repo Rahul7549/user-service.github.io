@@ -15,10 +15,11 @@
 .survay-type-block{
     padding-left: 4vw;
     padding-right: 4vw;
-    padding-top:2vw;
+    padding-top:6vw;
     position: relative;
     flex-grow: 1;
     padding-bottom: 35px;
+    min-height: 400px;
 }
 
 .survay-type-container{
@@ -629,4 +630,28 @@
 .stopscrolling{
     overflow-y: hidden;
     height: 91vh;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+
+
+  
+  thead{
+    position: sticky;
+    top: 0;
 }

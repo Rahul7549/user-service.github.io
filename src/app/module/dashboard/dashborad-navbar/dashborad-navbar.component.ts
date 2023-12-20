@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SignInService } from '../../login/sign-in.service';
+import { ServiceOperationService } from '../../service/service/service-operation.service';
 
 @Component({
   selector: 'app-dashborad-navbar',
@@ -11,13 +12,27 @@ export class DashboradNavbarComponent implements OnInit{
   showProfileDroupDownFlag: boolean=false;
   @Output() projectListViewEvent:EventEmitter<any>=new EventEmitter()
   @Input() activeNavbar: string=''
+  userDetails:any;
+  productList:Array<any>=[];
+  showProductListFlag: boolean=true;
+  showHelpListFlag: boolean=true;
+  showUserProfileOptionFlag: boolean=true;
+  openSideMenueFlag: boolean=false;
 
-  constructor(private signInService:SignInService){
+  constructor(private signInService:SignInService,
+    private serviceOperation:ServiceOperationService){
 
   }
 
   ngOnInit(): void {
+    var userDetails=  sessionStorage.getItem('userSession')||''
+    this.userDetails=  JSON.parse(userDetails);
+
+    console.log(this.userDetails.user.users[0].email);
+    this.productList=this.serviceOperation.fetchProjectList()
+    
   }
+
   openProfileDroupDown(){
     this.showProfileDroupDownFlag=!this.showProfileDroupDownFlag;
     this.activeNavbar='';
@@ -31,14 +46,41 @@ export class DashboradNavbarComponent implements OnInit{
     }else{
       this.activeNavbar=toView;
     }
-    this.projectListViewEvent.emit(this.activeNavbar)
+    
+      this.projectListViewEvent.emit(this.activeNavbar)
+    
   }
+
+
 
   signOut(){
     this.signInService.clearSession();
   }
 
 
+  togleProductList(){
+    this.showProductListFlag=!this.showProductListFlag
+  }
+
+  togleHelpList(){
+    this.showHelpListFlag=!this.showHelpListFlag
+  }
+
+  toggleUserDrowpdown(){
+    this.showUserProfileOptionFlag=!this.showUserProfileOptionFlag
+  }
+
+  toggleSideMenu(){
+    this.openSideMenueFlag=!this.openSideMenueFlag
+  }
+
+  openHomePage(){
+    this.activeNavbar='';
+    this.projectListViewEvent.emit(this.activeNavbar)
+  }
+
 }
+
+
 
 

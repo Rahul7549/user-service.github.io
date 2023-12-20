@@ -1,0 +1,87 @@
+<div class="activate-service-main">
+
+    
+    <div class="activate-service-block">
+
+        <span class="product-icon">
+            <img src="../../../../assets/imgs/product-icon.png" height="50px" width="50px" alt="">
+            <span class="closeIcon">
+                <i (click)="closeActiveServicePopUp()" class="bi bi-x-lg"></i>
+            </span>
+        </span>
+
+        <span class="service-details-block">
+            <h2>
+               {{selectedserviceToActive.title}}
+            </h2>
+            <p>
+                {{selectedserviceToActive.description}}
+            </p>
+
+
+            
+
+            <span class="term-acontion-section">
+
+                <div class="plans-container">
+                    <span class="choosePlan-label">Choose Plan</span>
+                    <span class="choosePlan-block">
+                        <input [checked]="selectedPlan=='generalPlan'" (click)="selectPlan('generalPlan')" class="paln-1-radio-btn" type="radio">
+                        <span class="plan-1-label">General Plan (₹1,550 / user / month)</span>
+                    </span>
+                    <span class="choosePlan-block">
+                        <input [checked]="selectedPlan=='silverPlan'" (click)="selectPlan('silverPlan')" class="paln-1-radio-btn" type="radio">
+                        <span class="plan-1-label">Silver Plan (₹1,850 / user / month)</span>
+                    </span>
+                    <span class="choosePlan-block">
+                        <input [checked]="selectedPlan=='goldenPlan'" (click)="selectPlan('goldenPlan')" class="paln-1-radio-btn" type="radio">
+                        <span class="plan-1-label">Golden Plan (₹2,199 / user / month)</span>
+                    </span>
+                    <span *ngIf="!notPlanSelected" style="color: red;text-align: left;">Please above choose plan</span>
+
+    
+                </div>
+
+                <span class="choosePlan-label">Trem & Condition</span>
+                <span class="signup-condition-1">
+                    <input class="signup-condition-checkbox-1" [(ngModel)]="firstTermComdition" (click)="acceptFirsTermConditin()" id="tcondition-1" type="checkbox">
+                    <span for="tcondition-1" class="tcondition-1">Allow notification from service
+                    </span>
+                </span>
+            
+                <span class="signup-condition-1">
+                    <input class="signup-condition-checkbox-1" [(ngModel)]="secondtTermComdition" (click)="acceptSecondTermConditin()" id="tcondition-2" type="checkbox">
+                    <span for="tcondition-2" class="tcondition-1">Allow Whatsapp notification from service
+                    </span>
+                </span>
+                <span class="signup-condition-1">
+                    <input class="signup-condition-checkbox-1" [(ngModel)]="thirdTermComdition" (click)="acceptthirdTermConditin()" id="tcondition-3" type="checkbox">
+                    <span for="tcondition-3" class="tcondition-1">You agree to the
+                        <a class="" style="text-decoration: none;"
+                            href="https://www.surveymonkey.com/mp/legal/terms-of-use/" target="_blank">
+                            Terms of Use</a>
+                        and
+                        <a class="" style="text-decoration: none;"
+                            href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
+                            Privacy Notice</a>.
+                    </span>
+                </span>
+                <span *ngIf="acceptTermAndConditionFlag" style="color: red;text-align: left;">Please accept above Term and Condition</span>
+
+                <span style="margin-top: 20px;">
+                    <button class="activate-service-btn" *ngIf="selectedserviceToActive.status=='deactive'" (click)="sendActiveRequest()">Active</button>
+                    <button class="activate-service-btn" *ngIf="selectedserviceToActive.status=='active'" (click)="sendDeactiveRequest()">Deactive</button>
+                </span>
+            </span>
+
+        </span>
+
+        
+
+    </div>
+
+</div>
+
+<div class="mask-drawing">
+
+</div>
