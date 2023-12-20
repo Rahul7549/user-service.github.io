@@ -189,7 +189,7 @@ helpList:Array<any>=[
 
 
   sendActiveRequest(serviceId:string){
-    let reqUrl=`${this.baseUrl}/active/${serviceId}`;
+    let reqUrl=`${this.baseUrl}/service/active/${serviceId}`;
     return this.http.post(reqUrl,{})
   }
 
