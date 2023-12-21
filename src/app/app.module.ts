@@ -13,6 +13,7 @@ import { DashboardModule } from './module/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import {HashLocationStrategy,LocationStrategy} from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { MatTableModule } from '@angular/material/table';
     
     
   ],
-  providers: [],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
