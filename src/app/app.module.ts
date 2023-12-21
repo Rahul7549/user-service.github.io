@@ -12,7 +12,7 @@ import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-br
 import { DashboardModule } from './module/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NoopAnimationsModule,
     DashboardModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
     
     
   ],

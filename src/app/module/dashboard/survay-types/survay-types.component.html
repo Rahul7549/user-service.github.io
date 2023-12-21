@@ -17,8 +17,8 @@
 
             <div class="request-History-container" style="max-height: 225px; overflow-y: scroll;" *ngIf="toViewvScreen=='request-history'">
               <table>
-                <thead>
-                  <tr>
+                <thead >
+                  <tr style="background-color: #010067;">
                     <th style="width: 100px;">Serial No</th>
                     <th style="width: 170px;">Title</th>
                     <th>Description</th>
@@ -26,11 +26,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let service of serviceList;let i=index;">
+                  <tr *ngFor="let service of serviceList;let i=index;" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
                     <td>{{i+1}}</td>
                     <td>{{service.title}}</td>
                     <td>{{service.description}}</td>
-                    <td>{{service.status}}</td>
+                    <td >
+                       <span class="badge" *ngIf="service.status=='active'" style="background-color: #007BFF;">{{service.status}}</span>
+                       <span class="badge" *ngIf="service.status=='pending'" style="background-color: #FFC107;">{{service.status}}</span>
+                       <span class="badge" *ngIf="service.status=='deactive'" style="background-color: #DC3545;">{{service.status}}</span>
+
+                    </td>
                   </tr>
                   
                   <!-- Add more rows as needed -->
@@ -47,7 +52,6 @@
                     <div class="card-body">
                       <h5 class="card-title">
                             {{product.title}}
-                          
                       </h5>
                       <p class="card-text">
                       </p>
@@ -133,34 +137,39 @@
 
         <div class="project-card-container" style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
           <div class="row d-flex " style="text-align: center;padding-top: 20px;">
-            <div class="col-lg-6  col-sm-12   my-1 mx-0" style="padding-bottom: 15px;" *ngFor="let service of serviceList">
+            <div class=" col-md-6 col-lg-4 col-sm-6    my-1 mx-0" style="padding-bottom: 30px;" *ngFor="let service of serviceList">
               
-              <div class="survay-card" style="width: 70%;">
+              <div class="survay-card" style="width: 90%; display: block;">
                 <div class="survay-card-body">
 
-                  <span class="optionSection">
+                  <!-- <span class="optionSection">
                     <i class="bi bi-three-dots"></i>
-                  </span>
+                  </span> -->
 
                   <span class="type-your-title-here-section">
-                    <a class="type-title-label" href="">{{service.title}}</a>
-                    <p>Modified 12/01/2023</p>
+                    <h1 class="type-title-label">{{service.title}}</h1>
+                    <p>Modified on 12/01/2023</p>
                   </span>
 
                   <span class="survay-status-block">
-                    <p style="margin-bottom: 0px;">{{service.status}}</p>
-                    <strong style="margin-bottom: 0px;">Draft</strong>
+                    <p>{{service.description}}</p>
+                    <!-- <strong style="margin-bottom: 0px;">Draft</strong>
                     <span class="survay-status-content">
                       <img src="assets/imgs/green-tick.jpg" height="20px" width="30px" alt="">
                       <p>No issue</p>
+                    </span> -->
+                  </span>
+
+
+                  <span class="active-service-btn">
+
+                    <span class="send-survay-btn">
+                      <a class="survay-btn-text" *ngIf="service.status=='deactive'" (click)="activeService(service)">Active</a>
+                      <a class="survay-btn-text" *ngIf="service.status=='active'" (click)="deactiveService(service)">Deactive</a>
                     </span>
-                  </span>
 
-
-                  <span class="send-survay-btn">
-                    <a class="survay-btn-text" *ngIf="service.status=='deactive'" (click)="activeService(service)">Active</a>
-                    <a class="survay-btn-text" *ngIf="service.status=='active'" (click)="deactiveService(service)">Deactive</a>
                   </span>
+                  
 
                  
                 </div>

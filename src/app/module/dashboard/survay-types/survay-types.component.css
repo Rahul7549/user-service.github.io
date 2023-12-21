@@ -389,7 +389,7 @@
 
 .survay-card{
     border: 1px solid #EDEEEE;
-    min-height: 320px;
+    min-height: 280px;
     margin: 0 12px;
     display: grid;
     padding: 16px;
@@ -403,7 +403,7 @@
 .survay-card-body{
     display: grid;
     position: relative;
-    gap: 20px;
+    gap: 0px;
 }
 
 .optionSection{
@@ -415,7 +415,8 @@
 .type-your-title-here-section{
     /* justify-content: end; */
     padding-left: 20px;
-    text-align: left;
+
+    /* text-align: left; */
 }
 
 .type-title-label{
@@ -426,20 +427,21 @@
     overflow-wrap: anywhere;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    font-size: 22px;
+    /* font-size: 22px; */
     line-height: 32px;
     text-decoration: none;
+    color: #7003EC;
 }
 
 .type-title-label:hover{
-    color: rgb(0, 127, 170);
+    /* color: rgb(0, 127, 170); */
     text-decoration: underline;
 }
 
 .survay-status-block{
     
     padding-left: 20px;
-    text-align: left;
+    /* text-align: left; */
 }
 
 .survay-status-content{
@@ -448,7 +450,8 @@
 
 .send-survay-btn{
     color: rgb(51, 62, 72);
-    width: 100%;
+    /* width: 100%; */
+    min-width: 170px;
     border: 1px solid rgb(51, 62, 72);
     cursor: pointer;
     display: flex;
@@ -467,6 +470,8 @@
     text-decoration: none;
     background-color: transparent;
     -webkit-font-smoothing: antialiased;
+    background-color: #F9BE00;
+    border-radius: 35px;
 }
 
 .survay-btn-text{
@@ -480,7 +485,7 @@
     transition: none 0s ease 0s;
     border-color: rgb(51, 62, 72);
     text-decoration: none;
-    background-color: rgb(247, 248, 250);
+    /* background-color: rgb(247, 248, 250); */
     box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px 0px;
 }
 
@@ -637,6 +642,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
   }
+ 
 
   th, td {
     padding: 12px;
@@ -654,4 +660,28 @@ table {
   thead{
     position: sticky;
     top: 0;
+
+}
+
+thead tr th{
+    background-color: #010067;
+    color: #ffff;
+    border-left: 2px solid #ddd;
+  }
+
+.even-row {
+    background-color: #f2f2f2; /* Set the background color for even rows */
+  }
+  /* If you want to set a different background color for odd rows, you can do it like this: */
+.odd-row {
+    background-color: #e6e6e6; /* Set the background color for odd rows */
+}
+  
+
+.active-service-btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+   
 }
