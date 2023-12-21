@@ -19,16 +19,27 @@ export class DashboradNavbarComponent implements OnInit{
   showUserProfileOptionFlag: boolean=true;
   openSideMenueFlag: boolean=false;
 
+  showSuccessAlertFlag:boolean=false;
+  showErrorAlertFlag:boolean=false;
+  alertMessage:string=''
+
   constructor(private signInService:SignInService,
     private serviceOperation:ServiceOperationService){
 
   }
 
   ngOnInit(): void {
-    var userDetails=  sessionStorage.getItem('userSession')||''
-    this.userDetails=  JSON.parse(userDetails);
+    if(sessionStorage.getItem('userSession')==undefined){
+      this.showErrorAlertFlag=true;
+      this.alertMessage='Your session has been expried! Please Login again'
+    }
+    else{
+      let userDetails=sessionStorage.getItem('userSession')||''
+      this.userDetails=  JSON.parse(userDetails);
 
-    console.log(this.userDetails.user.users[0].email);
+    }
+
+    // console.log(this.userDetails.user.users[0].email);
     this.productList=this.serviceOperation.fetchProjectList()
     
   }

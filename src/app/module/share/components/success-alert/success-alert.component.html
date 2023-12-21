@@ -1,0 +1,8 @@
+
+<div class="success-aler-main" *ngIf="showSuccesAlertFlag">
+    <div class="success-alert">
+        <strong>Success!</strong> {{alertMessage}}
+        <i class="bi bi-x-lg mx-2" (click)="closeAlertMessage()" style="font-size: 20px; justify-content: center;cursor: pointer;" ></i>
+      </div>
+</div>
+

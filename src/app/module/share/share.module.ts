@@ -5,12 +5,16 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { SuccessAlertComponent } from './components/success-alert/success-alert.component';
+import { ErrorAlertComponent } from './components/error-alert/error-alert.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
     HomeScreenComponent,
+    SuccessAlertComponent,
+    ErrorAlertComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-br
   exports:[
     NavbarComponent,
     SidebarComponent,
-    HomeScreenComponent
+    HomeScreenComponent,
+    SuccessAlertComponent,
+    ErrorAlertComponent
   ]
 })
 export class ShareModule { }

@@ -1,0 +1,6 @@
+<div class="success-aler-main" *ngIf="showErrorAlertFlag">
+    <div class="danger-alert">
+        <strong>Error!</strong> {{AlertMessage}}
+        <i class="bi bi-x-lg mx-2" (click)="closeAlertMessage()" style="font-size: 20px; justify-content: center;cursor: pointer;" ></i>
+      </div>
+</div>

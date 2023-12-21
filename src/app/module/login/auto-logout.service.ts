@@ -21,12 +21,11 @@ export class AutoLogoutService {
     }, this.CHECK_INTERVAL);
   }
 
-  checkSession(): void {
+  checkSession():any {
     
     const sessionData = this.signInservice.getSessionDetails();
-    
-
     if (!sessionData) {
+      return 'session has been expried'
       alert('session gor expired ! Pleae Login again')
       this.signInservice.clearSession();
       if(this.checkSessionIntervalId){

@@ -14,6 +14,10 @@ export class DashboradScreenComponent implements OnInit {
   selectedserviceToActive: any;
   serviceList: any;
   sericeIdToActive!: string ;
+  showSuccessAlertFlag:boolean=false;
+  showErrorAlertFlag:boolean=false;
+  alertMessage:string=''
+
 
 
   constructor(private autoLogoutService:AutoLogoutService,
@@ -23,7 +27,10 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.autoLogoutService.checkSession();
+    if(this.autoLogoutService.checkSession()=='session has been expried'){
+      this.showErrorAlertFlag=true;
+      this.alertMessage='Your session has been expried! Please Login again'
+    }
     this.serviceOperation.fetchServiceList().subscribe(data=>{
       this.serviceList=data;
     })
@@ -76,12 +83,16 @@ export class DashboradScreenComponent implements OnInit {
     this.serviceList=data;
     
     setTimeout(()=>{
-      alert(`you have requested for service ${service.title}`)
+       this.alertMessage=`you have requested for service ${service.title}`
+       this.showSuccessAlertFlag=true;
+       this.showErrorAlertFlag=false;
     },2500)
       
   },(error)=>{
     setTimeout(()=>{
-      alert(`We cant proceed your active request for ${service.title}`)
+      this.alertMessage=`We cant proceed your active request for ${service.title}`;
+      this.showErrorAlertFlag=true;
+      this.showSuccessAlertFlag=false;
     },2500)
   })
   this.openActiveServicePopUp=false;
@@ -95,12 +106,18 @@ handledeactiveservice(service:any){
     this.serviceList=data;
     
     setTimeout(()=>{
-      alert(`you request has been sent`)
+      // alert(`you request has been sent`)
+      this.alertMessage=`you request has been sent`
+       this.showSuccessAlertFlag=true;
+       this.showErrorAlertFlag=false;
     },2500)
       
   },(error)=>{
     setTimeout(()=>{
-      alert(`We cant proceed your request now`)
+      // alert(`We cant proceed your request now`)
+      this.alertMessage=`We cant proceed your request now`;
+      this.showErrorAlertFlag=true;
+      this.showSuccessAlertFlag=false;
     },2500)
   })
 
