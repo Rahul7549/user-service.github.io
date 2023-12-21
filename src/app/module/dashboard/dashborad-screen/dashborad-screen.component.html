@@ -6,7 +6,8 @@
     <app-survay-types 
     [toViewvScreen]="toViewvScreen"
     [serviceList]="serviceList"
-    (activeservice)="handleactiveservice($event)"></app-survay-types>
+    (activeservice)="handleactiveservice($event)"
+    (deactiveservice)="handledeactiveservice($event)"></app-survay-types>
 </div>
 
 
@@ -19,8 +20,8 @@
     <app-service-request-view 
     [selectedserviceToActive]="selectedserviceToActive"
     (closeActiveServicePopUpEvent)="closeActiveServicePopUpEvent($event)"
-    (sendServiceDeactiveRequest)="sendServiceDeactiveRequest($event)"
     (sendServiceActiveRequest)="sendServiceActiveRequest($event)"
+    
 
 ></app-service-request-view>
 </div>

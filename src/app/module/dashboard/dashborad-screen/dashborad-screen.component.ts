@@ -88,8 +88,10 @@ export class DashboradScreenComponent implements OnInit {
 }
 
 
-sendServiceDeactiveRequest(event:any){
-  this.serviceOperation.sendDeactiveRequest(event.id).subscribe((data:any)=>{
+
+
+handledeactiveservice(service:any){
+  this.serviceOperation.sendDeactiveRequest(service.id).subscribe((data:any)=>{
     this.serviceList=data;
     
     setTimeout(()=>{
@@ -101,7 +103,7 @@ sendServiceDeactiveRequest(event:any){
       alert(`We cant proceed your request now`)
     },2500)
   })
-  this.openActiveServicePopUp=false;
+
 }
 
 }

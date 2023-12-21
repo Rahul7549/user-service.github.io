@@ -11,6 +11,7 @@ export class SurvayTypesComponent implements OnInit{
   @Input() serviceList:any
   survatType:any
   @Output() activeservice:EventEmitter<any>=new EventEmitter()
+  @Output() deactiveservice:EventEmitter<any>=new EventEmitter()
 
   constructor(private serviceDetails:ServiceOperationService){
 
@@ -26,6 +27,10 @@ export class SurvayTypesComponent implements OnInit{
 
     activeService(service:any){
       this.activeservice.emit(service)
+    }
+
+    deactiveService(service:any){
+        this.deactiveservice.emit(service);
     }
 
 }
