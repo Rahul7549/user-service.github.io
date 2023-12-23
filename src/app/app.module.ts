@@ -14,10 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import {HashLocationStrategy,LocationStrategy} from '@angular/common'
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import {HashLocationStrategy,LocationStrategy} from '@angular/common'
     
     
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
+  providers: [DatePipe,{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

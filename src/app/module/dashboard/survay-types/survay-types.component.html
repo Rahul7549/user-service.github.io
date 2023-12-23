@@ -1,269 +1,350 @@
-
-
 <div class="survay-type-main">
-    <div class="survay-type-block">
-        <div class="survay-type-container" >
-            <span class="survay-title-section" style="margin-bottom: 25px;">
-                <span class="survay-title-container">
-                    <h3 class="title-text" *ngIf="toViewvScreen!='request-history'">
-                        What types of surveys and forms do you send?
-                    </h3>
-                    <h3 class="title-text" *ngIf="toViewvScreen=='request-history'">
-                      Service resquest History
-                  </h3> 
-                </span>
-            </span>
+  <div class="survay-type-block">
+    <div class="survay-type-container">
+      <span class="survay-title-section" style="margin-bottom: 25px;">
+        <span class="survay-title-container">
+          <h3 class="title-text" *ngIf="toViewvScreen!='request-history'">
+            What types of surveys and forms do you send?
+          </h3>
+          <h3 class="title-text" *ngIf="toViewvScreen=='request-history'">
+            Service resquest History
+          </h3>
+        </span>
+      </span>
 
 
-            <div class="request-History-container" style="max-height: 225px; overflow-y: scroll;" *ngIf="toViewvScreen=='request-history'">
-              <table>
-                <thead >
-                  <tr style="background-color: #010067;">
-                    <th style="width: 100px;">Serial No</th>
-                    <th style="width: 170px;">Title</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let service of serviceList;let i=index;" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
-                    <td>{{i+1}}</td>
-                    <td>{{service.title}}</td>
-                    <td>{{service.description}}</td>
-                    <td >
-                       <span class="badge" *ngIf="service.status=='active'" style="background-color: #007BFF;">{{service.status}}</span>
-                       <span class="badge" *ngIf="service.status=='pending'" style="background-color: #FFC107;">{{service.status}}</span>
-                       <span class="badge" *ngIf="service.status=='deactive'" style="background-color: #DC3545;">{{service.status}}</span>
+      <div class="request-History-container"
+        style="max-height: 225px; overflow-y: scroll;box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);"
+        *ngIf="toViewvScreen=='request-history'">
+        <table>
+          <thead>
+            <tr style="background-color: #010067;">
+              <th style="width: 100px;">Serial No</th>
+              <th style="width: 170px;">Title</th>
+              <th>Description</th>
+              <th style="width: 200px ">Requested On</th>
+              <th style="width: 110px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let service of requestedServiceList;let i=index;"
+              [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
+              <td>{{i+1}}</td>
+              <td style="color: #7003EC">{{service.title}}</td>
+              <td>{{service.description.length>65 ? service.description.slice(0,60)+'...':service.description}}
+                <a style="text-decoration: none;" *ngIf="service.description.length>65" class="description-text">view
+                  more
+                  <div class="desc-label">{{service.description}}</div>
+                </a>
+              </td>
+              <td><a style="color: #1037f4;">{{service.createdAt | date :'mediumDate'}}</a></td>
+              <td>
+                <span class="badge" *ngIf="service.status=='active'"
+                  style="background-color: #007BFF;">{{service.status}}</span>
+                <span class="badge" *ngIf="service.status=='pending'"
+                  style="background-color: #FFC107;">{{service.status}}</span>
+                <span class="badge" *ngIf="service.status=='deactive'"
+                  style="background-color: #DC3545;">{{service.status}}</span>
 
-                    </td>
-                  </tr>
-                  
-                  <!-- Add more rows as needed -->
-                </tbody>
-              </table>
+              </td>
+            </tr>
 
-            </div>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+      <div class="request-History-card-container" style="max-height: 225px; overflow-y: scroll; overflow-x: hidden;"
+        *ngIf="toViewvScreen=='request-history'">
 
-           
-            <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;" *ngIf="toViewvScreen!='request-history'">
-                <div class="col-lg-3 col-md-3 col-sm-4   my-1 mx-0" style="padding-bottom: 10px; padding-top: 5px;" *ngFor="let product of survatType">
-                  
-                  <div class="card text-center" style="width: 100%;">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                            {{product.title}}
-                      </h5>
-                      <p class="card-text">
-                      </p>
-                      
-                      <div class="row">
-                        <div class="col-6 text-start">
-                        </div>
-                        <div class="col-6 text-end">
-                        </div>
-                      </div>
-                    </div>
-              
-                    
-              
-                  </div>
-              
-                  
-                  
-              
+        <div class="row d-flex" style="text-align: center;padding-top: 20px; padding-right: 20px;">
+          <div class="col-md-6 col-lg-4 col-sm-6   my-1 mx-0" style="padding-bottom: 10px; padding-top: 5px;"
+            *ngFor="let service of requestedServiceList">
+
+            <div class="card text-center"
+              style="width: 100%;background: none; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.14);">
+              <div class="card-body requested-service-caed">
+                <div class="header">
+                  <h5 class="card-title-text" style="color: #7003EC">
+                    {{service.title}}
+                  </h5>
+                  <span>
+                    <span class="badge" *ngIf="service.status=='active'"
+                      style="background-color: #007BFF;">{{service.status}}</span>
+                    <span class="badge" *ngIf="service.status=='pending'"
+                      style="background-color: #FFC107;">{{service.status}}</span>
+                    <span class="badge" *ngIf="service.status=='deactive'"
+                      style="background-color: #DC3545;">{{service.status}}</span>
+                  </span>
                 </div>
-              
-                
+                <p style="justify-content: left;display: flex; gap: 10px;">Requested On: <span
+                    style="color: #1037f4;">{{service.createdAt | date :'mediumDate'}}</span></p>
+
+
+                <p class="card-text">
+                  {{service.description.length>125 ? service.description.slice(0,120)+'...':service.description}}
+                  <a style="text-decoration: none;" *ngIf="service.description.length>125" class="description-text">view
+                    more
+                    <div class="desc-label">{{service.description}}</div>
+                  </a>
+                </p>
+
+                <div class="row">
+                  <div class="col-6 text-start">
+                  </div>
+                  <div class="col-6 text-end">
+                  </div>
+                </div>
               </div>
 
-            
-        </div>
-    </div>
-    <span style="display: block;
-    height: 10px;
-    position: relative;
-    background-color: #F8F9FA;
-    width: 100%;" >
-        <hr style="position: relative; display: inline-block; width: 20%; top: -15px;" class="hr-line">
-    </span>
 
-    <div class="summary-actions-section">
 
-      <div class="projectsHeaderWrapper">
-        <div class="projectHeaderTitle">
-          <div>
-           <h1 class="title-text-1">Home</h1>
-          </div>
-
-          <div class="toggle-new-page">
-            <span class="home-page-label">New home page</span>
-            <div class="new-homw-page-toogle-section">
-              <img class="new-page-toggle-btn"  src="assets/imgs/toggle-icon.png"/>
             </div>
+
+
+
+
           </div>
 
-          
-        </div>
 
-        <div class="projectHeaderOptions">
-          <div class="create-new-survay">
-            <a class="Create-survay-a" href="">
-              Create survay
-            </a>
-          </div>
-
-          <div class="inputGroupWrapper">
-            <span class="wrenchInputGroup">
-              <input class="wrenchInputSearch" type="text">
-            </span>
-            <span class="wrenchButton">Search</span>
-          </div>
         </div>
 
       </div>
 
-      <div class="projectWrapper" style="position: relative; width: 98%;border-right: 1px solid #D0D2D3; padding-right: 5px;">
-    
-        <div style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
-          <span class="all-survay-title">All Survay</span>
-          <span class="toggle-menu-column-icon-section">
-            <span style="display: inline-flex;gap:3px">
-              <i class="bi bi-list "  style="padding-right: 6px;font-size: 26px;background-color: rgb(208, 210, 211);padding-left: 6px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
-              <i class="bi bi-grid" style="padding-left: 6px; font-size: 26px;background-color: rgb(100, 112, 119);padding-right: 6px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
-            </span>
-          </span>
+
+      <div class="row d-flex row-cols-lg-12 row-cols-md-6" style="text-align: center;padding-top: 20px;"
+        *ngIf="toViewvScreen!='request-history'">
+        <div class="col-lg-3 col-md-3 col-sm-4   my-1 mx-0" style="padding-bottom: 10px; padding-top: 5px;"
+          *ngFor="let product of survatType">
+
+          <div class="card text-center" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{product.title}}
+              </h5>
+              <p class="card-text">
+              </p>
+
+              <div class="row">
+                <div class="col-6 text-start">
+                </div>
+                <div class="col-6 text-end">
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+
 
         </div>
 
-        <div class="project-card-container" style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
-          <div class="row d-flex " style="text-align: center;padding-top: 20px;">
-            <div class=" col-md-6 col-lg-4 col-sm-6    my-1 mx-0" style="padding-bottom: 30px;" *ngFor="let service of serviceList">
-              
-              <div class="survay-card" style="width: 90%; display: block;">
-                <div class="survay-card-body">
 
-                  <!-- <span class="optionSection">
+      </div>
+
+
+    </div>
+  </div>
+  <span style="display: block;
+    height: 10px;
+    position: relative;
+    background-color: #F8F9FA;
+    width: 100%;">
+    <hr style="position: relative; display: inline-block; width: 20%; top: -15px;" class="hr-line">
+  </span>
+
+  <div class="summary-actions-section">
+
+    <div class="projectsHeaderWrapper">
+      <div class="projectHeaderTitle">
+        <div>
+          <h1 class="title-text-1">Home</h1>
+        </div>
+
+        <div class="toggle-new-page">
+          <span class="home-page-label">New home page</span>
+          <div class="new-homw-page-toogle-section">
+            <img class="new-page-toggle-btn" src="assets/imgs/toggle-icon.png" />
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="projectHeaderOptions">
+        <div class="create-new-survay">
+          <a class="Create-survay-a" href="">
+            Create survay
+          </a>
+        </div>
+
+        <div class="inputGroupWrapper">
+          <span class="wrenchInputGroup">
+            <input class="wrenchInputSearch" type="text">
+          </span>
+          <span class="wrenchButton">Search</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projectWrapper"
+      style="position: relative; width: 98%;border-right: 1px solid #D0D2D3; padding-right: 5px;">
+
+      <div style="display: flex;padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
+        <span class="all-survay-title">All Survay</span>
+        <span class="toggle-menu-column-icon-section">
+          <span style="display: inline-flex;gap:3px">
+            <i class="bi bi-list "
+              style="padding-right: 6px;font-size: 26px;background-color: rgb(208, 210, 211);padding-left: 6px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
+            <i class="bi bi-grid"
+              style="padding-left: 6px; font-size: 26px;background-color: rgb(100, 112, 119);padding-right: 6px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 2px;padding-bottom: 2px;"></i>
+          </span>
+        </span>
+
+      </div>
+
+      <div class="project-card-container"
+        style="padding-top: 10px;padding-bottom: 10px;position: relative; width: 100%;">
+        <div class="row d-flex " style="text-align: center;padding-top: 20px;">
+          <div class=" col-md-6 col-lg-4 col-sm-6    my-1 mx-0" style="padding-bottom: 30px;"
+            *ngFor="let service of serviceList">
+
+            <div class="survay-card" style="width: 90%; display: block;">
+              <div class="survay-card-body">
+
+                <!-- <span class="optionSection">
                     <i class="bi bi-three-dots"></i>
                   </span> -->
 
-                  <span class="type-your-title-here-section">
-                    <h1 class="type-title-label">{{service.title}}</h1>
-                    <p>Modified on 12/01/2023</p>
-                  </span>
+                <span class="type-your-title-here-section">
+                  <h1 class="type-title-label">{{service.title}}</h1>
+                  <!-- <p>Modified on 12/01/2023</p> -->
+                </span>
 
-                  <span class="survay-status-block">
-                    <p>{{service.description}}</p>
-                    <!-- <strong style="margin-bottom: 0px;">Draft</strong>
+                <span class="survay-status-block">
+                  <p>{{service.description.length>125 ? service.description.slice(0,120)+'...':service.description}}
+                    <a style="text-decoration: none;" *ngIf="service.description.length>125" class="description-text">view
+                      more
+                      <div class="desc-label">{{service.description}}</div>
+                    </a></p>
+                  <!-- <strong style="margin-bottom: 0px;">Draft</strong>
                     <span class="survay-status-content">
                       <img src="assets/imgs/green-tick.jpg" height="20px" width="30px" alt="">
                       <p>No issue</p>
                     </span> -->
+                </span>
+
+
+                <span class="active-service-btn">
+
+                  <span class="send-survay-btn">
+                    <a class="survay-btn-text" (click)="activeService(service)">Active</a>
+                    <!-- <a class="survay-btn-text" *ngIf="service.status=='active'" (click)="deactiveService(service)">Deactive</a> -->
                   </span>
 
+                </span>
 
-                  <span class="active-service-btn">
 
-                    <span class="send-survay-btn">
-                      <a class="survay-btn-text" *ngIf="service.status=='deactive'" (click)="activeService(service)">Active</a>
-                      <a class="survay-btn-text" *ngIf="service.status=='active'" (click)="deactiveService(service)">Deactive</a>
-                    </span>
 
-                  </span>
-                  
-
-                 
-                </div>
-                
-          
-                
-          
               </div>
-          
-              
-              
-          
-            </div>
-          
-            
-          </div> 
-        </div>
 
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+
+        </div>
       </div>
 
-      <div class="sidebar">
-            <div class="guidancePanel">
-              <div class="adwrapper">
-                 <span class="addicon">
-                  <img src="assets/imgs/adwraper-icon.png" alt="">
-                 </span>
+    </div>
 
-                 <h3 class="addtitle">
-                    <b>
-                      New: Uncover what people value most with MaxDiff
-                    </b>
-                 </h3>
-                 <div class="wrenchTypography">
-                  Test attributes, features, or products with real audiences. Get industry-standard
-                   analyses and actionable data in an easy-to-understand format.
-                 </div>
-                 <a class="wrenchButton" href="">Explore MaxDiff</a>
-              </div>
-            </div>
+    <div class="sidebar">
+      <div class="guidancePanel">
+        <div class="adwrapper">
+          <span class="addicon">
+            <img src="assets/imgs/adwraper-icon.png" alt="">
+          </span>
 
-            <div class="guidancePanel">
-              <div class="adwrapper">
-                 <span class="addicon more-icon">
-                  <img src="assets/imgs/get-more-icon.png" alt="">
-                 </span>
+          <h3 class="addtitle">
+            <b>
+              New: Uncover what people value most with MaxDiff
+            </b>
+          </h3>
+          <div class="wrenchTypography">
+            Test attributes, features, or products with real audiences. Get industry-standard
+            analyses and actionable data in an easy-to-understand format.
+          </div>
+          <a class="wrenchButton" href="">Explore MaxDiff</a>
+        </div>
+      </div>
 
-                 <h3 class="addtitle">
-                    <b>
-                      Get more with a paid plan
-                    </b>
-                 </h3>
-                 <div class="wrenchTypography">
-                  <ul>
-                    <li class="wrenchTypography">Get more responses</li>
-                    <li class="wrenchTypography">Use advanced question types</li>
-                    <li class="wrenchTypography">Collaborate with others</li>
-                  </ul>
-                  <!-- Test attributes, features, or products with real audiences. Get industry-standard
+      <div class="guidancePanel">
+        <div class="adwrapper">
+          <span class="addicon more-icon">
+            <img src="assets/imgs/get-more-icon.png" alt="">
+          </span>
+
+          <h3 class="addtitle">
+            <b>
+              Get more with a paid plan
+            </b>
+          </h3>
+          <div class="wrenchTypography">
+            <ul>
+              <li class="wrenchTypography">Get more responses</li>
+              <li class="wrenchTypography">Use advanced question types</li>
+              <li class="wrenchTypography">Collaborate with others</li>
+            </ul>
+            <!-- Test attributes, features, or products with real audiences. Get industry-standard
                    analyses and actionable data in an easy-to-understand format. -->
-                 </div>
-                 <a class="seeMorePlan-btn" href="">See plans</a>
-              </div>
-            </div>
+          </div>
+          <a class="seeMorePlan-btn" href="">See plans</a>
+        </div>
+      </div>
 
-            <div class="Sidebar__GuidanceSection">
-              <h3 class="wrenchTypography-header">
-                <b>Tips to get you started</b>
-              </h3>
-              <ul class="helpLinks-block">
-                <li style="padding-bottom: 10px;">
-                  <a class="wrenchTypography-link" href="https://www.surveymonkey.com/curiosity/good-survey-questions/">What to know about creating good survey questions</a>
-                </li>
-                <li style="padding-bottom: 10px;">
-                  <a class="wrenchTypography-link" href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
-                    Survey length best practices, according to our research
-                  </a>
-                </li>
-                <li style="padding-bottom: 10px;">
-                  <a class="wrenchTypography-link" href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
-                    What’s the best time to send your survey?
+      <div class="Sidebar__GuidanceSection">
+        <h3 class="wrenchTypography-header">
+          <b>Tips to get you started</b>
+        </h3>
+        <ul class="helpLinks-block">
+          <li style="padding-bottom: 10px;">
+            <a class="wrenchTypography-link" href="https://www.surveymonkey.com/curiosity/good-survey-questions/">What
+              to know about creating good survey questions</a>
+          </li>
+          <li style="padding-bottom: 10px;">
+            <a class="wrenchTypography-link"
+              href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
+              Survey length best practices, according to our research
+            </a>
+          </li>
+          <li style="padding-bottom: 10px;">
+            <a class="wrenchTypography-link"
+              href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
+              What’s the best time to send your survey?
 
-                  </a>
-                </li>
+            </a>
+          </li>
 
-                <li style="padding-bottom: 10px;">
-                  <a class="wrenchTypography-link" href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
-                    5 tips for using screening questions in your survey
+          <li style="padding-bottom: 10px;">
+            <a class="wrenchTypography-link"
+              href="https://www.surveymonkey.com/curiosity/what-our-latest-research-uncovered-about-survey-length/">
+              5 tips for using screening questions in your survey
 
-                  </a>
-                </li>
-              </ul>
-            </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 
 
 </div>

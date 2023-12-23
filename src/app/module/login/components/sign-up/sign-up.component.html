@@ -10,90 +10,117 @@
 
     <div class="sign-up-block">
 
-        <div class="sign-up container">
+        <div class="sign-up-container">
             <span class="login-sec">
                 <span class="have-acc">Already have an account?</span>
-                <a class="login-btn" (click)="openSignInPage()">logi in</a>
+                <a class="login-btn" (click)="openSignInPage()">Sign in</a>
 
             </span>
             <span class="create-account-btn">Create an account</span>
+            
             <span style="padding-left: 32px;
-            padding-right: 32px;">
+            padding-right: 32px;" [ngClass]="signUpFormView?'':'hideSignUPform'">
 
-                <form [formGroup]="signUpForm" (ngSubmit)="doSignUp()">
+                <form [formGroup]="signUpForm" (ngSubmit)="submitSignUPForm()">
 
                     <div class="signup-field">
                         <span class="enter-email">
                             <label class="Email-address-label" for="name">Name</label>
                             <br />
                             <input formControlName="name" id="name" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUpForm.get('name')?.hasError('required')&&signUpForm.get('name')?.touched">
+                            <small style="color: red;" *ngIf="signUpForm.get('name')?.hasError('required')&&signUpForm.get('name')?.touched">
                                 Name is required.
-                            </div>
+                            </small>
+                            <div style="color: red;" *ngIf="signUpForm.get('name')?.hasError('invalidName')">
+                                Please enter a valid name (letters and spaces only).
+                              </div>
+                            
                         </span>
                         <span class="enter-email">
                             <label class="Email-address-label" for="city">City</label>
                             <br />
                             <input formControlName="city" id="city" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUpForm.get('city')?.hasError('required')&&signUpForm.get('city')?.touched">
+                            <small style="color: red;" *ngIf="signUpForm.get('city')?.hasError('required')&&signUpForm.get('city')?.touched">
                                 City is required.
-                            </div>
+                            </small>
+                            <small class="text-danger" *ngIf="signUpForm.get('city')?.hasError('addressStartsWithNumber')">
+                                Address can't start with number.
+                            </small>
                         </span>
                         <span class="enter-email">
-                            <label class="Email-address-label" for="phone">Phone</label>
+                            <label class="Email-address-label" for="phone" type="tel">Phone</label>
                             <br />
                             <input formControlName="phone" id="phone" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('required')&&signUpForm.get('phone')?.touched">
+                            <small style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('required')&&signUpForm.get('phone')?.touched">
                                 phone is required.
-                            </div>
-                            <div style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('minlength')&&signUpForm.get('phone')?.touched">
+                            </small>
+                            <!-- <small style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('minlength')&&signUpForm.get('phone')?.touched">
                                 PhoneNumber must be 10 digit.
-                              </div>
+                              </small> -->
+                              <small class="text-danger" *ngIf="signUpForm.get('phone')?.hasError('invalidPhoneNumber')">
+                                Please enter a valid 10-digit phone number.
+                              </small>
                         </span>
                         <span class="enter-email">
-                            <label class="Email-address-label" for="Email-address">Email address</label>
+                            <label class="Email-address-label" for="Email-address" type="email">Email address</label>
                             <br />
                             <input formControlName="emailId" id="Email-address" width="100%" type="text">
-                            <div style="color: red;" *ngIf="signUpForm.get('emailId')?.hasError('required')&&signUpForm.get('emailId')?.touched">
+                            <small style="color: red;" *ngIf="signUpForm.get('emailId')?.hasError('required')&&signUpForm.get('emailId')?.touched">
                                 Email must is required.
-                            </div>
+                            </small>
+                            <small class="text-danger" *ngIf="signUpForm.get('emailId')?.hasError('invalidEmail') && !signUpForm.get('emailId')?.hasError('required') && signUpForm.get('emailId')?.touched">
+                                Please enter a valid email address.
+                            </small>
                         </span>
                         <span class="enter-email">
                             <label class="Email-address-label" for="password">Password</label>
                             <br />
                             <input formControlName="password" id="password" width="100%" type="password">
-                            <div style="color: red;" *ngIf="signUpForm.get('password')?.hasError('required')&&signUpForm.get('password')?.touched">
+                            <small style="color: red;" *ngIf="signUpForm.get('password')?.hasError('required')&&signUpForm.get('password')?.touched">
                                 Password is required.
-                            </div>
-                            <div style="color: red;" *ngIf="signUpForm.get('password')?.hasError('minlength')&&signUpForm.get('password')?.touched">
-                                Password must be at least 8 charecter.
-                              </div>
+                            </small>
+
+                            <small class="text-danger" *ngIf="signUpForm.get('password')?.hasError('invalidPassword') && !signUpForm.get('password')?.hasError('required')">
+                                Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                              </small>
+
+                            <!-- <div style="color: red;" *ngIf="signUpForm.get('password')?.hasError('minlength')&&signUpForm.get('password')?.touched">
+                                Password must be at least 8 character.
+                              </div> -->
                         </span>
                         <span class="enter-email">
                             <label class="Email-address-label" for="conform-password">Conform Password</label>
                             <br />
-                            <input formControlName="conformPassword" id="conform-password" width="100%" type="password">
-                            <div style="color: red;" *ngIf="signUpForm.get('conformPassword')?.hasError('required')&&signUpForm.get('conformPassword')?.touched">
-                                Password is required.
-                            </div>
-                            <div style="color: red;" *ngIf="signUpForm.get('conformPassword')?.hasError('minlength')
-                            &&signUpForm.get('conformPassword')?.touched">
-                                Password must be at least 8 charecter.
-                            </div>
+                            <input formControlName="conformPassword" (change)="conformPasswordCheck()" id="conform-password" width="100%" type="password">
+                            <small style="color: red;" *ngIf="signUpForm.get('conformPassword')?.hasError('required')&&signUpForm.get('conformPassword')?.touched">
+                                Conform Password is required.
+                            </small>
+                            <!-- passwordMisMatchFlag -->
+                            <div class="text-danger" *ngIf="signUpForm.get('conformPassword')?.hasError('mismatchedPasswords') && signUpForm.get('conformPassword')?.touched&&signUpForm.get('conformPassword')?.touched">
+                                Passwords do not match.
+                              </div>
                         </span>
-                        <span class="signup-condition-1">
-                            <input class="signup-condition-checkbox-1" formControlName="firstTermCondition" type="checkbox">
-                            <span class="tcondition-1">You agree to the
-                                <a class="" style="text-decoration: none;"
-                                    href="https://www.surveymonkey.com/mp/legal/terms-of-use/" target="_blank">
-                                    Terms of Use</a>
-                                and
-                                <a class="" style="text-decoration: none;"
-                                    href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
-                                    Privacy Notice</a>.
+                        <span style="display: grid;">
+                            <span class="signup-condition-1">
+                                <input class="signup-condition-checkbox-1" formControlName="firstTermCondition" type="checkbox">
+                                <span class="tcondition-1">You agree to the
+                                    <a class="" style="text-decoration: none;"
+                                        href="https://www.surveymonkey.com/mp/legal/terms-of-use/" target="_blank">
+                                        Terms of Use</a>
+                                    and
+                                    <a class="" style="text-decoration: none;"
+                                        href="https://www.surveymonkey.com/mp/legal/privacy/" target="_blank">
+                                        Privacy Notice</a>.
+                                </span>
                             </span>
-                        </span>
+                            <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('firstTermCondition')?.hasError('required')&&signUpForm.get('firstTermCondition')?.touched">
+                                You must agree to the terms and conditions.
+                            </small>
 
+                        </span>
+                        
+                        
+                        <span style="display: grid;">
                         <span class="signup-condition-1">
                             <input class="signup-condition-checkbox-1" formControlName="secondTermCondition"
                                 type="checkbox">
@@ -102,10 +129,35 @@
                                 You can opt-out of these emails in your My Account page anytime.
                             </span>
                         </span>
-                        <button class="signup-next-btn" type="submit" [disabled]="signUpForm.invalid" >Sign Up</button>
+                        <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('secondTermCondition')?.hasError('required')&&signUpForm.get('secondTermCondition')?.touched">
+                          Please agree the product promotions via email.
+                        </small>
+                    </span>
+                        <button class="signup-next-btn" type="submit" >Submit</button>
                     </div>
                 </form>
             </span>
+
+            <span style="padding-left: 32px;
+            padding-right: 32px;" [ngClass]="signUpFormView?'hideOTPform':''">
+                    <div class="signup-field">
+                        <span class="enter-email">
+                            <label class="Email-address-label" for="name">Enter OTP</label>
+                            <br />
+                            <input  id="name" [(ngModel)]="otpValue" width="100%" type="text">
+                            <small style="color: red;" *ngIf="wrongOtpFlag">
+                                Please enter OTP.
+                            </small>
+                            <br>
+                            <small style="color: red;" *ngIf="generatedOTP!=undefined">
+                                otp: {{generatedOTP}}
+                            </small>
+                            
+                        </span>
+                        <button class="signup-next-btn" type="submit" (click)="submitOTP()" >Sign Up</button>
+                    </div>
+            </span>
+
             <hr class="hr-line">
 
             <div class="footer-signup-opton">

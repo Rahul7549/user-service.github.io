@@ -8,14 +8,16 @@
     /* height: 100vh; */
     padding-top: 25px;
     padding-bottom: 50px;
+    height: 100vh;
+    overflow: scroll;
 }
 
 .sign-up-block{
     width: 450px;
     background-color: #FFFFFF;
-    height: 1050px;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    /* height:fit-content; */
+    /* padding-top: 20px; */
+    /* padding-bottom: 30px; */
     /* padding-top: 50px; */
 
 }
@@ -197,11 +199,11 @@
 }
 
 .hr-line{
-    width: calc(100% + 24px);
+    /* width: calc(100% + 24px); */
     border: none;
-    margin: -8px;
+    /* margin: -8px; */
     padding: 0;
-    left: -4px;
+    /* left: -4px; */
     border-bottom: 1px solid black;
     position: relative;
 }
@@ -211,6 +213,7 @@
 .footer-signup-opton{
     padding-left: 32px;
     padding-right: 32px;
+    padding-top: 12px;
     /* background-color: blue;
     display: block;
     height: 30px;
@@ -302,4 +305,20 @@
     -webkit-font-smoothing: antialiased;
     font-size: 12px;
     text-align: center;
+}
+
+.hideSignUPform{
+    display: none;
+}
+
+.hideOTPform{
+    display: none;
+}
+
+.sign-up-container{
+    display: grid;
+    background-color: #FFFFFF;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 30px
 }

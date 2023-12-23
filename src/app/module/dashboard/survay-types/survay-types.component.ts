@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ServiceOperationService } from '../../service/service/service-operation.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-survay-types',
@@ -9,11 +10,13 @@ import { ServiceOperationService } from '../../service/service/service-operation
 export class SurvayTypesComponent implements OnInit{
   @Input() toViewvScreen:string='';
   @Input() serviceList:any
+  @Input() requestedServiceList:any;
   survatType:any
   @Output() activeservice:EventEmitter<any>=new EventEmitter()
   @Output() deactiveservice:EventEmitter<any>=new EventEmitter()
 
-  constructor(private serviceDetails:ServiceOperationService){
+  constructor(private serviceDetails:ServiceOperationService,
+    private datePipe: DatePipe){
 
   }
   

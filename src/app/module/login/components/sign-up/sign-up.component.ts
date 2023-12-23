@@ -3,6 +3,8 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SignInService } from '../../sign-in.service';
+import { nameValidator,addressValidator,phoneNumberValidator,emailValidator,
+  passwordValidator,confirmPasswordValidator } from 'src/app/module/share/validator/validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +13,11 @@ import { SignInService } from '../../sign-in.service';
 })
 export class SignUpComponent implements OnInit{
   signUpForm!: FormGroup;
-  generateOtp!:number
+  passwordMisMatchFlag: boolean=false;
+  otpValue!:number
+  generatedOTP!:number
+  signUpFormView:boolean=true;
+  wrongOtpFlag: boolean=false;
 
   constructor(private router :Router,
     private route: ActivatedRoute,
@@ -19,14 +25,14 @@ export class SignUpComponent implements OnInit{
     private signInService:SignInService){
 
     this.signUpForm = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email]],
-      name:['',[Validators.required]],
-      phone:['',[Validators.minLength(10), Validators.required]],
-      city:['',[Validators.required]],
-      password:['',[Validators.minLength(8), Validators.required]],
-      conformPassword:['',[Validators.minLength(8),Validators.required]],
-      secondTermCondition:[false,[Validators.required]],
-      firstTermCondition:[false,[Validators.required]]
+      emailId: ['', [Validators.required, Validators.email,emailValidator()]],
+      name:['',[Validators.required,nameValidator()]],
+      phone:['',[Validators.minLength(10), Validators.required,phoneNumberValidator()]],
+      city:['',[Validators.required,addressValidator()]],
+      password:['',[Validators.minLength(8), Validators.required,passwordValidator()]],
+      conformPassword:['',[Validators.minLength(8),Validators.required,confirmPasswordValidator('password')]],
+      secondTermCondition:[,[Validators.required]],
+      firstTermCondition:[,[Validators.required]]
     });
   
   }
@@ -43,35 +49,65 @@ export class SignUpComponent implements OnInit{
     // this.enterEmailFlag=false
   }
 
-  doSignUp(){
+  submitOTP(){
+    if(this.otpValue!=undefined&&this.otpValue==this.generatedOTP){
+    let userSignUpDetails={
+      name:this.signUpForm.get('name')?.value,
+      city:this.signUpForm.get('city')?.value,
+      email:this.signUpForm.get('emailId')?.value,
+      phone:this.signUpForm.get('phone')?.value,
+      zohoUser:false
 
-
-    if(!this.signUpForm.invalid){
-      let userSignUpDetails={
-        name:this.signUpForm.get('name')?.value,
-        city:this.signUpForm.get('city')?.value,
-        email:this.signUpForm.get('emailId')?.value,
-        phone:this.signUpForm.get('phone')?.value,
-        zohoUser:false
-
-      }
-      this.signInService.userSignUp(userSignUpDetails).subscribe(data=>{
-        let users=[]
-        users.push(data)
-        let userDetail={
-          info:'',
-          users:users
-        }
-        this.signInService.setSessionInSessionStorage(userDetail);
-        this.router.navigate(['home'])
-      })
-        
     }
-    // console.log(this.signUplForm.get('name')?.value);
+    this.signInService.userSignUp(userSignUpDetails).subscribe(data=>{
+      let users=[]
+      users.push(data)
+      let userDetail={
+        info:'',
+        users:users
+      }
+      this.signInService.setSessionInSessionStorage(userDetail);
+      this.router.navigate(['home'])
+    })
+  }
+  else{
+    this.wrongOtpFlag=true;
+  }
+
+  }
+
+  submitSignUPForm(){
+    if(!this.signUpForm.invalid){
+      setTimeout(()=>{
+        this.generatedOTP=Math.floor(100000 + Math.random() * 900000);
+      },3000) 
+      this.signUpFormView=false;
+    }
+    else{
+      this.markFormGroupTouched(this.signUpForm);
+    }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
+  }
+
+  conformPasswordCheck(){
+    console.log('method called');
     
-    console.log(this.signUpForm.value);
-    
-    // this.router.navigate(['home'])
+    if(this.signUpForm.get('password')?.value!=this.signUpForm.get('conformPassword')?.value){
+      this.passwordMisMatchFlag=true;
+    }
+    else{
+      this.passwordMisMatchFlag=false;
+
+    }
   }
 
   openSignInPage(){

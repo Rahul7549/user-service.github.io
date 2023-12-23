@@ -389,7 +389,7 @@
 
 .survay-card{
     border: 1px solid #EDEEEE;
-    min-height: 280px;
+    /* min-height: 280px; */
     margin: 0 12px;
     display: grid;
     padding: 16px;
@@ -431,6 +431,7 @@
     line-height: 32px;
     text-decoration: none;
     color: #7003EC;
+    line-height: 42px;
 }
 
 .type-title-label:hover{
@@ -670,11 +671,13 @@ thead tr th{
   }
 
 .even-row {
-    background-color: #f2f2f2; /* Set the background color for even rows */
+    background-color: #DAE1F2;
+    cursor: pointer; /* Set the background color for even rows */
   }
   /* If you want to set a different background color for odd rows, you can do it like this: */
 .odd-row {
-    background-color: #e6e6e6; /* Set the background color for odd rows */
+    background-color: #FFFFFF;
+    cursor: pointer; /* Set the background color for odd rows */
 }
   
 
@@ -684,4 +687,43 @@ thead tr th{
     width: 100%;
     position: relative;
    
+}
+
+.desc-label {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    opacity: 0px;
+    z-index: 999;
+  }
+
+  .description-text:hover .desc-label{
+    display: block;
+  }
+
+
+@media screen and (min-width:1000px) {
+    .request-History-card-container{
+        display: none;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .request-History-container{
+        display: none;
+    }
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.requested-service-caed:hover{
+    border: none;
+    background: none;
 }

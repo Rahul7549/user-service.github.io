@@ -69,8 +69,8 @@
                 <span *ngIf="acceptTermAndConditionFlag" style="color: red;text-align: left;">Please accept above Term and Condition</span>
 
                 <span style="margin-top: 20px;">
-                    <button class="activate-service-btn" *ngIf="selectedserviceToActive.status=='deactive'" (click)="sendActiveRequest()">Active</button>
-                    <button class="activate-service-btn" *ngIf="selectedserviceToActive.status=='active'" (click)="sendDeactiveRequest()">Deactive</button>
+                    <button class="activate-service-btn"  (click)="sendActiveRequest()">Active</button>
+                    <!-- <button class="activate-service-btn" (click)="sendDeactiveRequest()">Deactive</button> -->
                 </span>
             </span>
 

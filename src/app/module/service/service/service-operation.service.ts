@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../../../environments/environment'
+import {environment} from '../../../../environments/environment.development'
 @Injectable({
   providedIn: 'root'
 })
@@ -166,6 +166,10 @@ helpList:Array<any>=[
     return this.http.get(reqUrl)
   }
   
+  fetchRequestedService(){
+    let reqUrl=`${this.baseUrl}/requested-service`;
+    return this.http.get(reqUrl);
+  }
 
   fetchServiceById(servideId:number){
     return this.serviceList.find(service=> service.id==servideId)

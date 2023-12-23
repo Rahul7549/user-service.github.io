@@ -2,8 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AutoLogoutService } from './auto-logout.service';
 import { Router } from '@angular/router';
-import {environment} from 'src/environments/environment'
-// import { environment } from 'src/environments/environment.development';
+// import {environment} from 'src/environments/environment'
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'

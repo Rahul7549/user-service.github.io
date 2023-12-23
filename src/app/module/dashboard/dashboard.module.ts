@@ -7,6 +7,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ServiceRequestViewComponent } from './service-request-view/service-request-view.component';
 import { FormsModule } from '@angular/forms'; 
 import { ShareModule } from '../share/share.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ShareModule } from '../share/share.module';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
-  ]
+  ],
+  providers:[DatePipe]
 })
 export class DashboardModule { }

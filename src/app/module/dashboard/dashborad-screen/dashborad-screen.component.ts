@@ -17,6 +17,7 @@ export class DashboradScreenComponent implements OnInit {
   showSuccessAlertFlag:boolean=false;
   showErrorAlertFlag:boolean=false;
   alertMessage:string=''
+  requestedServiceList: any;
 
 
 
@@ -34,6 +35,7 @@ export class DashboradScreenComponent implements OnInit {
     this.serviceOperation.fetchServiceList().subscribe(data=>{
       this.serviceList=data;
     })
+    this.fetchRequestedService();
     if(this.route.snapshot.queryParamMap.get('serviceId')!=undefined||this.route.snapshot.queryParamMap.get('serviceId')!=null)
     {
       let serviceIs=this.route.snapshot.queryParamMap.get('serviceId');
@@ -43,6 +45,12 @@ export class DashboradScreenComponent implements OnInit {
       })
       
     }
+  }
+
+  fetchRequestedService(){
+    this.serviceOperation.fetchRequestedService().subscribe(data=>{
+      this.requestedServiceList=data;
+    })
   }
 
   ngOnChanges(changes:SimpleChange ){
@@ -80,14 +88,18 @@ export class DashboradScreenComponent implements OnInit {
 
   sendServiceActiveRequest(service:any){
   this.serviceOperation.sendActiveRequest(service.id).subscribe((data:any)=>{
-    this.serviceList=data;
-    
+    // this.serviceList=data;
+    this.fetchRequestedService();
     setTimeout(()=>{
        this.alertMessage=`you have requested for service ${service.title}`
        this.showSuccessAlertFlag=true;
        this.showErrorAlertFlag=false;
     },2500)
-      
+    
+    setTimeout(()=>{
+      this.fetchRequestedService();
+   },30000)
+
   },(error)=>{
     setTimeout(()=>{
       this.alertMessage=`We cant proceed your active request for ${service.title}`;

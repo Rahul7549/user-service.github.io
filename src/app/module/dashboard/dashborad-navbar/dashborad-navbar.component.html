@@ -30,8 +30,8 @@
             <nav class="right-nav-options" style="margin-left: 16px;"> 
 
                 <span class="upgrade-create-survay-section">
-                    <a class="upgrade-btn" href="">Upgrade</a>
-                    <a class="create-survay" href="">Create survey</a>
+                    <a class="upgrade-btn" >Upgrade</a>
+                    <a class="create-survay" >Create survey</a>
                 </span>
 
 
@@ -71,13 +71,13 @@
                         <span class="prf-droupdown-contain">
                             <ul class="droupdown-list-container">
                                 <li class="profile-droupdown-option-block">
-                                    <a class="droupdown-option" href="">My Account</a>
+                                    <a class="droupdown-option">My Account</a>
                                 </li>
                                 <li>
-                                    <a class="droupdown-option" href="">Library</a>
+                                    <a class="droupdown-option" >Library</a>
                                 </li>
                                 <li>
-                                    <a class="droupdown-option" href="">Contact</a>
+                                    <a class="droupdown-option" >Contact</a>
                                 </li>
                                 <li>
                                     <a class="droupdown-option" (click)="signOut()" >Sign Out</a>
@@ -111,14 +111,14 @@
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <a class="menue-left-option" href="/home">
+                <a class="menue-left-option" (click)="openProjectListView('')">
                     <span class="menu-option-label"> <b>Home</b></span>
                 </a>
             </li>
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <a class="menue-left-option" href="/home">
+                <a class="menue-left-option">
                     <span class="menu-option-label"> <b>Plans & Pricing</b></span>
                 </a>
             </li>
@@ -126,7 +126,7 @@
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <a class="menue-left-option" href="/home">
+                <a class="menue-left-option" (click)="openProjectListView('request-history')">
                     <span class="menu-option-label"> <b>Request</b></span>
                 </a>
             </li>
@@ -137,7 +137,7 @@
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <a class="menue-left-option" href="/home">
+                <a class="menue-left-option">
                     <span class="menu-option-label"> <b>Notification Center</b></span>
                 </a>
             </li>
@@ -146,7 +146,7 @@
             <li style="cursor: pointer;
             
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <div class="productNav-btn-option" (click)="togleProductList()" href="/home">
+                <div class="productNav-btn-option" (click)="togleProductList()" >
                     <span class="menu-nav-label"> <b>Products</b></span>
                     <span class="menue-exp-btn">
                         <i class="bi bi-chevron-down"></i>
@@ -171,7 +171,7 @@
             <li style="cursor: pointer;
             
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <div class="productNav-btn-option" (click)="togleHelpList()" href="/home">
+                <div class="productNav-btn-option" (click)="togleHelpList()" >
                     <span class="menu-nav-label"> <b>Help</b></span>
                     <span class="menue-exp-btn">
                         <i class="bi bi-chevron-down"></i>
@@ -204,7 +204,7 @@
             <li style="cursor: pointer;
             
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <div class="productNav-btn-option" (click)="toggleUserDrowpdown()" href="/home">
+                <div class="productNav-btn-option" (click)="toggleUserDrowpdown()" >
                     <span class="menu-nav-label"> <b>{{this.userDetails!=undefined&& this.userDetails.user!=undefined&&this.userDetails.user.users!=undefined&&this.userDetails.user.users[0].email ? this.userDetails.user.users[0].email:''}}</b></span>
                     <span class="menue-exp-btn">
                         <i class="bi bi-chevron-down"></i>
@@ -245,7 +245,7 @@
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);" (click)="signOut()">
-                <a class="menue-left-option" href="/home">
+                <a class="menue-left-option" >
                     <span class="menu-option-label"> <b>Sign Out</b></span>
                 </a>
             </li>
