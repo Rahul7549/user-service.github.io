@@ -10,6 +10,7 @@
     padding-bottom: 50px;
     height: 100vh;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .sign-up-block{
@@ -31,12 +32,14 @@
     font-size: 16px;
     line-height: 24px;
     height: 28px;
+    
 }
 
 .Eternia-label-main{
     display: flex;
-    justify-content: flex-start;
-    gap: 20px
+    /* justify-content: flex-start; */
+    gap: 20px;
+    justify-content: center;
 }
 
 .Eternia-label-text{
@@ -320,5 +323,7 @@
     background-color: #FFFFFF;
     height: auto;
     padding-top: 20px;
-    padding-bottom: 30px
+    padding-bottom: 30px;
+    padding-left: 22px;
+    padding-right: 22px;
 }

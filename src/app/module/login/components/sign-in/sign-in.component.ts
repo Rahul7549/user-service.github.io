@@ -37,8 +37,10 @@ export class SignInComponent implements OnInit {
     this.signInService.fetchuserDetail(this.emailId).subscribe((userDetail:any)=>{
 
       this.userDetails=userDetail;
+      console.log(this.userDetails);
       
-      if(this.userDetails==undefined||this.userDetails==undefined||this.userDetails.users.length==0){
+      
+      if(this.userDetails==undefined||this.userDetails.users==undefined||this.userDetails.users.length==0){
         this.userNotExist=true;
       }
       else{
