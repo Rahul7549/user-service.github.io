@@ -1,0 +1,14 @@
+name: create a database branch
+on: create
+  
+
+env:
+    PLANETSCALE_SERVICE_TOKEN_ID: ${{secrects.PLANETSCALE_SERVICE_ID}}
+    PLANETSCALE_SERVICE_TOKEN: ${{sectets.PLANETSCALE_SERVICE_TOKEN}}
+
+jobs:
+  create_a_branch:
+     runs-on: ubuntu-latest
+     steps:
+        - name: create database branch
+  
