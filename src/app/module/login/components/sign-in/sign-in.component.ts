@@ -48,13 +48,13 @@ export class SignInComponent implements OnInit {
           this.emptyEmailFlag=false;
           this.enterEmailFlag=false
           
-           if(this.userDetails.zohouser){
+          //  if(this.userDetails.zohouser){
               this.enterEmailFlag=false
 
             setTimeout(()=>{
               this.generateOtp=Math.floor(100000 + Math.random() * 900000);
             },3000)
-          }
+          // }
         
       }
 
@@ -75,7 +75,10 @@ export class SignInComponent implements OnInit {
         this.wrongPasswordFlag=true;
       }
     })
-  }else{
+  }
+  else{
+    console.log('otp submmited');
+    
     if(this.userEmailOtp!=undefined&&this.generateOtp!=undefined&&(this.userEmailOtp.toString()==this.generateOtp.toString())){
     this.router.navigate(['home'])
     this.signInService.setSessionInSessionStorage(this.userDetails);
@@ -89,7 +92,8 @@ export class SignInComponent implements OnInit {
 
 currectOTPPWD(){
   this.wrongPasswordFlag=false;
-  this.wrongPasswordFlag=false;
+  // this.wrongPasswordFlag=false;
+  this.wrongOtpFlag=false;
 }
   openSignUpPage(){
     this.router.navigate(['/sign-up'],{queryParams:{email:this.emailId}})

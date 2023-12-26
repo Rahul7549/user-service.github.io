@@ -36,6 +36,7 @@
                             <a>
                                 <span class="forgot-email-label">Forgot email ?</span>
                                 <span style="color: red; padding: 20px;" *ngIf="showOtp">User OTP: {{generateOtp}}</span>
+                                <small style="color: red; padding: 20px;" *ngIf="wrongOtpFlag">please enter the currect otp.</small>
                                 <small style="color: red; padding: 20px" *ngIf="wrongPasswordFlag">please try to login with correct credential</small>
                             </a>
                         </div>
