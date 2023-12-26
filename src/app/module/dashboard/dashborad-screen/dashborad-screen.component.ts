@@ -54,7 +54,7 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   ngOnChanges(changes:SimpleChange ){
-    console.log(this.route.snapshot.queryParamMap.get('serviceId'));
+    (this.route.snapshot.queryParamMap.get('serviceId'));
     
     if(this.route.snapshot.queryParamMap.get('serviceId')!=undefined||this.route.snapshot.queryParamMap.get('serviceId')!=null)
     {
@@ -70,7 +70,6 @@ export class DashboradScreenComponent implements OnInit {
 
   handleProjectListViewEvent(toView:string){
       this.toViewvScreen=toView;
-      console.log(this.toViewvScreen);
       
   }
 

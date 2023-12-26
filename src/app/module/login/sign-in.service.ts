@@ -84,8 +84,23 @@ export class SignInService implements OnInit {
 
   }
 
+  checkZohoUser(userEmail:string){
+    let payload={}
+    let requestUrl=`${this.baseUrl}/user/check-zoho-user?email=${userEmail}`
+    return this.http.post(requestUrl,payload)
+  }
+
   userSignUp(payload:any){
-    let requestUrl=`${this.baseUrl}/user`
+   
+    let requestUrl=`${this.baseUrl}/user/create-user`
+    return this.http.post(requestUrl,payload)
+  }
+
+  userSignIn(userEmail:string,userPassword:string){
+    let payload={
+      password:userPassword
+    }
+    let requestUrl=`${this.baseUrl}/user/login?email=${userEmail}`
     return this.http.post(requestUrl,payload)
   }
 

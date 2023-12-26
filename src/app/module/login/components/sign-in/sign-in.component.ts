@@ -14,10 +14,11 @@ export class SignInComponent implements OnInit {
   enterEmailFlag:boolean=true;
   emailId:string='';
   emptyEmailFlag:boolean=false;
-  userEmailOtp!:number
+  userEmailOtp!:string
   wrongOtpFlag!: boolean;
   userNotExist: boolean=false;
   showOtp: boolean=false;
+  wrongPasswordFlag: boolean=false;
 
   constructor(private router :Router,
     private signInService:SignInService,
@@ -34,39 +35,62 @@ export class SignInComponent implements OnInit {
   
 
    doNext(){ 
-    this.signInService.fetchuserDetail(this.emailId).subscribe((userDetail:any)=>{
-
-      this.userDetails=userDetail;
-      console.log(this.userDetails);
+    this.signInService.checkZohoUser(this.emailId).subscribe((userDetail:any)=>{
       
-      
-      if(this.userDetails==undefined||this.userDetails.users==undefined||this.userDetails.users.length==0){
+      if(userDetail.user==undefined){
         this.userNotExist=true;
+        
       }
       else{
-        console.log(this.userDetails);
-        this.showOtp=true;
-        this.userNotExist=false;
-        this.signInService.setSessionInSessionStorage(this.userDetails);
-        this.emptyEmailFlag=false;
-        this.enterEmailFlag=false
-        setTimeout(()=>{
-          this.generateOtp=Math.floor(100000 + Math.random() * 900000);
-        },3000)
+        this.userDetails=userDetail.user;
+          this.userNotExist=false;
+          this.showOtp=true;
+          this.emptyEmailFlag=false;
+          this.enterEmailFlag=false
+          
+           if(this.userDetails.zohouser){
+              this.enterEmailFlag=false
+
+            setTimeout(()=>{
+              this.generateOtp=Math.floor(100000 + Math.random() * 900000);
+            },3000)
+          }
+        
       }
 
     })
   }
 
-  doSignUp(){
-    if(this.userEmailOtp!=undefined&&this.generateOtp!=undefined&&(this.userEmailOtp==this.generateOtp)){
+  signIn(){
+    if(!this.userDetails.zohouser){
+    this.signInService.userSignIn(this.emailId,this.userEmailOtp).subscribe((data:any)=>{
+      this.userDetails=data.user;
+      this.signInService.setSessionInSessionStorage(this.userDetails);
+      this.router.navigate(['home']);
+      
+
+    },(error:any)=>{
+      
+      if(error.error.errors=='please try to login with correct credential'){
+        this.wrongPasswordFlag=true;
+      }
+    })
+  }else{
+    if(this.userEmailOtp!=undefined&&this.generateOtp!=undefined&&(this.userEmailOtp.toString()==this.generateOtp.toString())){
     this.router.navigate(['home'])
+    this.signInService.setSessionInSessionStorage(this.userDetails);
     }
     else{
       this.wrongOtpFlag=true
     }
   }
+}
 
+
+currectOTPPWD(){
+  this.wrongPasswordFlag=false;
+  this.wrongPasswordFlag=false;
+}
   openSignUpPage(){
     this.router.navigate(['/sign-up'],{queryParams:{email:this.emailId}})
   }

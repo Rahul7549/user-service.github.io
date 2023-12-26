@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
     }else{
       this.toview = toview;
     }
-    console.log(this.navbarNav);
+    (this.navbarNav);
     this.toggleNavbarCollapse();
     
     this.openPrizeCard.emit(this.toview);

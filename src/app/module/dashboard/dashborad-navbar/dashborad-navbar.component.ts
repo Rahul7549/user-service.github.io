@@ -36,6 +36,8 @@ export class DashboradNavbarComponent implements OnInit{
     else{
       let userDetails=sessionStorage.getItem('userSession')||''
       this.userDetails=  JSON.parse(userDetails);
+      this.userDetails=this.userDetails.user;
+      
 
     }
 
@@ -57,7 +59,7 @@ export class DashboradNavbarComponent implements OnInit{
     }else{
       this.activeNavbar=toView;
     }
-    console.log(this.activeNavbar);
+    (this.activeNavbar);
     
     this.projectListViewEvent.emit(this.activeNavbar)
     this.openSideMenueFlag=false;

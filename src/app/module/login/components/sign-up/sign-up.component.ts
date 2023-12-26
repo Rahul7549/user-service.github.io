@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit{
   generatedOTP!:number
   signUpFormView:boolean=true;
   wrongOtpFlag: boolean=false;
+  userAlreadyExistFlag: boolean=false;
 
   constructor(private router :Router,
     private route: ActivatedRoute,
@@ -56,17 +57,12 @@ export class SignUpComponent implements OnInit{
       city:this.signUpForm.get('city')?.value,
       email:this.signUpForm.get('emailId')?.value,
       phone:this.signUpForm.get('phone')?.value,
-      zohoUser:false
+      zohoUser:false,
+      password:this.signUpForm.get('password')?.value
 
     }
-    this.signInService.userSignUp(userSignUpDetails).subscribe(data=>{
-      let users=[]
-      users.push(data)
-      let userDetail={
-        info:'',
-        users:users
-      }
-      this.signInService.setSessionInSessionStorage(userDetail);
+    this.signInService.userSignUp(userSignUpDetails).subscribe((data:any)=>{
+      this.signInService.setSessionInSessionStorage(data.user);
       this.router.navigate(['home'])
     })
   }
@@ -78,17 +74,28 @@ export class SignUpComponent implements OnInit{
 
   submitSignUPForm(){
     if(!this.signUpForm.invalid){
-      console.log('valid',this.signUpForm);
+      this.signInService.checkZohoUser(this.signUpForm.get('emailId')?.value).subscribe((userDetail:any)=>{
+        if(userDetail.user==undefined){
+          setTimeout(()=>{
+            this.generatedOTP=Math.floor(100000 + Math.random() * 900000);
+          },3000) 
+          this.signUpFormView=false;
+          this.userAlreadyExistFlag=false;
+        }else{
+            this.userAlreadyExistFlag=true
+        }
+      })
       
-      setTimeout(()=>{
-        this.generatedOTP=Math.floor(100000 + Math.random() * 900000);
-      },3000) 
-      this.signUpFormView=false;
+      
     }
     else{
-      console.log('invalid',this.signUpForm);
       this.markFormGroupTouched(this.signUpForm);
     }
+  }
+
+
+  clearUserExistMSG(){
+    this.userAlreadyExistFlag=false;
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
@@ -102,7 +109,6 @@ export class SignUpComponent implements OnInit{
   }
 
   conformPasswordCheck(){
-    console.log('method called');
     
     if(this.signUpForm.get('password')?.value!=this.signUpForm.get('conformPassword')?.value){
       this.passwordMisMatchFlag=true;

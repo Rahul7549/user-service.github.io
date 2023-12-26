@@ -62,7 +62,7 @@
                 </span>
 
                 <span class="profile-email-section" (click)="openProfileDroupDown()" >
-                    <span class="profile-email-btn">{{this.userDetails!=undefined&& this.userDetails.user!=undefined&&this.userDetails.user.users!=undefined&&this.userDetails.user.users[0].email ? this.userDetails.user.users[0].email:''}}
+                    <span class="profile-email-btn">{{userDetails ? userDetails.email:'email not found'}}
                         <span style="margin-left: 8px;">
                             <i class="bi bi-caret-down-fill" style="font-size: 19px;"></i>
                         </span>
@@ -205,7 +205,8 @@
             
             border-bottom: 1px solid rgb(208, 210, 211);">
                 <div class="productNav-btn-option" (click)="toggleUserDrowpdown()" >
-                    <span class="menu-nav-label"> <b>{{this.userDetails!=undefined&& this.userDetails.user!=undefined&&this.userDetails.user.users!=undefined&&this.userDetails.user.users[0].email ? this.userDetails.user.users[0].email:''}}</b></span>
+                    <span class="menu-nav-label"> <b>{{userDetails ? userDetails.email:'email not found'}}
+                    </b></span>
                     <span class="menue-exp-btn">
                         <i class="bi bi-chevron-down"></i>
                     </span>

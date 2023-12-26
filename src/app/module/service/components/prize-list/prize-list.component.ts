@@ -10,7 +10,7 @@ export class PrizeListComponent implements OnInit{
   @Input() toViewvScreen:any
   
   ngOnInit(): void {
-    console.log('priceing list components called');
+    ('priceing list components called');
     
   }
 

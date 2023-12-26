@@ -70,12 +70,15 @@
                         <span class="enter-email">
                             <label class="Email-address-label" for="Email-address" type="email">Email address</label>
                             <br />
-                            <input formControlName="emailId" id="Email-address" width="100%" type="text">
+                            <input formControlName="emailId" (keyup)="clearUserExistMSG()" id="Email-address" width="100%" type="text">
                             <small style="color: red;" *ngIf="signUpForm.get('emailId')?.hasError('required')&&signUpForm.get('emailId')?.touched">
                                 Email must is required.
                             </small>
                             <small class="text-danger" *ngIf="signUpForm.get('emailId')?.hasError('invalidEmail') && !signUpForm.get('emailId')?.hasError('required') && signUpForm.get('emailId')?.touched">
                                 Please enter a valid email address.
+                            </small>
+                            <small style="color: red;" *ngIf="userAlreadyExistFlag">
+                                user already exist with this email.
                             </small>
                         </span>
                         <span class="enter-email">
