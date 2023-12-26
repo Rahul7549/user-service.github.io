@@ -69,7 +69,9 @@ export class NavbarComponent implements OnInit {
 
 
   toggleNavbarCollapse() {
+    if(window.innerWidth<970){
     document.getElementById('navbar-toggler-btn')?.click();
+    }
   }
 
   openProductView(toview: string) {

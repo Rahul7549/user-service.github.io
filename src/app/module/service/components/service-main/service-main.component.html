@@ -7,7 +7,7 @@
 
 <!-- <app-home-screen></app-home-screen> -->
 
-<div class="col" style="padding: 0px;" [ngClass]="openSidebarFlag? 'openSideMenu':''">
+<div class="col" style="padding: 0px;height: 100vh;overflow-y: scroll;" [ngClass]="openSidebarFlag? 'openSideMenu':''">
     <app-service-list [appliedFilterBy]="appliedFilterBy"
      [openServiceListFlag]="openServiceListFlag"
      [toView]="toView"
