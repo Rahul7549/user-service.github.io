@@ -50,7 +50,13 @@
                         <span class="enter-email">
                             <label class="Email-address-label" for="phone" type="tel">Phone</label>
                             <br />
+
+                            <span style="display: flex; justify-content:left;">
+                                <input type="text" style="border: none;width: 10%;" placeholder="+91">
                             <input formControlName="phone" id="phone" width="100%" type="text">
+                            </span>
+
+                            
                             <small style="color: red;" *ngIf="signUpForm.get('phone')?.hasError('required')&&signUpForm.get('phone')?.touched">
                                 phone is required.
                             </small>
@@ -113,7 +119,7 @@
                                         Privacy Notice</a>.
                                 </span>
                             </span>
-                            <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('firstTermCondition')?.hasError('required')&&signUpForm.get('firstTermCondition')?.touched">
+                            <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('firstTermCondition')?.hasError('mustBeTrue')&&signUpForm.get('firstTermCondition')?.touched">
                                 You must agree to the terms and conditions.
                             </small>
 
@@ -129,7 +135,7 @@
                                 You can opt-out of these emails in your My Account page anytime.
                             </span>
                         </span>
-                        <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('secondTermCondition')?.hasError('required')&&signUpForm.get('secondTermCondition')?.touched">
+                        <small style="color: red; padding-left: 33px;" *ngIf="signUpForm.get('secondTermCondition')?.hasError('mustBeTrue')&&signUpForm.get('secondTermCondition')?.touched">
                           Please agree the product promotions via email.
                         </small>
                     </span>

@@ -4,7 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SignInService } from '../../sign-in.service';
 import { nameValidator,addressValidator,phoneNumberValidator,emailValidator,
-  passwordValidator,confirmPasswordValidator } from 'src/app/module/share/validator/validator';
+  passwordValidator,confirmPasswordValidator,mustBeTrueValidator } from 'src/app/module/share/validator/validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -31,8 +31,8 @@ export class SignUpComponent implements OnInit{
       city:['',[Validators.required,addressValidator()]],
       password:['',[Validators.minLength(8), Validators.required,passwordValidator()]],
       conformPassword:['',[Validators.minLength(8),Validators.required,confirmPasswordValidator('password')]],
-      secondTermCondition:[,[Validators.required]],
-      firstTermCondition:[,[Validators.required]]
+      secondTermCondition:[,[Validators.required,mustBeTrueValidator()]],
+      firstTermCondition:[,[Validators.required,mustBeTrueValidator()]]
     });
   
   }
@@ -78,12 +78,15 @@ export class SignUpComponent implements OnInit{
 
   submitSignUPForm(){
     if(!this.signUpForm.invalid){
+      console.log('valid',this.signUpForm);
+      
       setTimeout(()=>{
         this.generatedOTP=Math.floor(100000 + Math.random() * 900000);
       },3000) 
       this.signUpFormView=false;
     }
     else{
+      console.log('invalid',this.signUpForm);
       this.markFormGroupTouched(this.signUpForm);
     }
   }

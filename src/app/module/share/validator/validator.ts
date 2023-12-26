@@ -36,7 +36,7 @@ export function phoneNumberValidator(): ValidatorFn {
         return { required: true };
       }
       // Define a regular expression for a 10-digit phone number that does not start with zero
-      const phoneRegex = /^[0-9]{10}$/;
+      const phoneRegex = /^[6-9]\d{9}$/;
   
       // Check if the phone number matches the pattern
       const isValid = phoneRegex.test(value);
@@ -97,4 +97,12 @@ export function phoneNumberValidator(): ValidatorFn {
   
       return isValid ? null : { mismatchedPasswords: true };
     };
+}
+
+
+export function mustBeTrueValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const value = control.value;
+    return value === true ? null : { mustBeTrue: { valid: false } };
+  };
 }
