@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-prize-list',
@@ -7,7 +7,11 @@ import { Component,OnInit } from '@angular/core';
 })
 export class PrizeListComponent implements OnInit{
   selectedPlanOption:string='Team Plans';
+  @Input() toViewvScreen:any
   
   ngOnInit(): void {
+    console.log('priceing list components called');
+    
   }
+
 }

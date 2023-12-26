@@ -57,6 +57,7 @@ export class DashboradNavbarComponent implements OnInit{
     }else{
       this.activeNavbar=toView;
     }
+    console.log(this.activeNavbar);
     
     this.projectListViewEvent.emit(this.activeNavbar)
     this.openSideMenueFlag=false;

@@ -19,7 +19,7 @@
                         <a class="nav-home-btn" (click)="openHomePage()" [ngClass]="activeNavbar==''?'active-nav-btn' :''">Home</a>
                     </li>
                     <li>
-                        <a class="nav-paln-pricing-btn" >Plans & Pricing</a>
+                        <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='prize-list'?'active-nav-btn' :''" (click)="openProjectListView('prize-list')" >Plans & Pricing</a>
                     </li>
                     <li>
                         <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='request-history'?'active-nav-btn' :''" (click)="openProjectListView('request-history')">Request</a>
@@ -118,7 +118,7 @@
             <li style="cursor: pointer;
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
-                <a class="menue-left-option">
+                <a class="menue-left-option" (click)="openProjectListView('prize-list')">
                     <span class="menu-option-label"> <b>Plans & Pricing</b></span>
                 </a>
             </li>

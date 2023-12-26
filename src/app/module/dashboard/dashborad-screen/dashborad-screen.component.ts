@@ -69,7 +69,9 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   handleProjectListViewEvent(toView:string){
-      this.toViewvScreen=toView
+      this.toViewvScreen=toView;
+      console.log(this.toViewvScreen);
+      
   }
 
   handleCloseSidePopUpEvent(event:any){

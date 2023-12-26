@@ -8,6 +8,7 @@ import { ServiceRequestViewComponent } from './service-request-view/service-requ
 import { FormsModule } from '@angular/forms'; 
 import { ShareModule } from '../share/share.module';
 import { DatePipe } from '@angular/common';
+import { ServiceModule } from '../service/service.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DatePipe } from '@angular/common';
   imports: [
     CommonModule,
     FormsModule,
-    ShareModule
+    ShareModule,
+    ServiceModule
   ],
   exports:[
     DashboradNavbarComponent

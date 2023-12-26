@@ -2,7 +2,7 @@
 (projectListViewEvent)="handleProjectListViewEvent($event)"
 [activeNavbar]="toViewvScreen"></app-dashborad-navbar>
 
-<div>
+<div *ngIf="toViewvScreen==''||toViewvScreen=='request-history'">
     <app-survay-types 
     [toViewvScreen]="toViewvScreen"
     [serviceList]="serviceList"
@@ -21,8 +21,7 @@
     <app-service-request-view 
     [selectedserviceToActive]="selectedserviceToActive"
     (closeActiveServicePopUpEvent)="closeActiveServicePopUpEvent($event)"
-    (sendServiceActiveRequest)="sendServiceActiveRequest($event)"
-    
+    (sendServiceActiveRequest)="sendServiceActiveRequest($event)"   
 
 ></app-service-request-view>
 </div>
@@ -34,3 +33,5 @@
  [alertMessage]="alertMessage"></app-success-alert>
 
 
+
+ <app-prize-list [toViewvScreen]="toViewvScreen"></app-prize-list>

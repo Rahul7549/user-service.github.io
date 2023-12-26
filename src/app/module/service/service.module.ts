@@ -22,6 +22,9 @@ import { PrizeListComponent } from './components/prize-list/prize-list.component
     CommonModule,
     ShareModule
   ],
+  exports:[
+    PrizeListComponent
+  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
