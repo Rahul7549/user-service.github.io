@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('navbarNav') navbarNav!: ElementRef;
   openSidebarFlag: boolean = false
   @Output() openSideBarEvent: EventEmitter<any> = new EventEmitter()
   @Output() applyServiceFilter: EventEmitter<any> = new EventEmitter()
@@ -20,7 +21,9 @@ export class NavbarComponent implements OnInit {
   togglePrizeFlag: boolean = false;
   viewProductViewFlag: boolean = false;
   toview: string='';
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private renderer: Renderer2, 
+    private el: ElementRef) {
 
   }
   ngOnInit(): void {
@@ -58,7 +61,15 @@ export class NavbarComponent implements OnInit {
     }else{
       this.toview = toview;
     }
+    console.log(this.navbarNav);
+    this.toggleNavbarCollapse();
+    
     this.openPrizeCard.emit(this.toview);
+  }
+
+
+  toggleNavbarCollapse() {
+    document.getElementById('navbar-toggler-btn')?.click();
   }
 
   openProductView(toview: string) {

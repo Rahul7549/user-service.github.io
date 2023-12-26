@@ -3,7 +3,7 @@
   <i class="bi bi-x-lg navbar-menue-icon" *ngIf="openSidebarFlag" (click)="openSideManu(false)"></i>
 
   <a class="navbar-name" href="#">Eternia Windows</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" id="navbar-toggler-btn" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +11,7 @@
 
     <ul class="navbar-nav">
     </ul>
-    <ul class="navbar-nav " style="padding-left: 20px">
+    <ul class="navbar-nav " style="padding-left: 20px;cursor: pointer;">
 
       <a class="navbar-option" [ngClass]="toview=='product'? 'active':''" (click)="toggleprize('product')">
         Product

@@ -96,6 +96,8 @@ table, thead,tr,th  {
 }
 .container{
     padding-top: 80px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .product-container{
@@ -127,7 +129,7 @@ table, thead,tr,th  {
 .product-overview{
     border-radius: 20px;
     background-color: rgb(247, 247, 247);
-    height: 115px;
+    /* height: 115px; */
     padding: 20px;
     /* background-color: rgb(247, 247, 247); */
 }
@@ -194,6 +196,8 @@ background: none;
         display:grid;
         /* height: auto; */
         padding-top: 135px;
+        height: 100vh;
+        overflow-y: scroll;
         /* height: 100vh; */
     }
     
