@@ -4,7 +4,7 @@
 <!-- service list -->
 <div class="container servicelist" *ngIf="toView=='service'">
   <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4" style="text-align: center;">
-    <div class="col-lg-3  col-md-4 col-sm-6  my-1 mx-0" *ngFor="let service of filteredServiceList">
+    <div class="col-lg-3  col-md-4 col-sm-6  my-3 mx-0" *ngFor="let service of filteredServiceList">
       <div class="card" style="width: 100%;">
         <div class="card-body" (click)="exploreServiceDetail(service)">
           <h5 class="card-title">
