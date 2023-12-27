@@ -7,7 +7,7 @@ import { Component,Input,OnInit } from '@angular/core';
 })
 export class PrizeListComponent implements OnInit{
   selectedPlanOption:string='Team Plans';
-  @Input() toViewvScreen:any
+  @Input() toViewvScreen:any=''
   
   ngOnInit(): void {
     ('priceing list components called');

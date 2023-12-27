@@ -415,6 +415,7 @@
 .type-your-title-here-section{
     /* justify-content: end; */
     padding-left: 20px;
+    min-height: 90px;
 
     /* text-align: left; */
 }

@@ -18,6 +18,7 @@ export class DashboradScreenComponent implements OnInit {
   showErrorAlertFlag:boolean=false;
   alertMessage:string=''
   requestedServiceList: any;
+  userDetails: any;
 
 
 
@@ -32,6 +33,19 @@ export class DashboradScreenComponent implements OnInit {
       this.showErrorAlertFlag=true;
       this.alertMessage='Your session has been expried! Please Login again'
     }
+
+    if(sessionStorage.getItem('userSession')==undefined){
+      this.showErrorAlertFlag=true;
+      this.alertMessage='Your session has been expried! Please Login again'
+    }
+    else{
+      let userDetails=sessionStorage.getItem('userSession')||''
+      this.userDetails=  JSON.parse(userDetails);
+      this.userDetails=this.userDetails.user;
+      
+
+    }
+
     this.serviceOperation.fetchServiceList().subscribe(data=>{
       this.serviceList=data;
     })
@@ -48,7 +62,7 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   fetchRequestedService(){
-    this.serviceOperation.fetchRequestedService().subscribe(data=>{
+    this.serviceOperation.fetchRequestedService(this.userDetails.email).subscribe(data=>{
       this.requestedServiceList=data;
     })
   }
@@ -88,7 +102,7 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   sendServiceActiveRequest(service:any){
-  this.serviceOperation.sendActiveRequest(service.id).subscribe((data:any)=>{
+  this.serviceOperation.sendActiveRequest(service.id,this.userDetails.email).subscribe((data:any)=>{
     // this.serviceList=data;
     this.fetchRequestedService();
     setTimeout(()=>{

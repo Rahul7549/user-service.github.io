@@ -166,8 +166,8 @@ helpList:Array<any>=[
     return this.http.get(reqUrl)
   }
   
-  fetchRequestedService(){
-    let reqUrl=`${this.baseUrl}/requested-service`;
+  fetchRequestedService(userEmial:string){
+    let reqUrl=`${this.baseUrl}/requested-service?email=${userEmial}`;
     return this.http.get(reqUrl);
   }
 
@@ -192,8 +192,8 @@ helpList:Array<any>=[
   }
 
 
-  sendActiveRequest(serviceId:string){
-    let reqUrl=`${this.baseUrl}/service/active/${serviceId}`;
+  sendActiveRequest(serviceId:string,userEmail:string){
+    let reqUrl=`${this.baseUrl}/service/active?serviceId=${serviceId}&email=${userEmail}`;
     return this.http.post(reqUrl,{})
   }
 
