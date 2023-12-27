@@ -87,6 +87,7 @@ body {
   flex-wrap: wrap;
   /* Allows cards to wrap to the next line */
   gap: 20px;
+  justify-content: center;
   /* Adjust the gap between cards */
 }
 
