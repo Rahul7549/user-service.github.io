@@ -24,21 +24,20 @@
                         <label *ngIf="enterEmailFlag" class="Email-address-label" for="Email-address">Email address</label>
                         <label *ngIf="!enterEmailFlag" class="Email-address-label" for="Email-address">{{userDetails.zohouser?'Enter Otp':'Enter the password'}}</label>
                         <br />
-                        <input *ngIf="enterEmailFlag" [(ngModel)]="emailId" id="Email-address" width="100%" type="email">
+                        <input *ngIf="enterEmailFlag" [(ngModel)]="emailId" id="Email-address" (keyup)="changeEmailNotExistFlag()" width="100%" type="email">
                         <input *ngIf="!enterEmailFlag" [ngClass]="wrongOtpFlag ? 'wrong-otp-class':''" (keyup)="currectOTPPWD()" [(ngModel)]="userEmailOtp" id="Email-address" width="100%" type="password">
                         <span class="emptyEmail" *ngIf="userNotExist">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 16 16"><path fill="red" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2"/></svg>  
                             <span  class="mx-1">User doesn't exist! <a class="login-btn" (click)="openSignUpPage()">Sign up</a></span>
                         </span>
 
-                        <div class="forget-pwd-sec" st>
+                        <div class="forget-pwd-sec">
 
-                            <a>
+                            <a style="display: grid;">
                                 <span class="forgot-email-label">Forgot email ?</span>
-                                <span style="color: red; padding: 20px;" *ngIf="showOtp">User OTP: {{generateOtp}}</span><br>
-                                <small style="color: red; padding: 20px;" *ngIf="wrongOtpFlag">please enter the currect otp.</small>
-                                <br>
-                                <small style="color: red; padding: 20px" *ngIf="wrongPasswordFlag">please try to login with correct credential</small>
+                                <span style="color: red;" *ngIf="showOtp">User OTP: {{generateOtp}}</span>
+                                <small style="color: red;" *ngIf="wrongOtpFlag">please enter the currect otp.</small>
+                                <small style="color: red;" *ngIf="wrongPasswordFlag">please try to login with correct credential</small>
                             </a>
                         </div>
                     </span>

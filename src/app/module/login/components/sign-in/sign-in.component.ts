@@ -32,7 +32,9 @@ export class SignInComponent implements OnInit {
     this.signInService.getSessionToken();
   }
 
-  
+  changeEmailNotExistFlag(){
+    this.userNotExist=false;
+  }
 
    doNext(){ 
     this.signInService.checkZohoUser(this.emailId).subscribe((userDetail:any)=>{
@@ -44,17 +46,17 @@ export class SignInComponent implements OnInit {
       else{
         this.userDetails=userDetail.user;
           this.userNotExist=false;
-          this.showOtp=true;
+          this.showOtp=false;
           this.emptyEmailFlag=false;
           this.enterEmailFlag=false
           
-          //  if(this.userDetails.zohouser){
+           if(this.userDetails.zohouser){
               this.enterEmailFlag=false
-
+              this.showOtp=true;
             setTimeout(()=>{
               this.generateOtp=Math.floor(100000 + Math.random() * 900000);
             },3000)
-          // }
+          }
         
       }
 

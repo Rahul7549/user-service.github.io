@@ -119,7 +119,7 @@ body {
 
 
 .prize-card-container {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   /* width: 60vw; */
   padding-bottom: 80px;
