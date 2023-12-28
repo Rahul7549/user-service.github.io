@@ -113,14 +113,24 @@ export class DashboradScreenComponent implements OnInit {
     
     setTimeout(()=>{
       this.fetchRequestedService();
-   },30000)
+   },15000)
 
   },(error)=>{
+    console.log(error.error);
+    
     setTimeout(()=>{
-      this.alertMessage=`We cant proceed your active request for ${service.title}`;
+      if(error.error=='service already requested'){
+        this.alertMessage=`${service.title} service already requested`;
+        this.showErrorAlertFlag=true;
+        this.showSuccessAlertFlag=false;
+      }
+      else{
+        this.alertMessage=`We cant proceed your active request for ${service.title}`;
       this.showErrorAlertFlag=true;
       this.showSuccessAlertFlag=false;
-    },2500)
+      }
+      
+    },1000)
   })
   this.openActiveServicePopUp=false;
 }
