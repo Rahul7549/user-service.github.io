@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
 import { DatePipe } from '@angular/common';
 import { ServiceModule } from '../service/service.module';
+import { ApprovalListComponent } from './approval-list/approval-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ServiceModule } from '../service/service.module';
     DashboradNavbarComponent,
     SurvayTypesComponent,
     ProjectListComponent,
-    ServiceRequestViewComponent
+    ServiceRequestViewComponent,
+    ApprovalListComponent
   ],
   imports: [
     CommonModule,

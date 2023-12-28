@@ -34,5 +34,13 @@
 
 <div *ngIf="toViewvScreen=='prize-list'">
  <app-prize-list ></app-prize-list>
+</div>
 
+<div *ngIf="toViewvScreen=='admin-approvals'">
+    <app-approval-list [allRequestedService]="allRequestedService"
+    (exploreServiceEvent)="handleexploreServiceEvent($event)"></app-approval-list>
+</div>
+
+<div *ngIf="toViewvScreen=='admin-explore-service'">
+    <app-explore-service [selectedService]="serviceToExplore"></app-explore-service>
 </div>

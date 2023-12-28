@@ -79,7 +79,6 @@ export class SignInComponent implements OnInit {
     })
   }
   else{
-    console.log('otp submmited');
     
     if(this.userEmailOtp!=undefined&&this.generateOtp!=undefined&&(this.userEmailOtp.toString()==this.generateOtp.toString())){
     this.router.navigate(['home'])

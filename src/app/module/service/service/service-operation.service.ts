@@ -208,4 +208,17 @@ helpList:Array<any>=[
   }
 
 
+
+  fetchAllRequestedService(){
+    let reqUrl=`${this.baseUrl}/requested-service/all-requested-service`;
+    return this.http.get(reqUrl);
+  }
+
+  approveRequestedService(userId:number,serviceId:number){
+    let reqUrl=`${this.baseUrl}/service/approval?userId=${userId}&serviceId=${serviceId}`;
+    (reqUrl);
+    
+    return this.http.post(reqUrl,{});
+  }
+
 }

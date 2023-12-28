@@ -19,6 +19,8 @@ export class DashboradScreenComponent implements OnInit {
   alertMessage:string=''
   requestedServiceList: any;
   userDetails: any;
+  serviceToExplore: any=[];
+  allRequestedService: any;
 
 
 
@@ -49,7 +51,6 @@ export class DashboradScreenComponent implements OnInit {
     this.serviceOperation.fetchServiceList().subscribe(data=>{
       this.serviceList=data;
     })
-    this.fetchRequestedService();
     if(this.route.snapshot.queryParamMap.get('serviceId')!=undefined||this.route.snapshot.queryParamMap.get('serviceId')!=null)
     {
       let serviceIs=this.route.snapshot.queryParamMap.get('serviceId');
@@ -59,6 +60,7 @@ export class DashboradScreenComponent implements OnInit {
       })
       
     }
+    
   }
 
   fetchRequestedService(){
@@ -83,7 +85,15 @@ export class DashboradScreenComponent implements OnInit {
   }
 
   handleProjectListViewEvent(toView:string){
+    
       this.toViewvScreen=toView;
+      if(this.toViewvScreen=='admin-approvals'){
+        this.fetchAllRequestwdService();
+      }
+      if(this.toViewvScreen=='request-history'){
+        this.fetchRequestedService();
+
+      }
       
   }
 
@@ -116,7 +126,6 @@ export class DashboradScreenComponent implements OnInit {
    },15000)
 
   },(error)=>{
-    console.log(error.error);
     
     setTimeout(()=>{
       if(error.error=='service already requested'){
@@ -158,6 +167,20 @@ handledeactiveservice(service:any){
     },2500)
   })
 
+}
+
+handleexploreServiceEvent(event:any){
+  
+  this.handleProjectListViewEvent('admin-explore-service');
+    this.serviceToExplore=event
+}
+
+
+fetchAllRequestwdService(){
+  this.serviceOperation.fetchAllRequestedService().subscribe((data:any)=>{
+      this.allRequestedService=data;
+
+  })
 }
 
 }

@@ -1,194 +1,217 @@
-
-
 <div class="service-explore-main">
 
-<div class="container"  >
-    <div class="title">
-    <h1 class="" *ngIf="selectedService!=undefined">{{selectedService.title}}</h1>
-    </div>
-    <span *ngIf="selectedService!=undefined" class="service-description">{{selectedService.description}}</span>
-    <div class="Subcribe-block" (click)="activeServicefromServiceExplorePage()">
-        <span class="Subcribe-btn" >
-                Activate service12
+    <div class="container">
+        <div class="title" style="margin: 0px;color: #7003EC">
+            <h1  *ngIf="selectedService!=undefined">{{selectedService.title}}</h1>
+        </div>
+        <span>Requested by: <span style="color: #1037f4;">{{selectedService.User.email}}</span> || 
+        Requested on: <span style="color: #1037f4;">{{selectedService.User.createdAt | date
+            :'mediumDate'}}</span>
         </span>
-    </div>
+        <br>
+        <span *ngIf="selectedService!=undefined" class="service-description">{{selectedService.description}}</span>
+        <div class="Subcribe-block" (click)="activeServicefromServiceExplorePage(selectedService)">
+            <span class="Subcribe-btn">
+                Activate service
+            </span>
+        </div>
 
 
 
-    <div class="customer-satisfaction-template">
-        <span class="satisfaction-question-section-top"></span>
-        <div class="satisfaction-question-section">
+        <div class="customer-satisfaction-template">
+            <span class="satisfaction-question-section-top"></span>
+            <div class="satisfaction-question-section">
                 <h1>
                     Questuion to answer by user
                 </h1>
-        </div>
-    </div>
-
-
-    <span class="description-main">
-
-        <div class="suggestion-block">
-            <h1>How do customer satisfaction surveys work?</h1>
-            <p>
-                Understanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                ctations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your cl
-                nderstanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                ctations will help you
-                ients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your clients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your clients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-        </div>
-    
-        <div class="suggestion-block">
-            <h1>How do customer satisfaction surveys work?</h1>
-            <p>
-                Understanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                ctations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your cl
-                nderstanding your clients and meeting customer expe
-                Understanding your clients and meeting customer expe
-                ctations will help you
-                ients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your clients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-    
-            <p>
-                Understanding your clients and meeting customer expectations will help you
-                 offer better products and services day in and day out. How do you compare to competitors? Do customers feel like you offer value and quality? Would they recommend you to someone else?
-            </p>
-        </div>
-        <div class="suggestion-block"></div>
-
-    </span>
-
-
-
-    <div class="card-container">
-
-      <div class="survay-card text-start">
-        <img class="rightside-img" style="padding-top: 35px;" src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
-          <div class="header-content text-start my-1" >
-            <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
-                ₹1,550
-            </span>
             </div>
-            <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-
-            
-            <span class="view-more-btn my-2">View More</span>
-            
         </div>
 
-        <div class="survay-card text-start">
-            <img class="rightside-img" style="padding-top: 35px;" src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
-              <div class="header-content text-start my-1" >
-                <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
-                    ₹1,550
-                </span>
-                </div>
-                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-    
-                
-                <span class="view-more-btn my-2">View More</span>
-                
+
+        <span class="description-main">
+
+            <div class="suggestion-block">
+                <h1>How do customer satisfaction surveys work?</h1>
+                <p>
+                    Understanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    ctations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your cl
+                    nderstanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    ctations will help you
+                    ients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your clients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your clients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
             </div>
+
+            <div class="suggestion-block">
+                <h1>How do customer satisfaction surveys work?</h1>
+                <p>
+                    Understanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    ctations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your cl
+                    nderstanding your clients and meeting customer expe
+                    Understanding your clients and meeting customer expe
+                    ctations will help you
+                    ients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your clients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+
+                <p>
+                    Understanding your clients and meeting customer expectations will help you
+                    offer better products and services day in and day out. How do you compare to competitors? Do
+                    customers feel like you offer value and quality? Would they recommend you to someone else?
+                </p>
+            </div>
+            <div class="suggestion-block"></div>
+
+        </span>
+
+
+
+        <div class="card-container">
 
             <div class="survay-card text-start">
-                <img class="rightside-img" style="padding-top: 35px;" src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
-                  <div class="header-content text-start my-1" >
+                <img class="rightside-img" style="padding-top: 35px;"
+                    src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+                <div class="header-content text-start my-1">
                     <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
                         ₹1,550
                     </span>
-                    </div>
-                    <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-        
-                    
-                    <span class="view-more-btn my-2">View More</span>
-                    
                 </div>
-         
-      </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
 
 
-      <div class="card-container text-center">
+                <span class="view-more-btn my-2">View More</span>
 
-        <h3 class="additional-info">Additional resources to help you launch successful survey projects</h3>
+            </div>
 
-        <div class="additional-info-card text-start">
-            <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-blog.png" alt="Description of the image">
-            <div class="header-content text-start my-1" >
-              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Success Stories
-              </span>
-              </div>
-              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-  
-              
-              <span class="view-more-btn my-2">View More</span>
-              
-          </div>
-
-          <div class="additional-info-card text-start">
-            <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-help-center.png" alt="Description of the image">
-            <div class="header-content text-start my-1" >
-              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Blog
-              </span>
-              </div>
-              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-  
-              
-              <span class="view-more-btn my-2">View More</span>
-              
-          </div>
+            <div class="survay-card text-start">
+                <img class="rightside-img" style="padding-top: 35px;"
+                    src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+                <div class="header-content text-start my-1">
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                        ₹1,550
+                    </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
 
 
-          <div class="additional-info-card text-start">
-            <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-blog.png" alt="Description of the image">
-            <div class="header-content text-start my-1" >
-              <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
-                  ₹1,550
-              </span>
-              </div>
-              <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
-  
-              
-              <span class="view-more-btn my-2">View More</span>
-              
-          </div>
-  
-     
-           
+                <span class="view-more-btn my-2">View More</span>
+
+            </div>
+
+            <div class="survay-card text-start">
+                <img class="rightside-img" style="padding-top: 35px;"
+                    src="assets/imgs/hero-map-mp-data-api-integrations.webp" alt="Description of the image">
+                <div class="header-content text-start my-1">
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                        ₹1,550
+                    </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+
+
+                <span class="view-more-btn my-2">View More</span>
+
+            </div>
+
         </div>
-  
 
 
+        <div class="card-container text-center">
+
+            <h3 class="additional-info">Additional resources to help you launch successful survey projects</h3>
+
+            <div class="additional-info-card text-start">
+                <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-blog.png"
+                    alt="Description of the image">
+                <div class="header-content text-start my-1">
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Success Stories
+                    </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+
+
+                <span class="view-more-btn my-2">View More</span>
+
+            </div>
+
+            <div class="additional-info-card text-start">
+                <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-help-center.png"
+                    alt="Description of the image">
+                <div class="header-content text-start my-1">
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Blog
+                    </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+
+
+                <span class="view-more-btn my-2">View More</span>
+
+            </div>
+
+
+            <div class="additional-info-card text-start">
+                <img class="additional-info-img" style="padding-top: 35px;" src="assets/imgs/mntv-blog.png"
+                    alt="Description of the image">
+                <div class="header-content text-start my-1">
+                    <span style="display: inline; font-size: 31px; text-align:left; font-weight: 600;">Team Advantage
+                        ₹1,550
+                    </span>
+                </div>
+                <h5>Out-of-the-box themes, accessible color palettes, custom fonts, branding, and more.</h5>
+
+
+                <span class="view-more-btn my-2">View More</span>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
 </div>
-</div>
+
+<app-error-alert [showErrorAlertFlag]="showErrorAlertFlag"
+[AlertMessage]="alertMessage"></app-error-alert>
+
+<app-success-alert [showSuccesAlertFlag]="showSuccessAlertFlag"
+ [alertMessage]="alertMessage"></app-success-alert>

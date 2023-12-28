@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '
 import { ActivatedRoute, Route, Router, } from '@angular/router';
 import { ServiceOperationService } from '../../service/service-operation.service';
 import { start } from '@popperjs/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-explore-service',
@@ -15,22 +16,23 @@ export class ExploreServiceComponent implements OnInit{
   serviceId!: any;
   @Input() selectedService:any;
   openPrizeCardFlag: any;
+  alertMessage: string='';
+  showSuccessAlertFlag: boolean=false;
+  showErrorAlertFlag: boolean=false;
 
   constructor(private route: ActivatedRoute,
     private serviceOperation:ServiceOperationService,
+    private datePipe: DatePipe,
     private router:Router){
 
   }
   ngOnInit(): void {
     this.serviceId=this.route.snapshot.queryParamMap.get('id');
-    this.fetchServiceDetails();
+    // this.fetchServiceDetails();
   }
 
   ngOnChanges(changes: SimpleChanges){
-     if(changes['selectedService']){
-      (this.selectedService);
-      
-     }
+    
   }
 
   openSideBarEvent(event:any){
@@ -51,10 +53,21 @@ export class ExploreServiceComponent implements OnInit{
   }
 
 
-  activeServicefromServiceExplorePage(){
-    this.router.navigate(['home'],{queryParams:{
-      serviceId:this.selectedService.id
-    }})
+  activeServicefromServiceExplorePage(selectedService:any){
+    
+    this.serviceOperation.approveRequestedService(selectedService.UserId,selectedService.availableServiceId).subscribe((data:any)=>{
+      this.alertMessage=`you request has been sent`
+      this.showSuccessAlertFlag=true;
+      this.showErrorAlertFlag=false;
+    },
+    (error)=>{
+      setTimeout(()=>{
+        this.alertMessage=`We cant proceed your request now`;
+        this.showErrorAlertFlag=true;
+        this.showSuccessAlertFlag=false;
+      },2500)
+    })
+   
   }
 
 }

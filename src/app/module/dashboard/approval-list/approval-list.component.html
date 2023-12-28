@@ -1,0 +1,115 @@
+<div class="approval-main">
+
+    <div class="request-History-container"
+    style="height: 65vh; overflow-y: scroll;box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);"
+    >
+    <table>
+      <thead>
+        <tr style="background-color: #010067;">
+          <th style="width: 100px;">Serial No</th>
+          <th style="width: 170px;">Title</th>
+          <th>Description</th>
+          <th style="width: 200px ">Requested On</th>
+          <th style="width: 110px;">Status</th>
+          <th style="width: 110px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of allRequestedService;let i=index;"
+          [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
+          <td>{{i+1}}</td>
+          <td style="color: #7003EC">{{service.title}}</td>
+          <td>{{service.description.length>65 ? service.description.slice(0,60)+'...':service.description}}
+            <a style="text-decoration: none;" *ngIf="service.description.length>65" class="description-text">view
+              more
+              <div class="desc-label">{{service.description}}</div>
+            </a>
+          </td>
+          <td><a style="color: #1037f4;">{{service.createdAt | date :'mediumDate'}}</a></td>
+          <td>
+            <span class="badge" *ngIf="service.status=='active'"
+              style="background-color: #007BFF;">{{service.status}}</span>
+            <span class="badge" *ngIf="service.status=='pending'"
+              style="background-color: #FFC107;">{{service.status}}</span>
+            <span class="badge" *ngIf="service.status=='deactive'"
+              style="background-color: #DC3545;">{{service.status}}</span>
+
+          </td>
+          <td>
+            <span class="badge explore-btn" (click)="exploreService(service)">explore <i class="bi bi-chevron-right"></i></span>
+          </td>
+        </tr>
+
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <span class="request-service-title">
+    <h2 style="color: #010067;display: flex;justify-content: center;margin: 0px;"><b>Requested service</b></h2>
+ </span>
+  <div class="request-History-card-container" style="height: 65vh; overflow-y: scroll; overflow-x: hidden;box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);">
+    <div class="row d-flex" style="text-align: center;justify-content: left;padding-top: 20px;">
+      <div class="col col-4   my-1 mx-1" style="width: 25rem;padding-bottom: 10px; padding-top: 5px;"
+        *ngFor="let service of allRequestedService">
+
+        <div class="card text-center"
+          style="background: none; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.14);">
+          <div class="card-body requested-service-caed">
+            <div class="header">
+              <h5 class="card-title-text" style="color: #7003EC">
+                {{service.title}}
+              </h5>
+              <span>
+                <span class="badge" *ngIf="service.status=='active'"
+                  style="background-color: #007BFF;">{{service.status}}</span>
+                <span class="badge" *ngIf="service.status=='pending'"
+                  style="background-color: #FFC107;">{{service.status}}</span>
+                <span class="badge" *ngIf="service.status=='deactive'"
+                  style="background-color: #DC3545;">{{service.status}}</span>
+              </span>
+            </div>
+            <p style="justify-content: left;display: flex; gap: 10px;">Requested On: <span
+                style="color: #1037f4;">{{service.createdAt | date :'mediumDate'}}</span></p>
+
+
+            <p class="card-text">
+              {{service.description.length>125 ? service.description.slice(0,120)+'...':service.description}}
+              <a style="text-decoration: none;" *ngIf="service.description.length>125" class="description-text">view
+                more
+                <div class="desc-label">{{service.description}}</div>
+              </a>
+            </p>
+
+            <div class="footer-view-more-btn-clock" >
+                <span class="badge explore-btn" (click)="exploreService(service)">explore <i class="bi bi-chevron-right"></i></span>
+              
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <div style=" padding-left:50px;padding-right: 50px;display: block;height: 65px; width: 100%; bottom:-18px; text-align: center; position: relative;">
+    <div class="pagination-block">
+
+        <span class="btn btn-success"><i class="bi bi-chevron-left"></i> Previous</span>
+        <span class="btn btn-success">Next <i class="bi bi-chevron-right"></i></span>
+    
+      </div>
+  </div>
+  
+
+</div>
