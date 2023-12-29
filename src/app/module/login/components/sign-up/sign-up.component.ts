@@ -33,7 +33,8 @@ export class SignUpComponent implements OnInit{
       password:['',[Validators.minLength(8), Validators.required,passwordValidator()]],
       conformPassword:['',[Validators.minLength(8),Validators.required,confirmPasswordValidator('password')]],
       secondTermCondition:[,[Validators.required,mustBeTrueValidator()]],
-      firstTermCondition:[,[Validators.required,mustBeTrueValidator()]]
+      firstTermCondition:[,[Validators.required,mustBeTrueValidator()]],
+      role:['user',[Validators.required]]
     });
   
   }
@@ -58,7 +59,8 @@ export class SignUpComponent implements OnInit{
       email:this.signUpForm.get('emailId')?.value,
       phone:this.signUpForm.get('phone')?.value,
       zohoUser:false,
-      password:this.signUpForm.get('password')?.value
+      password:this.signUpForm.get('password')?.value,
+      role:this.signUpForm.get('role')?.value
 
     }
     this.signInService.userSignUp(userSignUpDetails).subscribe((data:any)=>{

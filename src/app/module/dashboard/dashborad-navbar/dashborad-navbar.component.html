@@ -25,7 +25,7 @@
                         <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='request-history'?'active-nav-btn' :''" (click)="openProjectListView('request-history')">Request</a>
                     </li>
                     <li>
-                        <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='admin-approvals'?'active-nav-btn' :''" (click)="openProjectListView('admin-approvals')">Approvals</a>
+                        <a class="nav-paln-pricing-btn" [ngClass]="activeNavbar=='admin-approvals'?'active-nav-btn' :''" *ngIf="userDetails.userRole.role=='admin'" (click)="openProjectListView('admin-approvals')">Approvals</a>
                     </li>
                 </ul>
             </nav>
@@ -130,6 +130,14 @@
             border-left: 8px solid transparent;
             border-bottom: 1px solid rgb(208, 210, 211);">
                 <a class="menue-left-option" (click)="openProjectListView('request-history')">
+                    <span class="menu-option-label"> <b>Request</b></span>
+                </a>
+            </li>
+
+            <li *ngIf="userDetails.userRole.role=='admin'" style="cursor: pointer; 
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid rgb(208, 210, 211);">
+                <a class="menue-left-option" (click)="openProjectListView('admin-approvals')">
                     <span class="menu-option-label"> <b>Request</b></span>
                 </a>
             </li>
